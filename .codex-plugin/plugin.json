@@ -1,7 +1,7 @@
 {
   "name": "moss-skills",
   "version": "0.1.0",
-  "description": "Moss skills packaged for Codex external-agent workflows, reference use, and customization.",
+  "description": "Skills for using Codex with mossnotes.app notes, packaged for reference use and customization.",
   "author": {
     "name": "Bersabel Tadesse"
   },
@@ -10,17 +10,23 @@
   "license": "MIT",
   "keywords": [
     "moss",
+    "mossnotes",
+    "mossnotes-app",
     "notes",
+    "note-taking",
     "markdown",
-    "skills",
-    "agents",
+    "claude-code",
     "codex",
+    "wiki-links",
+    "comments",
+    "frontmatter",
+    "mockups",
     "plugin"
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Moss Skills",
-    "shortDescription": "Moss skills for external-agent note workflows.",
+    "displayName": "mossnotes.app for Codex",
+    "shortDescription": "Skills for using Codex with mossnotes.app notes.",
     "developerName": "Bersabel Tadesse",
     "category": "Productivity",
     "websiteURL": "https://github.com/brsbl/moss-skills",

@@ -91,7 +91,7 @@ Use current chart types only: `bar`, `stacked-bar`, `line`, or `area`. Use `seri
 - `stacked-bar`: show part-to-whole composition across categories or compare category breakdowns.
 - `line`: show change over time or an ordered sequence.
 - `area`: show trend magnitude or volume over time.
-- Do not use `donut` or `pie`; legacy `donut` content imports as `stacked-bar`.
+- Do not use `donut` or `pie`.
 - Avoid charts when a short list/table is clearer or data is too sparse or ambiguous.
 
 ### Callouts
@@ -110,7 +110,7 @@ Priority callouts can optionally put a level on the second line before the conte
 
 ### Sketches
 
-Use `moss-sketch` for ASCII-style diagrams, simple wireframes, flow charts, rough spatial layouts, hand-drawn/diagrammatic sketches, and other simple visual structures. Avoid it for geographic maps or precise visualizations. Current sketches use a 120x60 grid; legacy 60x30 content still imports.
+Use `moss-sketch` for ASCII-style diagrams, simple wireframes, flow charts, rough spatial layouts, hand-drawn/diagrammatic sketches, and other simple visual structures. Avoid it for geographic maps or precise visualizations. Current sketches use a 120x60 grid.
 
 ### HTML Mockups
 

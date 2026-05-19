@@ -1,8 +1,8 @@
 {
   "name": "moss-skills",
-  "displayName": "Moss Skills",
+  "displayName": "mossnotes.app for Claude Code",
   "version": "0.1.0",
-  "description": "Moss skills packaged for Claude Code external-agent workflows, reference use, and customization.",
+  "description": "Skills for using Claude Code with mossnotes.app notes, packaged for reference use and customization.",
   "author": {
     "name": "Bersabel Tadesse"
   },
@@ -11,11 +11,17 @@
   "license": "MIT",
   "keywords": [
     "moss",
+    "mossnotes",
+    "mossnotes-app",
     "notes",
+    "note-taking",
     "markdown",
-    "skills",
-    "agents",
     "claude-code",
+    "codex",
+    "wiki-links",
+    "comments",
+    "frontmatter",
+    "mockups",
     "plugin"
   ],
   "skills": "./skills/"

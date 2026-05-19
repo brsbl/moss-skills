@@ -1,7 +1,7 @@
 {
   "name": "moss-skills",
   "interface": {
-    "displayName": "Moss Skills"
+    "displayName": "mossnotes.app for Codex"
   },
   "plugins": [
     {

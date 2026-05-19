@@ -53,7 +53,7 @@ Comments may include image attachments stored under the note's `assets/` directo
 {"c1":{"text":"See screenshot.","createdAt":1707900000,"updatedAt":1707900000,"source":"external","imageUrls":["assets/comment-abc.png"]}}
 ```
 
-- Use the `imageUrls` array (note-relative paths under `assets/`). The legacy `imageUrl` single-string field is still accepted but `imageUrls` wins when both are present.
+- Use the `imageUrls` array with note-relative paths under `assets/`.
 - To read an attached image, resolve the path against the note's directory and read the file from `assets/`.
 
 ## @Mentions
