@@ -46,7 +46,7 @@ Use the repository as a Codex plugin marketplace or local plugin source, then en
 The Moss app keeps its bundled runtime copies under `packages/desktop/assets/skills/`. To refresh this repository from a Moss app source checkout, run the existing Moss sync script:
 
 ```bash
-./scripts/sync-plugin-skills.sh /path/to/moss-skills
+./scripts/sync-plugin-skills.sh <moss-skills-checkout>
 ```
 
 After syncing, verify each generated `skills/*/SKILL.md` file still matches its corresponding Moss asset before publishing a release.

@@ -1,7 +1,7 @@
 ---
 name: moss-notes
 description: |
-  Minimal syntax and file rules for creating or editing Moss notes under ~/Moss/Notes/.
+  Minimal syntax and file rules for creating or editing notes in a Moss Notes workspace.
 type: documentation
 people: []
 tags:
@@ -19,7 +19,7 @@ tools:
 
 ## Files
 
-- Notes are directories under `~/Moss/Notes/`.
+- Notes are directories inside the user's Moss Notes workspace.
 - Edit the existing markdown content file in the note directory.
 - New notes: create a directory and a markdown file with the first line as `# Title`.
 - Never create or edit `meta.json`.
@@ -57,7 +57,7 @@ tools:
 
 - Images: PNG, JPG, GIF, WebP, SVG.
 - Video: local `.mp4`, `.webm`, `.mov`, or YouTube URLs.
-- Prefer note-local assets. Do not use `file://` or absolute local paths.
+- Prefer note-local assets. Do not use local-file URLs or absolute local paths.
 - Preserve existing URLs exactly unless asked to change them.
 - Remote non-YouTube video files are not video nodes.
 

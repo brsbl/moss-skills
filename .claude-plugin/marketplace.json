@@ -1,17 +1,17 @@
 {
   "name": "moss-skills",
-  "description": "Moss note-writing skills packaged for Claude Code.",
+  "description": "Moss skills packaged for Claude Code and Codex external-agent plugin workflows.",
   "owner": {
-    "name": "Terragon Labs"
+    "name": "brsbl"
   },
   "plugins": [
     {
       "name": "moss-skills",
       "source": "./",
-      "description": "Skills for writing and editing Moss notes, frontmatter, comments, wiki links, and mockups.",
+      "description": "Moss skills packaged for Claude Code external-agent workflows, reference use, and customization.",
       "version": "0.1.0",
       "author": {
-        "name": "Terragon Labs"
+        "name": "Bersabel Tadesse"
       },
       "repository": "https://github.com/brsbl/moss-skills",
       "homepage": "https://github.com/brsbl/moss-skills",
@@ -21,7 +21,9 @@
         "notes",
         "markdown",
         "skills",
-        "agents"
+        "agents",
+        "claude-code",
+        "plugin"
       ]
     }
   ]

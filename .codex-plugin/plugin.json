@@ -1,9 +1,9 @@
 {
   "name": "moss-skills",
   "version": "0.1.0",
-  "description": "Skills for writing and editing Moss notes, frontmatter, comments, wiki links, and mockups.",
+  "description": "Moss skills packaged for Codex external-agent workflows, reference use, and customization.",
   "author": {
-    "name": "Terragon Labs"
+    "name": "Bersabel Tadesse"
   },
   "homepage": "https://github.com/brsbl/moss-skills",
   "repository": "https://github.com/brsbl/moss-skills",
@@ -13,14 +13,16 @@
     "notes",
     "markdown",
     "skills",
-    "agents"
+    "agents",
+    "codex",
+    "plugin"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Moss Skills",
-    "shortDescription": "Skills for writing and editing Moss notes.",
-    "longDescription": "Moss Skills packages the same note, frontmatter, comment, wiki-link, and mockup skills that ship with the Moss app for use in Codex.",
-    "developerName": "Terragon Labs",
+    "shortDescription": "Moss skills for external-agent note workflows.",
+    "longDescription": "Demo/reference packaging for Moss note, frontmatter, comment, wiki-link, and mockup skills in Codex. It is a customization starter for external-agent workflows and does not make Moss dynamically load this repository.",
+    "developerName": "Bersabel Tadesse",
     "category": "Productivity",
     "capabilities": [
       "Skills",
