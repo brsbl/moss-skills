@@ -21,6 +21,7 @@ date: 2026-01-15
 - Put structured metadata in frontmatter, not in the body.
 - Any valid YAML key is allowed.
 - Use strings, numbers, booleans, ISO dates, or arrays.
+- Use meaningful fields because Moss users can search/filter notes by frontmatter; keep values useful for retrieval and avoid excessive fields.
 - Omit the block when no metadata is needed.
 - Do not duplicate frontmatter values as prose headings or bold labels.
 

@@ -58,8 +58,9 @@ Comments may include image attachments stored under the note's `assets/` directo
 
 ## @Mentions
 
-Mentions appear inline within the comment `text` string. Each mention's display title is wrapped with U+2063 (INVISIBLE SEPARATOR) before and U+2064 (INVISIBLE PLUS) after, e.g. `Re: ⁣Project Plan⁤ scope`.
+Mentions in comment text are references to Moss notes, files, or folders. Each displayed mention is wrapped with U+2063 (INVISIBLE SEPARATOR) before and U+2064 (INVISIBLE PLUS) after, e.g. `Re: ⁣@Project Plan⁤ scope`.
 
-- Preserve the wrappers verbatim when editing comment text — the renderer uses them to display the mention as a pill.
-- To read the plain text of a mention, strip the U+2063/U+2064 characters.
-- Mentions are display-only metadata; you cannot create new functional mentions by inserting these characters around arbitrary titles.
+- When a comment asks you to use or inspect an @mention, resolve and read the referenced note/file/folder before acting.
+- For note/file mentions, strip U+2063/U+2064 and the leading `@`, then find the matching Moss note or file in the workspace, normally under `~/Moss/Notes/`, and read its markdown or content. If multiple matches exist, inspect likely candidates or report the ambiguity.
+- For folder mentions displayed like `@folder:<name>`, inspect the referenced folder contents before acting.
+- Preserve the wrappers verbatim when editing existing comment text — the renderer uses them to display the mention as a pill.
