@@ -134,7 +134,7 @@ Use 2-4 tabs unless the user asks for more.
 
 ### Text-Level Syntax
 
-Use text-level syntax for compact references and emphasis inside paragraphs, list items, or table cells. See the wiki-link skill for link details (`packages/desktop/assets/skills/wiki-links.md`, `skills/moss-wiki-links/SKILL.md`, `moss-wiki-links`).
+Use text-level syntax for compact references and emphasis inside paragraphs, list items, or table cells. See the wiki-link skill for link details (`packages/desktop/assets/skills/wiki-links.md`, `~/Moss/.moss/skills/wiki-links.md`, `moss-wiki-links`).
 
 | Format | Syntax |
 |--------|--------|
