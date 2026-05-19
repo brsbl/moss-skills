@@ -42,15 +42,13 @@ Use the repository as a Codex plugin marketplace or local plugin source, then en
 
 The Codex manifest lives at `.codex-plugin/plugin.json`, and `.agents/plugins/marketplace.json` points at the repository root plugin with `source.path` set to `./`.
 
-## Customizing And Syncing
+## Customizing
 
-The Moss app keeps its bundled source copies under `packages/desktop/assets/skills/`. To refresh this repository from a Moss app source checkout, run the existing Moss sync script:
+The Moss app bundles its own copy of this guidance for the in-app Moss agent. This repository packages that guidance for Claude Code and Codex.
 
-```bash
-./scripts/sync-plugin-skills.sh <moss-skills-checkout>
-```
+You can fork this repository and edit the `skills/` directory, Claude Code plugin metadata, or Codex plugin metadata to customize the plugin package you install into those tools.
 
-After syncing, verify each generated `skills/*/SKILL.md` file still matches its corresponding Moss source file before publishing a release.
+Changing this repository changes only the Claude Code/Codex plugin package installed from your fork. It does not change the in-app Moss agent or the skills bundled with the Moss app.
 
 ## License
 
