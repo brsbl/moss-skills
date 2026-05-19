@@ -1,8 +1,8 @@
 # Skills for Claude Code and Codex with mossnotes.app
 
-This repository packages the note-writing skills used by mossnotes.app for use in Claude Code and Codex.
+This repository packages skills for using Claude Code and Codex with mossnotes.app notes.
 
-The Moss app ships its in-app runtime skills from `packages/desktop/assets/skills/`. Those bundled app skills remain the runtime contract for the in-app Moss agent: Moss does not require this repository to run, and Moss does not dynamically load this repository.
+The Moss app bundles these skills for its in-app agent. Those bundled app skills remain the runtime contract for the in-app Moss agent: Moss does not require this repository to run, and Moss does not dynamically load this repository.
 
 Claude Code and Codex have two useful paths:
 
