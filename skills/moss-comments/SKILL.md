@@ -29,7 +29,7 @@ Write `comments.json` beside the note markdown file:
 
 - Every marker ID needs matching sidecar metadata.
 - Every sidecar key needs matching body markers.
-- `source` values: `"external"` for comments written by an external agent (you), `"agent"` reserved for the in-app Moss agent, `"user"` for human comments. Missing `source` is treated as `"agent"` for backward compatibility — always set `"external"` explicitly.
+- `source` values: `"external"` for comments written by an agent outside of Moss, `"agent"` reserved for the in-app Moss agent, `"user"` for human comments. Missing `source` is treated as `"agent"` for backward compatibility — always set `"external"` explicitly.
 
 ## Placement
 
