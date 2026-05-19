@@ -21,19 +21,11 @@
   "interface": {
     "displayName": "Moss Skills",
     "shortDescription": "Moss skills for external-agent note workflows.",
-    "longDescription": "Demo/reference packaging for Moss note, frontmatter, comment, wiki-link, and mockup skills in Codex. It is a customization starter for external-agent workflows and does not make Moss dynamically load this repository.",
     "developerName": "Bersabel Tadesse",
     "category": "Productivity",
-    "capabilities": [
-      "Skills",
-      "Writing",
-      "Markdown"
-    ],
     "websiteURL": "https://github.com/brsbl/moss-skills",
     "defaultPrompt": [
-      "Create a Moss note with the right structure.",
-      "Edit Moss frontmatter without changing the body.",
-      "Add Moss comments and wiki links correctly."
+      "Create a Moss note to track implementation of this feature as a task tracker. Include frontmatter, a concise goal, open questions, implementation tasks with checkboxes, validation steps, and links/placeholders for relevant notes or files."
     ],
     "brandColor": "#2F6F5E"
   }

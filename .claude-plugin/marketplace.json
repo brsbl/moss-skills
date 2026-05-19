@@ -1,6 +1,6 @@
 {
   "name": "moss-skills",
-  "description": "Moss skills packaged for Claude Code and Codex external-agent plugin workflows.",
+  "description": "Moss skills packaged for Claude Code external-agent plugin workflows.",
   "owner": {
     "name": "brsbl"
   },

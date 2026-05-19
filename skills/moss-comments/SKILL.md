@@ -1,17 +1,6 @@
 ---
 name: moss-comments
-description: |
-  Minimal comment annotation syntax for Moss notes. Use when adding, preserving, or editing note comments.
-type: documentation
-people: []
-tags:
-  - comments
-  - annotations
-  - markdown
-status: active
-created_date: '2026-03-26'
-tools:
-  - Moss
+description: Comment annotation syntax for Moss notes. Use when adding, preserving, or editing note comments and their sidecar metadata.
 ---
 
 # Comments
@@ -35,12 +24,12 @@ The %%m:c1:start%%current layout%%m:c1:end%% needs work.
 Write `comments.json` beside the note markdown file:
 
 ```json
-{"c1":{"text":"Tighten this wording.","createdAt":1707900000,"updatedAt":1707900000,"source":"agent"}}
+{"c1":{"text":"Tighten this wording.","createdAt":1707900000,"updatedAt":1707900000,"source":"external"}}
 ```
 
 - Every marker ID needs matching sidecar metadata.
 - Every sidecar key needs matching body markers.
-- Use `"source":"agent"` for comments you create.
+- `source` values: `"external"` for comments written by an external agent (you), `"agent"` reserved for the in-app Moss agent, `"user"` for human comments. Missing `source` is treated as `"agent"` for backward compatibility — always set `"external"` explicitly.
 
 ## Placement
 
@@ -55,3 +44,22 @@ Write `comments.json` beside the note markdown file:
 ```
 
 Do not place markers inside wiki links, formulas, fenced block payloads, or raw HTML comments.
+
+## Image Attachments
+
+Comments may include image attachments stored under the note's `assets/` directory:
+
+```json
+{"c1":{"text":"See screenshot.","createdAt":1707900000,"updatedAt":1707900000,"source":"external","imageUrls":["assets/comment-abc.png"]}}
+```
+
+- Use the `imageUrls` array (note-relative paths under `assets/`). The legacy `imageUrl` single-string field is still accepted but `imageUrls` wins when both are present.
+- To read an attached image, resolve the path against the note's directory and read the file from `assets/`.
+
+## @Mentions
+
+Mentions appear inline within the comment `text` string. Each mention's display title is wrapped with U+2063 (INVISIBLE SEPARATOR) before and U+2064 (INVISIBLE PLUS) after, e.g. `Re: ⁣Project Plan⁤ scope`.
+
+- Preserve the wrappers verbatim when editing comment text — the renderer uses them to display the mention as a pill.
+- To read the plain text of a mention, strip the U+2063/U+2064 characters.
+- Mentions are display-only metadata; you cannot create new functional mentions by inserting these characters around arbitrary titles.

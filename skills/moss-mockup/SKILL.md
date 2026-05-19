@@ -1,19 +1,11 @@
 ---
 name: moss-mockup
-description: |
-  Minimal instructions for authoring interactive HTML mockups in Moss notes with moss-html fences.
-type: guide
-people: []
-tags:
-  - mockups
-  - design
-  - html
-status: active
-created_date: '2026-03-26'
-tools: []
+description: Author interactive HTML mockups in Moss notes using moss-html fences. Use when the user asks for a mockup, prototype, or interactive design embedded in a note.
 ---
 
 # HTML Mockups
+
+Use `moss-html` only when rendered HTML or interactivity is the right artifact. Prefer semantic markdown, charts, callouts, sketches, or images when those fit the request; see the notes skill for those node types (`packages/desktop/assets/skills/notes.md`, `moss-notes`).
 
 Embed mockups directly in the note:
 
@@ -49,11 +41,15 @@ Embed mockups directly in the note:
 Rules:
 
 - Use a plain `moss-html` fence line; do not add dimensions to the fence.
-- Keep HTML self-contained in the fence.
-- Define intrinsic size on `body` or `html` with `width` and `height` or `min-height`.
+- Keep HTML self-contained in the fence. Inline CSS, JS, and images; workspace asset paths inside the fence do not resolve, and remote fonts, scripts, images, or other network assets are not reliable.
+- The iframe sandbox allows scripts, forms, modals, and popups, but not same-origin access. Do not rely on `localStorage`, `sessionStorage`, cookies, same-origin fetches, parent/window APIs, or Moss internals.
+- Define intrinsic size on `body` or `html` with `width` and `height` or `min-height`; Moss uses that footprint for the static PNG preview, defaulting to 1200x900 if omitted.
+- Note view shows a static screenshot first, then a live iframe after activation. Design a meaningful initial state without depending on JS or network.
+- Fullscreen mode exists, but the design should still read clearly within the note-view max height.
 - Multiple mockups should be separate fences.
 - Scripts, forms, dialogs, popups, and CSS-only interactions can be used.
+- Initialize script behavior with `DOMContentLoaded`.
 - If a control looks interactive (checkbox, toggle, tab, filter, menu, button), make it work with native controls and minimal script. Do not draw inert controls with plain `div`s.
-- Do not use remote fonts.
+- Keep `<meta name="moss-html-version" content="v1">` as the canonical Moss document marker. Moss may auto-wrap fragments and canonicalize the shell/head metadata on save; you own visible body content and any extra CSS/JS.
 - If the HTML contains literal triple backticks, wrap the fence with four or more backticks.
 - Use Moss visual language: warm page background, Moss green accents, subtle borders/shadows, no emojis.

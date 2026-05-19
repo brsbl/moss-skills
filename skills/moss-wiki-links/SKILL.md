@@ -1,16 +1,6 @@
 ---
 name: moss-wiki-links
-description: |
-  Minimal wiki link syntax for linking Moss notes and headings.
-type: documentation
-people: []
-tags:
-  - wiki-links
-  - markdown
-status: active
-created_date: '2026-03-26'
-tools:
-  - Moss
+description: Wiki link syntax for linking Moss notes and headings. Use when adding or editing `[[Note]]` links between notes.
 ---
 
 # Wiki Links
