@@ -58,9 +58,11 @@ Comments may include image attachments stored under the note's `assets/` directo
 
 ## @Mentions
 
-Mentions in comment text are references to Moss notes, files, or folders. Each displayed mention is wrapped with U+2063 (INVISIBLE SEPARATOR) before and U+2064 (INVISIBLE PLUS) after, e.g. `Re: ⁣@Project Plan⁤ scope`.
+Mentions in comment text are references to Moss notes/folders, external files/folders, or connected folders. Each displayed mention is wrapped with U+2063 (INVISIBLE SEPARATOR) before and U+2064 (INVISIBLE PLUS) after, e.g. `Re: ⁣@Project Plan⁤ scope`.
 
-- When a comment asks you to use or inspect an @mention, resolve and read the referenced note/file/folder before acting.
-- For note/file mentions, strip U+2063/U+2064 and the leading `@`, then find the matching Moss note or file in the workspace, normally under `~/Moss/Notes/`, and read its markdown or content. If multiple matches exist, inspect likely candidates or report the ambiguity.
-- For folder mentions displayed like `@folder:<name>`, inspect the referenced folder contents before acting.
+- When a comment asks you to use or inspect an @mention, resolve and read the referenced target before acting.
+- For Moss note mentions, use the note id/path from available mention metadata when present; otherwise strip U+2063/U+2064 and the leading `@`, find the matching Moss note, and read its markdown.
+- For Moss folder mentions displayed like `@folder:<name>`, use the workspace folder path when available and inspect the matching folder contents.
+- For external or connected file/folder mentions, use the stored mention id/path or note sidecar metadata such as `externalFilePath`/`externalRootPath` to locate and read the target outside `~/Moss/`.
+- If the displayed title is ambiguous or cannot be resolved to a path/id from available metadata, report the ambiguity instead of inventing a path.
 - Preserve the wrappers verbatim when editing existing comment text — the renderer uses them to display the mention as a pill.
