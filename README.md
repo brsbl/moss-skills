@@ -1,23 +1,24 @@
 # Skills for Claude Code and Codex with mossnotes.app
 
-This repository packages skills for using Claude Code and Codex with mossnotes.app notes.
+This repository provides Claude Code and Codex plugin packaging for working with mossnotes.app notes.
 
-The Moss app bundles these skills for its in-app agent. Those bundled app skills remain the runtime contract for the in-app Moss agent: Moss does not require this repository to run, and Moss does not dynamically load this repository.
+The Moss app bundles the same guidance for its in-app agent. This repository makes that guidance available as a portable plugin package for Claude Code and Codex, and as a reference for people who want to inspect, demo, fork, or customize it.
 
-Claude Code and Codex have two useful paths:
+## What This Repo Is For
 
-1. Installed Moss app/exported skills at `~/Moss/.moss/skills/`: useful for Claude Code and Codex working against a user's actual Moss workspace because they match the installed Moss app version.
-2. This `moss-skills` repository: portable Claude Code/Codex plugin packaging, a demo/reference implementation, and a forkable customization starter.
+- Use this repository when you want Claude Code or Codex to understand Moss note folders, markdown, comments, wiki links, and mockups.
+- Use the installed app/exported skills at `~/Moss/.moss/skills/` when Claude Code or Codex is working against your actual Moss workspace and should match your installed Moss app version.
+- Fork or customize this repository when you want to change the Claude Code/Codex plugin package.
 
-This repository is for demonstration and allowing people to customize the skills used with mossnotes.app. Customizing or forking it changes the Claude Code and Codex plugins that install that customized package, not the in-app Moss agent.
+Changing this repository affects the Claude Code and Codex plugin package that installs from it. It does not change the in-app Moss agent.
 
-## Included Skills
+## What Is Included
 
-- `moss-notes`: Moss note directory, markdown, and node syntax rules.
-- `moss-frontmatter`: YAML frontmatter rules for Moss note metadata.
-- `moss-comments`: Comment annotation syntax for Moss notes.
-- `moss-wiki-links`: Wiki link syntax for notes and headings.
-- `moss-mockup`: Interactive `moss-html` mockup authoring rules.
+- `moss-notes`: how Moss note folders, markdown files, and supported note blocks work.
+- `moss-frontmatter`: how Moss uses YAML frontmatter in note files.
+- `moss-comments`: how to write and preserve Moss comment annotations.
+- `moss-wiki-links`: how to link to notes and headings with Moss wiki links.
+- `moss-mockup`: how to author interactive `moss-html` mockups.
 
 ## Claude Code
 
@@ -37,19 +38,19 @@ Installed skills are namespaced by the plugin name. For example:
 
 ## Codex
 
-This repository is also a Codex plugin. The Codex manifest lives at `.codex-plugin/plugin.json`, and `.agents/plugins/marketplace.json` points at the repository root plugin with `source.path` set to `./`.
-
 Use the repository as a Codex plugin marketplace or local plugin source, then enable the `moss-skills` plugin. Codex will load the same `./skills/` tree used by Claude Code.
 
-## Syncing From Moss
+The Codex manifest lives at `.codex-plugin/plugin.json`, and `.agents/plugins/marketplace.json` points at the repository root plugin with `source.path` set to `./`.
 
-The Moss app keeps its bundled runtime copies under `packages/desktop/assets/skills/`. To refresh this repository from a Moss app source checkout, run the existing Moss sync script:
+## Customizing And Syncing
+
+The Moss app keeps its bundled source copies under `packages/desktop/assets/skills/`. To refresh this repository from a Moss app source checkout, run the existing Moss sync script:
 
 ```bash
 ./scripts/sync-plugin-skills.sh <moss-skills-checkout>
 ```
 
-After syncing, verify each generated `skills/*/SKILL.md` file still matches its corresponding Moss asset before publishing a release.
+After syncing, verify each generated `skills/*/SKILL.md` file still matches its corresponding Moss source file before publishing a release.
 
 ## License
 
