@@ -2,7 +2,14 @@
 
 Moss Skills packages the Moss note-writing skills for Claude Code and Codex.
 
-All of these skills ship with the Moss app from `packages/desktop/assets/skills/`. This public repository contains identical copies in plugin-friendly `skills/<skill-name>/SKILL.md` folders so agents can install and use them outside the Moss app bundle.
+The Moss app ships its in-app runtime skills from `packages/desktop/assets/skills/`. Those bundled app skills remain the runtime contract for the in-app Moss agent: Moss does not require this repository to run, and Moss does not dynamically load this repository.
+
+External agents have two useful paths:
+
+1. Installed Moss app/exported skills at `~/Moss/.moss/skills/`: useful for external agents working against a user's actual Moss workspace because they match the installed Moss app version.
+2. This `moss-skills` repository: portable Claude Code/Codex plugin packaging, a demo/reference implementation, and a forkable customization starter.
+
+This repository is for demonstration and allowing people to customize Moss skills to their liking. Customizing or forking it changes the external agents that install that customized plugin, not the in-app Moss agent.
 
 ## Included Skills
 
