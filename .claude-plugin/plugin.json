@@ -1,0 +1,20 @@
+{
+  "name": "moss-skills",
+  "displayName": "Moss Skills",
+  "version": "0.1.0",
+  "description": "Skills for writing and editing Moss notes, frontmatter, comments, wiki links, and mockups.",
+  "author": {
+    "name": "Terragon Labs"
+  },
+  "repository": "https://github.com/brsbl/moss-skills",
+  "homepage": "https://github.com/brsbl/moss-skills",
+  "license": "MIT",
+  "keywords": [
+    "moss",
+    "notes",
+    "markdown",
+    "skills",
+    "agents"
+  ],
+  "skills": "./skills/"
+}

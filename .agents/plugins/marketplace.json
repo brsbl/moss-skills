@@ -1,0 +1,20 @@
+{
+  "name": "moss-skills",
+  "interface": {
+    "displayName": "Moss Skills"
+  },
+  "plugins": [
+    {
+      "name": "moss-skills",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "moss-skills",
+  "version": "0.1.0",
+  "description": "Skills for writing and editing Moss notes, frontmatter, comments, wiki links, and mockups.",
+  "author": {
+    "name": "Terragon Labs"
+  },
+  "homepage": "https://github.com/brsbl/moss-skills",
+  "repository": "https://github.com/brsbl/moss-skills",
+  "license": "MIT",
+  "keywords": [
+    "moss",
+    "notes",
+    "markdown",
+    "skills",
+    "agents"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Moss Skills",
+    "shortDescription": "Skills for writing and editing Moss notes.",
+    "longDescription": "Moss Skills packages the same note, frontmatter, comment, wiki-link, and mockup skills that ship with the Moss app for use in Codex.",
+    "developerName": "Terragon Labs",
+    "category": "Productivity",
+    "capabilities": [
+      "Skills",
+      "Writing",
+      "Markdown"
+    ],
+    "websiteURL": "https://github.com/brsbl/moss-skills",
+    "defaultPrompt": [
+      "Create a Moss note with the right structure.",
+      "Edit Moss frontmatter without changing the body.",
+      "Add Moss comments and wiki links correctly."
+    ],
+    "brandColor": "#2F6F5E"
+  }
+}

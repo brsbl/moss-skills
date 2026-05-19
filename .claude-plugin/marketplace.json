@@ -1,0 +1,28 @@
+{
+  "name": "moss-skills",
+  "description": "Moss note-writing skills packaged for Claude Code.",
+  "owner": {
+    "name": "Terragon Labs"
+  },
+  "plugins": [
+    {
+      "name": "moss-skills",
+      "source": "./",
+      "description": "Skills for writing and editing Moss notes, frontmatter, comments, wiki links, and mockups.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Terragon Labs"
+      },
+      "repository": "https://github.com/brsbl/moss-skills",
+      "homepage": "https://github.com/brsbl/moss-skills",
+      "license": "MIT",
+      "keywords": [
+        "moss",
+        "notes",
+        "markdown",
+        "skills",
+        "agents"
+      ]
+    }
+  ]
+}
