@@ -27,7 +27,7 @@ These skills are included in the Claude Code and Codex plugins.
 - [`moss-wiki-links`](skills/moss-wiki-links/SKILL.md): how to link to notes and headings with Moss wiki links.
 - [`moss-mockup`](skills/moss-mockup/SKILL.md): how to author interactive `moss-html` mockups.
 
-### bb workflow references: Moss as an agentic workspace
+### Moss as an agentic workspace
 
 This repository also includes reference workflow skills for using Moss as an agentic workspace for building with coding agents. With these skills, Moss becomes the durable command center for long-lived context, plans, decisions, research, reviews, and handoffs, while coding agents work in isolated development environments.
 
