@@ -42,3 +42,4 @@ Use this skill before planning when a product, feature, technical approach, or w
 - Create/manage the broader workstream with [bb-workstream](../bb-workstream/SKILL.md).
 - Turn research into scoped worker plans with [bb-planning](../bb-planning/SKILL.md).
 - Link research reports from the canonical status surface with [bb-dashboard](../bb-dashboard/SKILL.md).
+- Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).

@@ -45,3 +45,4 @@ Use this skill to run a bb-managed Moss development effort from planning through
 - Provider defaults and model checks: [references/provider-selection.md](references/provider-selection.md).
 - Architecture setup and environment blockers: [references/architecture-setup.md](references/architecture-setup.md).
 - Manager flow, worker setup, high-concurrency guidance, manager-of-manager rules, and merge gates: [references/manager-flow.md](references/manager-flow.md).
+- Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).
