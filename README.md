@@ -25,6 +25,20 @@ Forking this repository only affects the Claude Code and Codex plugins that are 
 - `moss-wiki-links`: how to link to notes and headings with Moss wiki links.
 - `moss-mockup`: how to author interactive `moss-html` mockups.
 
+Moss bb workflow references:
+
+- `bb-workstream`: run a bb-managed Moss development effort from planning through cleanup.
+- `bb-dashboard`: keep the workstream dashboard as the canonical manager review surface.
+- `bb-planning`: turn prompts, notes, issues, PR feedback, and screenshots into scoped worker-ready plans.
+- `bb-implementation`: assign scoped Moss implementation work to bb worker environments.
+- `bb-verification`: gather UI, screenshot, Electron, browser, and user-flow evidence before review.
+- `bb-qa`: run the QA merge gate, including focused checks and `moss verify`.
+- `bb-review`: run the same-environment review gate for worker changes.
+- `bb-summary`: produce final workstream, PR, and handoff summaries.
+- `bb-cleanup`: safely archive or clean up completed, paused, or canceled bb workstream state.
+
+bb workflow artifacts should live under `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/`, outside repo checkouts.
+
 ## Claude Code
 
 Add this repository as a Claude Code plugin marketplace, then install the plugin:
@@ -39,6 +53,7 @@ Installed skills are namespaced by the plugin name. For example:
 ```bash
 /moss-skills:moss-notes
 /moss-skills:moss-mockup
+/moss-skills:bb-workstream
 ```
 
 ## Codex
