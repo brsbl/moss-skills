@@ -37,11 +37,18 @@ command -v rg
 pnpm --version
 ```
 
-Run the canonical architecture setup from [bb-workstream/references/architecture-setup.md](../../bb-workstream/references/architecture-setup.md) before assigning implementation workers. The default Apple Silicon session is native arm64 end to end. If intentionally using Rosetta/x64, run the x64 variant for the whole session.
+The manager runs the canonical architecture setup from [bb-workstream/references/architecture-setup.md](../../bb-workstream/references/architecture-setup.md) in a prepared main or integration checkout before assigning implementation workers. The default Apple Silicon session is native arm64 end to end. If intentionally using Rosetta/x64, run the x64 variant for the whole workstream.
 
-Rules: check Node architecture before installing dependencies; never reuse `node_modules` after switching architecture; reinstall/rebuild before assigning workers or running verification; if setup fails, record an environment/tooling blocker and fix setup before continuing.
+Rules: check Node architecture before installing dependencies in the prepared source checkout; never reuse `node_modules` after switching architecture; rebuild the prepared dependency source when architecture changes; if setup fails, record an environment/tooling blocker and fix setup before continuing.
 
-If `rg`, `node_modules`, package-manager access, repo bootstrap, or architecture-consistent dependencies are missing, record an environment/tooling blocker and have the manager bootstrap the integration checkout or provide a prepared environment. Do not start workers from a checkout that cannot support the assigned validation.
+Fresh worker worktrees do not run fresh `pnpm install`, `pnpm rebuild`, or Electron installs by default. Workers use a prepared environment, receive a running app or URL, or link root dependencies from the prepared checkout:
+
+```bash
+rm -rf node_modules
+ln -s <prepared-checkout>/node_modules node_modules
+```
+
+If `rg`, `node_modules`, package-manager access, repo bootstrap, package resolution, or architecture-consistent dependencies are missing, record an environment/tooling blocker and have the manager fix the prepared dependency source, provide a prepared environment, link dependencies, or provide a running app/URL. Do not start workers from a checkout that cannot support the assigned validation.
 
 Start each implementation worker in a separate worktree with the selected provider.
 
@@ -79,13 +86,15 @@ uname -m
 node -p 'process.platform + " " + process.arch'
 file "$(command -v node)"
 node -p 'process.versions.modules'
-test -d node_modules
+test -e node_modules
+readlink node_modules || true
+node -p "require.resolve('@electron-forge/cli/package.json')"
 pnpm --version
 ```
 
 The access report must match the architecture chosen in the shared setup reference. Mixed Node, esbuild, Electron, or native package architectures are environment/tooling blockers, not product failures.
 
-Missing `node_modules`, missing `rg`, Electron download/postinstall failures, Electron runtime launch failures, architecture mismatches, and missing provider or account access are environment/tooling blockers. The manager either bootstraps the worker environment, supplies a prepared/shared environment, gives the worker a running app or URL for verification, or escalates to the user.
+Missing `node_modules`, missing `rg`, package resolution failures, package-manager access failures, Electron download/postinstall failures, Electron runtime launch failures, architecture mismatches, and missing provider or account access are environment/tooling blockers. The manager either fixes the prepared dependency source, supplies a prepared/shared environment, links dependencies into the worker worktree, gives the worker a running app or URL for verification, or escalates to the user. Workers escalate these failures instead of installing fresh dependencies in their worktree.
 
 ## Worker Handoff
 

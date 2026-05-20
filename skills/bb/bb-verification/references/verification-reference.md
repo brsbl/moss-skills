@@ -56,24 +56,28 @@ pnpm verify:fresh-app-screenshot "$HOME/Moss/Agent Workspaces/bb Workspace/works
 
 ## Environment Blockers
 
-Before launching Electron or running screenshot/user-flow checks, run or confirm the canonical architecture setup in [bb-workstream/references/architecture-setup.md](../../bb-workstream/references/architecture-setup.md). Then record:
+Before launching Electron or running screenshot/user-flow checks, confirm the manager-prepared dependency source or runtime target from [bb-workstream/references/architecture-setup.md](../../bb-workstream/references/architecture-setup.md). Fresh worker worktrees do not run fresh `pnpm install`, `pnpm rebuild`, or Electron installs by default. Prefer a prepared verification environment, a manager-provided running app/URL, or a worktree whose `node_modules` links to the prepared checkout. Then record:
 
 ```bash
 uname -m
 node -p 'process.platform + " " + process.arch'
 file "$(command -v node)"
 node -p 'process.versions.modules'
+test -e node_modules
+readlink node_modules || true
+node -p "require.resolve('@electron-forge/cli/package.json')"
 node -e 'console.log(require("electron"))'
 ```
 
-Use one architecture per worktree/session. Default to native arm64 on Apple Silicon; use the x64 variant only for an intentional all-Rosetta session. Never reuse `node_modules` after switching architecture. Reinstall/rebuild before verification.
+Use one architecture per workstream. Default to native arm64 on Apple Silicon; use the x64 variant only for an intentional all-Rosetta session. Never reuse `node_modules` after switching architecture. If architecture changes, the manager rebuilds the prepared dependency source before verification.
 
-Missing `node_modules`, missing `rg`, package-manager access failures, Electron download, postinstall, sandbox, permission, CDP, runtime launch failures, or Node/esbuild/Electron/native-package architecture mismatches are environment/tooling blockers unless the app actually launches and demonstrates a product defect.
+Missing `node_modules`, missing `rg`, package-manager access failures, package resolution failures, Electron download, postinstall, sandbox, permission, CDP, runtime launch failures, or Node/esbuild/Electron/native-package architecture mismatches are environment/tooling blockers unless the app actually launches and demonstrates a product defect.
 
 When a worker branch lacks access:
 
 - prefer a prepared/shared verification environment
 - connect to a manager-provided running app or URL
+- link `node_modules` from the prepared checkout when the manager approves it
 - ask the manager to run the fresh-app verifier and place artifacts in the workstream
 - record the blocker and exact failed command in the report
 

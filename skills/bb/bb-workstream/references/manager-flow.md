@@ -56,6 +56,16 @@ Before starting workers, tell the user:
 
 Then update `workers.md` and `dashboard.md` with the roster, file ownership, dependencies, stage, and next gate.
 
+Before spawning fresh worker worktrees, bootstrap dependencies once in a prepared main or integration checkout using [architecture-setup](architecture-setup.md). Use one architecture for the whole workstream. If architecture changes, rebuild that prepared dependency source instead of having each worker reinstall.
+
+For each worker, provide one dependency/runtime path:
+
+- prepared environment access
+- manager-provided running app or URL
+- `node_modules` linked from the prepared checkout, for example `rm -rf node_modules && ln -s <prepared-checkout>/node_modules node_modules`
+
+Fresh worker worktrees do not run fresh `pnpm install`, `pnpm rebuild`, or Electron installs by default.
+
 Start implementation workers from the integration branch with the selected provider.
 
 Non-UI/UX default example:
@@ -70,7 +80,7 @@ UI/UX-related default example:
 bb thread spawn --new-environment worktree --base-branch <integration-branch> --permission-mode workspace-write --provider claude-code --model 'claude-opus-4-7[1m]' --reasoning-level xhigh --prompt "<worker prompt>"
 ```
 
-Before assigning the work, require the fresh worktree to confirm basic checkout and tool access:
+Before assigning the work, require the fresh worktree to confirm checkout, tool access, dependency source/link, and package resolution. This is an access report, not a bootstrap script:
 
 ```bash
 pwd
@@ -78,7 +88,12 @@ git branch --show-current
 git status --short
 command -v rg
 pnpm --version
+test -e node_modules
+readlink node_modules || true
+node -p "require.resolve('@electron-forge/cli/package.json')"
 ```
+
+If `node_modules` is missing, package resolution fails, package-manager access is unavailable, Electron is missing, runtime launch fails, or Node/esbuild/Electron/native-package architecture does not match the prepared source, record an environment/tooling blocker and fix the prepared source or runtime target. Do not let workers classify those failures as product defects or self-install in their fresh worktrees without manager approval.
 
 Record for every worker:
 
