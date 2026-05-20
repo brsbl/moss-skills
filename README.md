@@ -2,8 +2,6 @@
 
 This repository provides skills for agentically working with [mossnotes.app](https://www.mossnotes.app/) notes, packaaged as Claude Code and Codex plugins.
 
-![Moss app showing a rich example note with both side panels open](assets/moss-app-screenshot.png)
-
 The Moss app bundles these same skills for its in-app agent, and this repository makes them available as plugins to use with Claude Code and Codex directly. Use these plugins as is, or fork and customize them.
 
 ## What This Repo Is For
@@ -19,29 +17,32 @@ Forking this repository only affects the Claude Code and Codex plugins that are 
 
 ## What Is Included
 
-- `moss-notes`: how Moss note folders, markdown files, and supported note blocks work.
-- `moss-frontmatter`: how Moss uses YAML frontmatter in note files.
-- `moss-comments`: how to write and preserve Moss comment annotations.
-- `moss-wiki-links`: how to link to notes and headings with Moss wiki links.
-- `moss-mockup`: how to author interactive `moss-html` mockups.
+### Moss note skills
 
-### Moss as an Agentic Workspace:
+These skills are included in the Claude Code and Codex plugins.
 
-This repository also includes a set of workflow skills for using Moss as an agentic workspace for building with coding agents. With these skills, Moss becomes the durable command center for long-lived context, plans, decisions, research, reviews, and handoffs, while coding agent work in isolated development environments. 
+- [`moss-notes`](skills/moss-notes/SKILL.md): how Moss note folders, markdown files, and supported note blocks work.
+- [`moss-frontmatter`](skills/moss-frontmatter/SKILL.md): how Moss uses YAML frontmatter in note files.
+- [`moss-comments`](skills/moss-comments/SKILL.md): how to write and preserve Moss comment annotations.
+- [`moss-wiki-links`](skills/moss-wiki-links/SKILL.md): how to link to notes and headings with Moss wiki links.
+- [`moss-mockup`](skills/moss-mockup/SKILL.md): how to author interactive `moss-html` mockups.
 
-These skills are built for use with the agent orchestration platform and IDE [bb](https://github.com/ymichael/bb), but can be adapted to work with any coding agent or agent platform. 
-**NOTE:** if you fork these skills to use with Claude Code or Codex, you'll want to adapt the bb-specific langauge (eg change "worker" to "subagent", for example).
+### bb workflow references: Moss as an agentic workspace
 
-- `bb-workstream`: orchestrates a Moss development effort end-to-end, from setup and worker coordination through merge, summary, and cleanup.
-- `bb-research`: researches product ideas, APIs, best practices, competitors, and UI references so planning starts from evidence instead of guesses.
-- `bb-dashboard`: creates the shared status surface where the user and managers can see workers, blockers, decisions, evidence, and merge readiness.
-- `bb-planning`: turns prompts, notes, issues, PR feedback, and screenshots into clear worker scopes with acceptance criteria and validation steps.
-- `bb-implementation`: assigns approved scopes to isolated bb worker environments and keeps workers on-plan and unblocked.
-- `bb-verification`: captures screenshots, app behavior, logs, and user-flow evidence before review, especially for UI or Electron work.
-- `bb-qa`: runs the final quality gate with focused checks, moss verify, accepted risks, and pass/block decisions.
-- `bb-review`: reviews worker changes in the same environment, routes P0/P1 fixes, and decides what is safe to merge.
-- `bb-summary`: produces the final PR, handoff, or workstream summary with what changed, evidence, risks, and decisions.
-- `bb-cleanup`: archives threads and removes safe worktrees while preserving dashboards, reports, evidence, and decision history.
+This repository also includes reference workflow skills for using Moss as an agentic workspace for building with coding agents. With these skills, Moss becomes the durable command center for long-lived context, plans, decisions, research, reviews, and handoffs, while coding agents work in isolated development environments.
+
+The bb workflow references live under [`skills/bb/`](skills/bb/) and are not part of the Claude Code or Codex plugin skill bundle. They are written for the agent orchestration platform and IDE [bb](https://github.com/ymichael/bb), but can be adapted to other coding-agent workflows.
+
+- [`bb-workstream`](skills/bb/bb-workstream/SKILL.md): orchestrates a Moss development effort end-to-end, from setup and worker coordination through merge, summary, and cleanup.
+- [`bb-research`](skills/bb/bb-research/SKILL.md): researches product ideas, APIs, best practices, competitors, and UI references so planning starts from evidence instead of guesses.
+- [`bb-dashboard`](skills/bb/bb-dashboard/SKILL.md): creates the shared status surface where the user and managers can see workers, blockers, decisions, evidence, and merge readiness.
+- [`bb-planning`](skills/bb/bb-planning/SKILL.md): turns prompts, notes, issues, PR feedback, and screenshots into clear worker scopes with acceptance criteria and validation steps.
+- [`bb-implementation`](skills/bb/bb-implementation/SKILL.md): assigns approved scopes to isolated bb worker environments and keeps workers on-plan and unblocked.
+- [`bb-verification`](skills/bb/bb-verification/SKILL.md): captures screenshots, app behavior, logs, and user-flow evidence before review, especially for UI or Electron work.
+- [`bb-qa`](skills/bb/bb-qa/SKILL.md): runs the final quality gate with focused checks, moss verify, accepted risks, and pass/block decisions.
+- [`bb-review`](skills/bb/bb-review/SKILL.md): reviews worker changes in the same environment, routes P0/P1 fixes, and decides what is safe to merge.
+- [`bb-summary`](skills/bb/bb-summary/SKILL.md): produces the final PR, handoff, or workstream summary with what changed, evidence, risks, and decisions.
+- [`bb-cleanup`](skills/bb/bb-cleanup/SKILL.md): archives threads and removes safe worktrees while preserving dashboards, reports, evidence, and decision history.
 
 bb workflow artifacts should live under `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/`.
 
@@ -59,7 +60,6 @@ Installed skills are namespaced by the plugin name. For example:
 ```bash
 /moss-skills:moss-notes
 /moss-skills:moss-mockup
-/moss-skills:bb-workstream
 ```
 
 ## Codex
