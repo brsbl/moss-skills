@@ -28,6 +28,16 @@ Use this skill to keep `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/
 - Parent-manager roll-up when child managers exist.
 - Current blocker owners, decision owners, evidence paths, and next manager actions.
 
+## Node Type Guidance
+
+The dashboard is a Moss note; pick node types that fit each section's job. Follow [moss-notes](../../moss-notes/SKILL.md) for syntax; do not duplicate it here.
+
+- Tables for the worker roster, decision queue, and plan divergence.
+- Callouts (`info`, `warning`, `priority`) for the latest decision, active blockers, and items needing user action.
+- Tabs (2-4) for large workstreams with parallel stage boards or worker groups.
+- Charts only when a trend or comparison is clearer than a small table.
+- `moss-html` only when expansive interactivity justifies the cost.
+
 ## Validation
 
 - Counts match visible rows.
@@ -37,5 +47,6 @@ Use this skill to keep `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/
 
 ## References
 
-- Detailed dashboard sections, table shapes, update rules, and validation checklist: [references/dashboard-reference.md](references/dashboard-reference.md).
+- Detailed dashboard sections, table shapes, update rules, inline dashboard template, and node-type guidance: [references/dashboard-reference.md](references/dashboard-reference.md).
 - Shared manager flow and artifact layout: [../bb-workstream/references/manager-flow.md](../bb-workstream/references/manager-flow.md).
+- Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).

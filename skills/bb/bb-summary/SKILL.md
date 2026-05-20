@@ -38,3 +38,4 @@ Use this skill to produce the final workstream summary, PR/handoff notes, or man
 ## References
 
 - Detailed access gate, diff basis, summary contents, workflow, and report template: [references/summary-reference.md](references/summary-reference.md).
+- Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).

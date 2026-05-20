@@ -45,3 +45,4 @@ Use this skill to assign and drive scoped implementation work in a bb workstream
 - Provider defaults: [../bb-workstream/references/provider-selection.md](../bb-workstream/references/provider-selection.md).
 - Exact architecture setup commands: [../bb-workstream/references/architecture-setup.md](../bb-workstream/references/architecture-setup.md).
 - Shared manager flow: [../bb-workstream/references/manager-flow.md](../bb-workstream/references/manager-flow.md).
+- Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).

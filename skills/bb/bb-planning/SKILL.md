@@ -41,3 +41,4 @@ Use this skill to create the lightest useful plan for a Moss bb workstream or wo
 
 - Detailed planning depth, checklist, task decomposition, and plan template: [references/planning-reference.md](references/planning-reference.md).
 - Shared workstream gates and manager flow: [../bb-workstream/references/manager-flow.md](../bb-workstream/references/manager-flow.md).
+- Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).

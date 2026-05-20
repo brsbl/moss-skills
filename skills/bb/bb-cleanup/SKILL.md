@@ -37,3 +37,4 @@ Use this skill to clean up bb workstream state only after useful evidence is pre
 ## References
 
 - Detailed inventory commands, safety gates, evidence preservation, cleanup commands, and report checklist: [references/cleanup-reference.md](references/cleanup-reference.md).
+- Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).

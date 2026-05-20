@@ -11,7 +11,7 @@ Use the dashboard to answer, at a glance:
 - What plan divergence has been proposed, approved, redirected, or escalated.
 - Where to find plans, QA, verification, reviews, screenshots, summaries, commits, and risks.
 
-Use `~/Moss/Notes/BugsFeedback/BugsFeedback.md` as a pattern library for concise status sections, counts, evidence links, and historical notes. Do not copy it as a fixed template. Adapt each dashboard to the actual workstream.
+Aim for concise status sections, counts, evidence links, and a short history of decisions. Use the skeleton in "Dashboard Template" as a starting point, then remove sections that do not apply.
 
 ## Artifact Layout
 
@@ -113,3 +113,95 @@ Before handing off a dashboard update:
 - QA, verification, review, summary, and merge evidence is linked where applicable.
 - Counts in the quick summary match the visible rows.
 - The dashboard remains concise enough for user review without opening bb thread logs.
+
+## Node Type Guidance
+
+The dashboard is a Moss note. Pick node types that match each section's job; follow [moss-notes](../../../moss-notes/SKILL.md) for syntax and constraints.
+
+- Tables for the worker roster, decision queue, and plan divergence — scannable rows with stable columns.
+- Callouts (`info`, `warning`, `priority`) for the latest manager decision, active blockers, and items needing user action so they stand out from the prose.
+- Tabs for large workstreams with multiple parallel stage boards, worker groups, or environments — keep to 2-4 tabs.
+- Charts only when a trend or comparison is clearer than a small table; prefer `bar` or `line`.
+- `moss-html` only when expansive interactivity is worth the cost (status maps, embeds); never as a substitute for the standard sections.
+- Wiki links via [moss-wiki-links](../../../moss-wiki-links/SKILL.md) for cross-note references to plans, QA, verification, reviews, and summaries.
+- Frontmatter via [moss-frontmatter](../../../moss-frontmatter/SKILL.md) when the dashboard needs queryable metadata; comments via [moss-comments](../../../moss-comments/SKILL.md) for inline annotations or follow-ups.
+
+## Dashboard Template
+
+Use this skeleton as a starting point. Remove sections that do not apply and keep cell contents short — link out instead of inlining long evidence. The outer fence below uses four backticks so the inner `moss-callout` block survives the example; in the real dashboard, use a single three-backtick fence per block.
+
+````markdown
+# <Workstream Slug>
+
+## Overview
+
+- Integration branch: `<branch>`
+- Latest manager decision: <decision + date>
+- Next gate: <what unblocks the next stage>
+
+```moss-callout
+priority
+Active blocker or decision needing user action. Remove when resolved.
+```
+
+## Quick Summary
+
+- Workers active: N | blocked: N | merged: N
+- Risk level: <low | medium | high> — one-line reason
+
+## Stage Board
+
+- Intake / planning: <worker slugs>
+- Implementation: <worker slugs>
+- QA / verification: <worker slugs>
+- Review: <worker slugs>
+- Merge / summary / cleanup: <worker slugs>
+
+## Worker Roster
+
+| Worker | Provider / Model | Stage | Scope | Owned Files | Thread / Env | Next Gate | Blocker | Evidence |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| <slug> | <provider/model> | <stage> | <objective> | `path/a.ts` | `thr_…` / `env_…` | <gate> | <none or owner> | <link> |
+
+## Decision Queue
+
+| ID | Decision Needed | Owner | Affects | Status | Evidence |
+| --- | --- | --- | --- | --- | --- |
+| <slug> | <approve / redirect / supply / accept> | <user or manager> | <workers/files> | pending | <link> |
+
+## Plan Divergence
+
+| ID | Worker | Divergence | Reason | Impact | Status | Evidence |
+| --- | --- | --- | --- | --- | --- | --- |
+| <slug> | <worker> | <change> | <why> | <files/validation> | proposed | <plan link> |
+
+## Evidence Index
+
+- Plans: <links>
+- QA: <links>
+- Verification: <links + screenshot/log paths>
+- Reviews: <links + finding dispositions>
+- Summaries: <links>
+- Commits / PRs: <local paths or PR refs>
+
+## Merge State
+
+- Worker environments: <env IDs and merge status>
+- Integration validation: `moss verify` <PASS | FAIL | NOT RUN> with evidence link
+- Remaining risks: <one-line items>
+````
+
+For larger workstreams, wrap the per-stage detail in tabs to keep the page scannable:
+
+```markdown
+:::tabs
+=== Implementation
+<roster rows and decisions scoped to this stage>
+
+=== QA / Verification
+<rows, evidence links, blockers>
+
+=== Review / Merge
+<rows, dispositions, merge state>
+:::
+```
