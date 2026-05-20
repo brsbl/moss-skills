@@ -1,6 +1,14 @@
 # Architecture Setup Reference
 
-Use one architecture for the whole worktree/session. On Apple Silicon, the default is native arm64 from Node through dependencies, esbuild, Electron, and native packages. Run this before assigning workers or running verification:
+Use one architecture for the whole workstream. On Apple Silicon, the default is native arm64 from Node through dependencies, esbuild, Electron, and native packages.
+
+The manager bootstraps dependencies once in a prepared source checkout, usually the main or integration checkout. Do not run this setup from fresh worker worktrees. Workers should receive one of:
+
+- access to the prepared checkout
+- a running app or URL
+- a worker worktree with `node_modules` linked to the prepared dependency source
+
+Manager/prepared-checkout bootstrap:
 
 ```bash
 cat > /tmp/moss-arm64-dev-setup.sh <<'SH'
@@ -38,19 +46,29 @@ arch -x86_64 zsh /tmp/moss-x64-dev-setup.sh
 
 Simple rules:
 
-- Check Node architecture before installing dependencies.
+- Managers check Node architecture before installing dependencies in the prepared source checkout.
 - Never reuse `node_modules` after switching architecture.
-- Reinstall/rebuild before assigning workers or running verification.
-- If setup fails, record an environment/tooling blocker and fix setup before continuing.
+- If architecture changes, rebuild the prepared dependency source. Do not make each fresh worker worktree run its own install/rebuild/Electron postinstall.
+- If setup fails, record an environment/tooling blocker and fix the prepared source before assigning workers or running verification.
 
-Before launching Electron or running screenshot/user-flow checks, record:
+Fresh worker worktrees do not run fresh `pnpm install`, `pnpm rebuild`, or `node node_modules/electron/install.js` by default. Use a prepared environment, a running app or URL, or link root dependencies from the prepared checkout:
+
+```bash
+rm -rf node_modules
+ln -s <prepared-checkout>/node_modules node_modules
+```
+
+Before launching Electron or running screenshot/user-flow checks, record architecture and package resolution from the checkout that will run the app:
 
 ```bash
 uname -m
 node -p 'process.platform + " " + process.arch'
 file "$(command -v node)"
 node -p 'process.versions.modules'
+test -e node_modules
+readlink node_modules || true
+node -p "require.resolve('@electron-forge/cli/package.json')"
 node -e 'console.log(require("electron"))'
 ```
 
-Missing `node_modules`, missing `rg`, unavailable package-manager access, Electron download/postinstall failures, Electron launch failures, sandbox or permission failures, CDP failures, and Node/esbuild/Electron/native-package architecture mismatches are environment/tooling blockers. The manager either bootstraps the environment, supplies a prepared/shared environment, provides a running app or URL for verification, or asks the user. Do not let a worker treat these access failures as product defects or proceed with acceptance-critical checks missing.
+Missing `node_modules`, missing `rg`, unavailable package-manager access, Electron download/postinstall failures, Electron launch failures, sandbox or permission failures, CDP failures, package resolution failures, and Node/esbuild/Electron/native-package architecture mismatches are environment/tooling blockers. The manager either rebuilds the prepared dependency source, supplies a prepared/shared environment, provides a running app or URL for verification, links worker dependencies to the prepared checkout, or asks the user. Do not let a worker treat these access failures as product defects or proceed with acceptance-critical checks missing.

@@ -53,10 +53,11 @@ Group checks by user-facing behavior or system boundary. Prefer observable outco
 - Focused tests are useful evidence, but they do not replace `moss verify`.
 - Require verification evidence before review for UI, screenshot, and user-flow work; use the verification skill.
 - Product failures block the gate until fixed or explicitly accepted by the manager/user.
-- Before QA, run or confirm the canonical architecture setup in [bb-workstream/references/architecture-setup.md](../../bb-workstream/references/architecture-setup.md).
-- Use one architecture per worktree/session. Default to native arm64 on Apple Silicon; use the x64 variant only for an intentional all-Rosetta session.
-- Never reuse `node_modules` after switching architecture. Reinstall/rebuild before QA or `moss verify`.
-- Missing `node_modules`, missing `rg`, package-manager access failures, Electron download/postinstall failures, sandbox, permission, runtime access failures, or Node/esbuild/Electron/native-package architecture mismatches are environment/tooling blockers, not product failures. The manager provides a prepared/shared environment, a running app, or a URL when worker branches cannot launch the app.
+- Before QA, confirm the prepared dependency source or runtime target from [bb-workstream/references/architecture-setup.md](../../bb-workstream/references/architecture-setup.md). Fresh worker worktrees do not run fresh `pnpm install`, `pnpm rebuild`, or Electron installs by default.
+- Use one architecture per workstream. Default to native arm64 on Apple Silicon; use the x64 variant only for an intentional all-Rosetta session.
+- Never reuse `node_modules` after switching architecture. If architecture changes, the manager rebuilds the prepared dependency source before QA or `moss verify`.
+- Worker access reports verify dependency source/link and package resolution, for example `test -e node_modules`, `readlink node_modules || true`, and `node -p "require.resolve('@electron-forge/cli/package.json')"`.
+- Missing `node_modules`, missing `rg`, package-manager access failures, package resolution failures, Electron download/postinstall failures, sandbox, permission, runtime access failures, or Node/esbuild/Electron/native-package architecture mismatches are environment/tooling blockers, not product failures. The manager provides a prepared/shared environment, a linked dependency source, a running app, or a URL when worker branches cannot launch the app.
 - Mark `HUMAN` only when automation cannot reasonably verify the item. Include the exact reason and what a human must check.
 
 ## Workflow
@@ -66,7 +67,7 @@ Group checks by user-facing behavior or system boundary. Prefer observable outco
 3. Draft automated checks for tests/build/type/lint coverage. Include exact commands and expected results.
 4. Draft manual/user-flow checks for behavior that needs app interaction. Link verification artifacts instead of repeating the full verification report.
 5. Run focused checks where useful.
-6. Run `moss verify` for the hard gate.
+6. Run `moss verify` for the hard gate from a checkout with prepared dependencies or with manager-provided runtime support.
 7. Classify every issue as product failure, tooling blocker, `HUMAN`, or accepted risk.
 8. Update the dashboard with report path, gate status, blockers, and decisions needed.
 
