@@ -31,9 +31,9 @@ These skills are included in the Claude Code and Codex plugins.
 
 ### Moss as an agentic workspace
 
-This repository also includes reference workflow skills for using Moss as an agentic workspace for building with coding agents. With these skills, Moss becomes the durable command center for long-lived context, plans, decisions, research, reviews, and handoffs, while coding agents work in isolated development environments.
+This repository also includes reference skills for using Moss as an agentic workspace for building with coding agents. With these skills, Moss becomes a durable command center for long-lived context, plans, decisions, research, reviews, and handoffs, while coding agents work in isolated development environments.
 
-The bb workflow references live under [`skills/bb/`](skills/bb/) and are not part of the Claude Code or Codex plugin skill bundle. They are written for the agent orchestration platform and IDE [bb](https://github.com/ymichael/bb), but can be adapted to other coding-agent workflows.
+These skills are written for the agent orchestration platform and IDE [bb](https://github.com/ymichael/bb), but can be adapted to other coding-agent workflows.
 
 - [`bb-workstream`](skills/bb/bb-workstream/SKILL.md): orchestrates a Moss development effort end-to-end, from setup and worker coordination through merge, summary, and cleanup.
 - [`bb-research`](skills/bb/bb-research/SKILL.md): researches product ideas, APIs, best practices, competitors, and UI references so planning starts from evidence instead of guesses.
@@ -45,8 +45,6 @@ The bb workflow references live under [`skills/bb/`](skills/bb/) and are not par
 - [`bb-review`](skills/bb/bb-review/SKILL.md): reviews worker changes in the same environment, routes P0/P1 fixes, and decides what is safe to merge.
 - [`bb-summary`](skills/bb/bb-summary/SKILL.md): produces the final PR, handoff, or workstream summary with what changed, evidence, risks, and decisions.
 - [`bb-cleanup`](skills/bb/bb-cleanup/SKILL.md): archives threads and removes safe worktrees while preserving dashboards, reports, evidence, and decision history.
-
-bb workflow artifacts should live under `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/`.
 
 ## Claude Code
 
