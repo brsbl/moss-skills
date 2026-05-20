@@ -25,19 +25,25 @@ Forking this repository only affects the Claude Code and Codex plugins that are 
 - `moss-wiki-links`: how to link to notes and headings with Moss wiki links.
 - `moss-mockup`: how to author interactive `moss-html` mockups.
 
-Moss bb workflow references:
+### Moss as an Agentic Workspace:
 
-- `bb-workstream`: run a bb-managed Moss development effort from planning through cleanup.
-- `bb-dashboard`: keep the workstream dashboard as the canonical manager review surface.
-- `bb-planning`: turn prompts, notes, issues, PR feedback, and screenshots into scoped worker-ready plans.
-- `bb-implementation`: assign scoped Moss implementation work to bb worker environments.
-- `bb-verification`: gather UI, screenshot, Electron, browser, and user-flow evidence before review.
-- `bb-qa`: run the QA merge gate, including focused checks and `moss verify`.
-- `bb-review`: run the same-environment review gate for worker changes.
-- `bb-summary`: produce final workstream, PR, and handoff summaries.
-- `bb-cleanup`: safely archive or clean up completed, paused, or canceled bb workstream state.
+This repository also includes a set of workflow skills for using Moss as an agentic workspace for building with coding agents. With these skills, Moss becomes the durable command center for long-lived context, plans, decisions, research, reviews, and handoffs, while coding agent work in isolated development environments. 
 
-bb workflow artifacts should live under `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/`, outside repo checkouts.
+These skills are built for use with the agent orchestration platform and IDE [bb](https://github.com/ymichael/bb), but can be adapted to work with any coding agent or agent platform. 
+**NOTE:** if you fork these skills to use with Claude Code or Codex, you'll want to adapt the bb-specific langauge (eg change "worker" to "subagent", for example).
+
+- `bb-workstream`: orchestrates a Moss development effort end-to-end, from setup and worker coordination through merge, summary, and cleanup.
+- `bb-research`: researches product ideas, APIs, best practices, competitors, and UI references so planning starts from evidence instead of guesses.
+- `bb-dashboard`: creates the shared status surface where the user and managers can see workers, blockers, decisions, evidence, and merge readiness.
+- `bb-planning`: turns prompts, notes, issues, PR feedback, and screenshots into clear worker scopes with acceptance criteria and validation steps.
+- `bb-implementation`: assigns approved scopes to isolated bb worker environments and keeps workers on-plan and unblocked.
+- `bb-verification`: captures screenshots, app behavior, logs, and user-flow evidence before review, especially for UI or Electron work.
+- `bb-qa`: runs the final quality gate with focused checks, moss verify, accepted risks, and pass/block decisions.
+- `bb-review`: reviews worker changes in the same environment, routes P0/P1 fixes, and decides what is safe to merge.
+- `bb-summary`: produces the final PR, handoff, or workstream summary with what changed, evidence, risks, and decisions.
+- `bb-cleanup`: archives threads and removes safe worktrees while preserving dashboards, reports, evidence, and decision history.
+
+bb workflow artifacts should live under `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/`.
 
 ## Claude Code
 
