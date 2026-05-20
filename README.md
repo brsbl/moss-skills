@@ -2,6 +2,8 @@
 
 This repository provides Claude Code and Codex plugin packaging for working with [mossnotes.app](https://www.mossnotes.app/) notes.
 
+![Moss app showing a rich example note with both side panels open](assets/moss-app-screenshot.png)
+
 The Moss app bundles the same guidance for its in-app agent. This repository makes that guidance available as a portable plugin package for Claude Code and Codex, and as a reference for people who want to inspect, demo, fork, or customize it.
 
 ## What This Repo Is For
