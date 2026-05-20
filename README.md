@@ -1,6 +1,6 @@
-# Skills for Claude Code and Codex with mossnotes.app
+# Skills for working with [mossnotes.app](https://www.mossnotes.app/)
 
-This repository provides Claude Code and Codex plugin packaging for working with mossnotes.app notes.
+This repository provides Claude Code and Codex plugin packaging for working with [mossnotes.app](https://www.mossnotes.app/) notes.
 
 The Moss app bundles the same guidance for its in-app agent. This repository makes that guidance available as a portable plugin package for Claude Code and Codex, and as a reference for people who want to inspect, demo, fork, or customize it.
 
