@@ -1,18 +1,21 @@
 # Skills for working with [mossnotes.app](https://www.mossnotes.app/)
 
-This repository provides Claude Code and Codex plugin packaging for working with [mossnotes.app](https://www.mossnotes.app/) notes.
+This repository provides skills for agentically working with [mossnotes.app](https://www.mossnotes.app/) notes, packaaged as Claude Code and Codex plugins.
 
 ![Moss app showing a rich example note with both side panels open](assets/moss-app-screenshot.png)
 
-The Moss app bundles the same guidance for its in-app agent. This repository makes that guidance available as a portable plugin package for Claude Code and Codex, and as a reference for people who want to inspect, demo, fork, or customize it.
+The Moss app bundles these same skills for its in-app agent, and this repository makes them available as plugins to use with Claude Code and Codex directly. Use these plugins as is, or fork and customize them.
 
 ## What This Repo Is For
 
-- Use this repository when you want Claude Code or Codex to understand Moss note folders, markdown, comments, wiki links, and mockups.
-- Use the installed app/exported skills at `~/Moss/.moss/skills/` when Claude Code or Codex is working against your actual Moss workspace and should match your installed Moss app version.
-- Fork or customize this repository when you want to change the Claude Code/Codex plugin package.
+- Use this repository when you want Claude Code or Codex to read and write Moss markdown, folders, comments, wiki links, HTML mockups, and more.
+- Use the installed app/exported skills at `~/Moss/.moss/skills/` when Claude Code or Codex is working against your Moss workspace and you want the skills to match your installed Moss app version.
+- Fork this repository when you want to customize how Claude Code/Codex interacts with your Moss workspace.
 
-Changing this repository affects the Claude Code and Codex plugin package that installs from it. It does not change the in-app Moss agent.
+### Important Note
+If you customize these skills, do not change the Moss note syntax that's included in them. The Moss app expects specific syntax in markdown notes to work propertly and this currently can't be customized. You **can** customize how you want your agents to read/write this syntax (eg what workflow you want to use for resolving comments, styling of the HTML mockups embedded in your notes, etc.)
+
+Forking this repository only affects the Claude Code and Codex plugins that are installed from it. It will not change the behavior of the in-app Moss agent.
 
 ## What Is Included
 
@@ -43,14 +46,6 @@ Installed skills are namespaced by the plugin name. For example:
 Use the repository as a Codex plugin marketplace or local plugin source, then enable the `moss-skills` plugin. Codex will load the same `./skills/` tree used by Claude Code.
 
 The Codex manifest lives at `.codex-plugin/plugin.json`, and `.agents/plugins/marketplace.json` points at the repository root plugin with `source.path` set to `./`.
-
-## Customizing
-
-The Moss app bundles its own copy of this guidance for the in-app Moss agent. This repository packages that guidance for Claude Code and Codex.
-
-You can fork this repository and edit the `skills/` directory, Claude Code plugin metadata, or Codex plugin metadata to customize the plugin package you install into those tools.
-
-Changing this repository changes only the Claude Code/Codex plugin package installed from your fork. It does not change the in-app Moss agent or the skills bundled with the Moss app.
 
 ## License
 
