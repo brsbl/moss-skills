@@ -151,8 +151,7 @@ Use text-level syntax for compact references and emphasis inside paragraphs, lis
 Use formulas and variables for compact computed or labeled values displayed inline with surrounding text or table cells.
 
 - `Formula` is an unnamed executable expression like `=2+2`.
-- `Variable` is a named value — executable like `sum=2+2`, or symbolic like `timeline=6 weeks`.
-- Symbolic variables are note-local in this version and do not yet join formula reference typeahead or lookup.
+- `Variable` is a named value — executable like `sum=2+2`, or symbolic like `timeline=6 weeks`. Any named variable can be referenced from other formulas through the cross-note lookup/typeahead, whether its value is executable or symbolic.
 
 Stored markdown syntax for both kinds of pills:
 
