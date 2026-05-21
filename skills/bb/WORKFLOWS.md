@@ -16,6 +16,7 @@ Canonical bb skill definitions live in the `moss-skills` repo:
 - [bb-review](bb-review/SKILL.md)
 - [bb-summary](bb-summary/SKILL.md)
 - [bb-cleanup](bb-cleanup/SKILL.md)
+- [bb-analytics](bb-analytics/SKILL.md)
 
 Read the relevant `SKILL.md` before running that stage. Treat this file as workflow policy and the linked skills as the detailed stage definitions.
 
@@ -47,6 +48,15 @@ Large work must go through the full workflow:
 10. `bb-cleanup` - archive/clean completed or stale workers only after preserving useful artifacts.
 
 Small work can use an abbreviated workflow, but planning, verification, and review are still expected unless the user explicitly waives them.
+
+## Analytics work
+
+For PostHog analytics work, use `bb-analytics` instead of the implementation pipeline:
+
+- Use `bb-analytics` when authoring a new runbook (decision-supporting "how to read this dashboard" note) or running an existing runbook to produce a dated analytics report.
+- Pair every runbook with a report template in `~/Moss/Notes/Agent Workspaces/bb Workspace/Templates/` and store reports under `~/Moss/Notes/Agent Workspaces/bb Workspace/PostHog Reviews/`.
+- Treat analytics output like research: link the report from `dashboard.md` and add any follow-ups to the workstream decision queue when the analytics work feeds a managed workstream.
+- PostHog credentials come from `.env` or `~/.claude/projects/*/memory/posthog.md`. Never paste or commit raw tokens.
 
 ## Minimum workflow for small tasks
 
@@ -80,7 +90,7 @@ The manager's core role is to keep workers unblocked and on-plan.
 Store durable workstream artifacts under the Moss workspace, not in the repo checkout:
 
 ```text
-~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/
+~/Moss/Notes/Agent Workspaces/bb Workspace/workstreams/<slug>/
   dashboard.md
   workers.md
   research/
