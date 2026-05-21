@@ -20,6 +20,7 @@ Use this skill as the review gate for Moss work implemented through bb worker en
 2. Manager inspects the diff, validation, evidence, ownership, and high-risk Moss invariants before hiring a reviewer.
 3. Start the reviewer in the worker environment with read-only permissions.
 4. Ask for findings only on issues introduced or exposed by the worker change.
+5. **Architectural precedence check.** Require the reviewer to answer: "Does this follow existing patterns in the codebase, or does it invent a new path?" If it invents a new path, the reviewer flags it as P0 unless the plan documented an explicit justification. Common precedence anchors: markdown migrations (`note-markdown-migration-runner.ts`), IPC (`ipcChannels.ts`), color tokens (`scripts/dark-palette-values.mjs` + tokens.css), Lexical node/plugin/transformer registration order (`MarkdownEditor.tsx`), atoms (`jotai-atoms` skill), filesystem effects (`note-store.ts`), persistence lifecycle (CAS lock via `updateNote`). A new path is sometimes correct, but it must be a deliberate, justified choice — not an accident or an investigation worker's first idea.
 5. Synthesize manager and reviewer findings, dropping unrelated or pre-existing issues.
 6. Route P0/P1 findings back to the implementor; decide whether P2 and ambiguous findings are fixed, accepted, deferred, or escalated.
 7. Mark the review gate ready only when required validation, verification, QA, and finding dispositions are linked.
