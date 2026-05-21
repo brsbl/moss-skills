@@ -37,6 +37,7 @@ These skills are written for the agent orchestration platform and IDE [bb](https
 
 - [`bb-workstream`](skills/bb/bb-workstream/SKILL.md): orchestrates a Moss development effort end-to-end, from setup and worker coordination through merge, summary, and cleanup.
 - [`bb-research`](skills/bb/bb-research/SKILL.md): researches product ideas, APIs, best practices, competitors, and UI references so planning starts from evidence instead of guesses.
+- [`bb-analytics`](skills/bb/bb-analytics/SKILL.md): creates PostHog analytics runbooks and runs them into action-first reports under `~/Moss/Notes/Agent Workspaces/bb Workspace/`.
 - [`bb-dashboard`](skills/bb/bb-dashboard/SKILL.md): creates the shared status surface where the user and managers can see workers, blockers, decisions, evidence, and merge readiness.
 - [`bb-planning`](skills/bb/bb-planning/SKILL.md): turns prompts, notes, issues, PR feedback, and screenshots into clear worker scopes with acceptance criteria and validation steps.
 - [`bb-implementation`](skills/bb/bb-implementation/SKILL.md): assigns approved scopes to isolated bb worker environments and keeps workers on-plan and unblocked.
