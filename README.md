@@ -13,7 +13,7 @@ The Moss app bundles these same skills for its in-app agent, and this repository
 - Fork this repository when you want to customize how Claude Code/Codex interacts with your Moss workspace.
 
 ### Important Note ⚠️
-If you customize these skills, do not change the Moss note syntax that's included in them. The Moss app expects specific syntax in markdown notes to work propertly and this currently can't be customized. You **can** customize how you want your agents to read/write this syntax (eg what workflow you want to use for resolving comments, styling of the HTML mockups embedded in your notes, etc.)
+If you customize these skills, do not change the Moss note syntax that's included in them. The Moss app expects specific syntax in markdown notes to work propertly and this currently can't be customized. You **can** customize how you want your agents to read/write this syntax (eg leaving suggested changes as comments instead of editing directly, changing how the HTML mockups embedded in your notes are styled, etc.)
 
 Forking this repository only affects the Claude Code and Codex plugins that are installed from it. It will not change the behavior of the in-app Moss agent.
 
@@ -31,19 +31,19 @@ These skills are included in the Claude Code and Codex plugins.
 
 ### Moss as an agentic workspace
 
-This repository also includes reference skills for using Moss as an agentic workspace for building with coding agents. With these skills, Moss becomes a durable command center for long-lived context, plans, decisions, research, reviews, and handoffs, while coding agents work in isolated development environments.
+This repository also includes reference skills for using Moss as a complementary agentic workspace when building with coding agents. With these skills, Moss becomes a durable command center for long-lived context, plans, decisions, research, reviews, and handoffs, while coding agents work in ephemeral development environments.
 
 These skills are written for the agent orchestration platform and IDE [bb](https://github.com/ymichael/bb), but can be adapted to other coding-agent workflows.
 
-- [`bb-workstream`](skills/bb/bb-workstream/SKILL.md): orchestrates a Moss development effort end-to-end, from setup and worker coordination through merge, summary, and cleanup.
-- [`bb-research`](skills/bb/bb-research/SKILL.md): researches product ideas, APIs, best practices, competitors, and UI references so planning starts from evidence instead of guesses.
-- [`bb-analytics`](skills/bb/bb-analytics/SKILL.md): creates PostHog analytics runbooks and runs them into action-first reports under `~/Moss/Notes/Agent Workspaces/bb Workspace/`.
-- [`bb-dashboard`](skills/bb/bb-dashboard/SKILL.md): creates the shared status surface where the user and managers can see workers, blockers, decisions, evidence, and merge readiness.
+- [`bb-workstream`](skills/bb/bb-workstream/SKILL.md): orchestrates a development effort end-to-end, from setup and worker coordination through merge, summary, and cleanup.
+- [`bb-research`](skills/bb/bb-research/SKILL.md): researches product ideas, APIs, best practices, competitors, and UI references so planning starts from evidence.
+- [`bb-analytics`](skills/bb/bb-analytics/SKILL.md): creates runbooks for reviewing analytic dashboards and analytics reports from dashboard reviews.
 - [`bb-planning`](skills/bb/bb-planning/SKILL.md): turns prompts, notes, issues, PR feedback, and screenshots into clear worker scopes with acceptance criteria and validation steps.
-- [`bb-implementation`](skills/bb/bb-implementation/SKILL.md): assigns approved scopes to isolated bb worker environments and keeps workers on-plan and unblocked.
+- [`bb-implementation`](skills/bb/bb-implementation/SKILL.md): assigns approved scopes to isolated worker environments and keeps workers on-plan and unblocked.
+- [`bb-dashboard`](skills/bb/bb-dashboard/SKILL.md): creates a dashboard for reviewing status, blockers, decisions, QA evidence, and merge readiness as work progresses.
 - [`bb-verification`](skills/bb/bb-verification/SKILL.md): captures screenshots, app behavior, logs, and user-flow evidence before review, especially for UI or Electron work.
-- [`bb-qa`](skills/bb/bb-qa/SKILL.md): runs the final quality gate with focused checks, moss verify, accepted risks, and pass/block decisions.
-- [`bb-review`](skills/bb/bb-review/SKILL.md): reviews worker changes in the same environment, routes P0/P1 fixes, and decides what is safe to merge.
+- [`bb-review`](skills/bb/bb-review/SKILL.md): reviews worker changes in the same environment they were done, delegates P0/P1 fixes to additional workers, and decides what is safe to merge.
+- [`bb-qa`](skills/bb/bb-qa/SKILL.md): runs the final quality gate with focused checks, tests, and pass/block decisions.
 - [`bb-summary`](skills/bb/bb-summary/SKILL.md): produces the final PR, handoff, or workstream summary with what changed, evidence, risks, and decisions.
 - [`bb-cleanup`](skills/bb/bb-cleanup/SKILL.md): archives threads and removes safe worktrees while preserving dashboards, reports, evidence, and decision history.
 
