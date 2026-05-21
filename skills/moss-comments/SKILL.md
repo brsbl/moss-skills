@@ -43,7 +43,7 @@ Write `comments.json` beside the note markdown file:
 %%m:b1:end%%
 ```
 
-Do not place markers inside wiki links, formulas, fenced block payloads, or raw HTML comments.
+Do not place markers inside wiki links, formula/variable pills, fenced block payloads, or raw HTML comments.
 
 ## Image Attachments
 
