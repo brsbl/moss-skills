@@ -118,7 +118,7 @@ The user controls the sandbox; managers have full latitude.
 Stay provider-agnostic, but use these defaults unless availability, task fit, tooling, context, access, cost, latency, or the user says otherwise:
 
 - Claude for managers, manager-of-manager threads, planning, QA, summaries, and UI/UX-related work.
-- Codex for review workers, non-UI/UX implementation, cleanup, codebase analysis, and mechanical docs/code work.
+- Codex for review workers, non-UI/UX implementation, cleanup, codebase analysis, mechanical docs/code work, **investigations, regressions, and bug fixes**.
 - Always check `bb provider models <provider>` and use the latest/highest available model.
 - Current example defaults:
   - Claude: `--provider claude-code --model 'claude-opus-4-7[1m]' --reasoning-level xhigh`
