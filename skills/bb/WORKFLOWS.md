@@ -95,6 +95,14 @@ The dashboard links to the supporting artifacts. Keep long logs, screenshots, re
 
 Repo changes should contain only code/docs/assets intended to be committed.
 
+## Worker sandbox
+
+The user controls the sandbox; managers have full latitude.
+
+- Default `bb thread spawn` to `--permission-mode full` so workers can run `WebFetch` and `WebSearch` and write outside the project worktree (e.g. `~/Moss/Notes/`, `~/Moss/Agent Workspaces/`).
+- Drop to `--permission-mode workspace-write` or `--permission-mode readonly` only with a concrete reason — a strictly-scoped readonly review pass, an untrusted external task, or a codebase-only edit where blast radius matters.
+- If a worker reports it couldn't fetch a URL, run a search, or write to a Moss path, re-spawn with `--permission-mode full` instead of routing around the sandbox via staging + copy.
+
 ## Provider defaults
 
 Stay provider-agnostic, but use these defaults unless availability, task fit, tooling, context, access, cost, latency, or the user says otherwise:
