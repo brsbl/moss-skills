@@ -5,7 +5,7 @@ description: Author interactive HTML mockups in Moss notes using moss-html fence
 
 # HTML Mockups
 
-Use `moss-html` only when rendered HTML or interactivity is the right artifact. Prefer semantic markdown, charts, callouts, sketches, or images when those fit the request; see the notes skill for those node types (`packages/desktop/assets/skills/notes.md`, `moss-notes`).
+Use `moss-html` only when rendered HTML or interactivity is the right artifact. Prefer semantic markdown, charts, callouts, canvas, or images when those fit the request; see the notes skill for those node types (`packages/desktop/assets/skills/notes.md`, `moss-notes`).
 
 Embed mockups directly in the note:
 

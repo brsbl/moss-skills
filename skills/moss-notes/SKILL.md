@@ -108,9 +108,9 @@ Watch this before shipping.
 First payload line is the type. The editor normalizes to this bare form on save, so do not write `type: ...`. Types: `info`, `warning`, `priority`.
 Priority callouts can optionally put a level on the second line before the content.
 
-### Sketches
+### Canvas
 
-Use `moss-sketch` for ASCII-style diagrams, simple wireframes, flow charts, rough spatial layouts, hand-drawn/diagrammatic sketches, and other simple visual structures. Avoid it for geographic maps or precise visualizations. Current sketches use a 120x60 grid.
+Use `moss-canvas` for ASCII-style diagrams, simple wireframes, flow charts, rough spatial layouts, hand-drawn/diagrammatic visuals, and other rough visual thinking. Avoid it for geographic maps or precise visualizations. The canvas uses a 120x60 grid. Legacy `moss-sketch` fences still import as the same canvas; new content should write `moss-canvas`.
 
 ### HTML Mockups
 
@@ -145,18 +145,25 @@ Use text-level syntax for compact references and emphasis inside paragraphs, lis
 - Wiki links connect notes/headings or create navigable references in the Moss workspace; see the wiki-link skill for variants.
 - Highlight marks important text, status, or attention within prose; use `<mark data-color="yellow">...</mark>` rather than `==...==`.
 - Underline is for intentional emphasis where it will not be confused with a link.
+- Color literals (`#rgb`, `#rgba`, `#rrggbb`, `#rrggbbaa`, `rgb()`/`rgba()`, `hsl()`/`hsla()`) in body text, inline code, and code blocks automatically get a hover swatch preview; write them plainly and do not wrap them in custom spans, HTML, or `data-*` attributes.
 
-### Formulas
+### Formulas And Variables
 
-Use formulas for compact computed values or calculations that should display inline with surrounding text or table cells.
+Use formulas and variables for compact computed or labeled values displayed inline with surrounding text or table cells.
+
+- `Formula` is an unnamed executable expression like `=2+2`.
+- `Variable` is a named value — executable like `sum=2+2`, or symbolic like `timeline=6 weeks`. Any named variable can be referenced from other formulas through the cross-note lookup/typeahead, whether its value is executable or symbolic.
+
+Stored markdown syntax for both kinds of pills:
 
 ```markdown
-{{expr|result}}
+{{source|display}}
 ```
 
-- Put the expression before the first `|` and the rendered result after it.
-- Keep formulas inline; do not use them for multi-line calculations or chart data.
-- Pipes inside formulas are part of the formula syntax and do not split table cells.
+- Writing `{{source|display}}` into a note creates a live pill. When showing the syntax as a code example in prose, wrap it in backticks.
+- Put the source (expression or symbolic label) before the first `|` and the rendered display value after it.
+- Keep pills inline; do not use them for multi-line calculations or chart data.
+- Pipes inside pills are part of the syntax and do not split table cells.
 
 ## Avoid
 
