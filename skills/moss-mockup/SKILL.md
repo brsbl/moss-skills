@@ -1,11 +1,11 @@
 ---
 name: moss-mockup
-description: Author interactive HTML mockups, prototypes, and embedded designs in Moss notes using self-contained moss-html fenced blocks.
+description: Author interactive HTML mockups, UI proposals, prototypes, and embedded designs in Moss notes using self-contained moss-html fenced blocks.
 ---
 
 # HTML Mockups
 
-Use `moss-html` only when rendered HTML or interactivity is the right artifact. Prefer semantic markdown, charts, callouts, canvas, or images when those fit the request; see the notes skill for those node types (`moss-notes`).
+Use `moss-html` when rendered HTML or interactivity is the right artifact for mockups, UI proposals, prototypes, or embedded designs. Prefer semantic markdown, charts, callouts, `moss-canvas`, or images when those fit the request; see the notes skill for those node types (`moss-notes`).
 
 Embed mockups directly in the note:
 

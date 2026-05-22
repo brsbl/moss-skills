@@ -10,7 +10,13 @@ Start from the strongest source of truth available:
 - Existing bugs, issues, screenshots, QA notes, verification reports, or PR feedback.
 - Current code and tests.
 
-Plans must follow the shared human-readable artifact guidance in [../../WORKFLOWS.md](../../WORKFLOWS.md): skimmable decisions, next actions, evidence, and low cognitive load. If a plan includes a mockup, wireframe, UI proposal, flow, or prototype, prefer `moss-html` for that mockup portion when a visual or interactive rendering helps humans understand it; keep plain prose and planning details in Markdown. For Moss note creation and editing rules, follow the Moss note skills instead of duplicating note-format instructions here: [moss-notes](../../../moss-notes/SKILL.md), [moss-frontmatter](../../../moss-frontmatter/SKILL.md), [moss-comments](../../../moss-comments/SKILL.md), and [moss-wiki-links](../../../moss-wiki-links/SKILL.md).
+Plans must follow the shared human-readable artifact guidance in [../../WORKFLOWS.md](../../WORKFLOWS.md): skimmable decisions, next actions, evidence, and low cognitive load.
+
+If a plan includes a mockup, UI proposal, or prototype, use `moss-html` for that mockup portion when visual or interactive rendering helps humans understand it.
+
+Use canvas/`moss-canvas` for wireframes, flows, and diagrams. Keep plain prose and planning details in Markdown.
+
+For Moss note creation and editing rules, follow the Moss note skills instead of duplicating note-format instructions here: [moss-notes](../../../moss-notes/SKILL.md), [moss-frontmatter](../../../moss-frontmatter/SKILL.md), [moss-comments](../../../moss-comments/SKILL.md), and [moss-wiki-links](../../../moss-wiki-links/SKILL.md).
 
 ## Planning Depth
 

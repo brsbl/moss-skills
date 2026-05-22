@@ -41,7 +41,8 @@ All written artifacts are human-readable first. Optimize for skimmability, clear
 - Use tabs only for a few alternate views or large parallel sections that would otherwise make one page hard to scan.
 - Use charts only when trends or comparisons beat a table or list.
 - Keep general prose, status, evidence, and decisions in Markdown; do not wrap plain prose in `moss-html` when Markdown is enough.
-- For planning and research artifacts that include mockups, wireframes, UI proposals, flows, or prototypes, prefer `moss-html` for the mockup portion when a visual or interactive rendering helps humans understand the plan or research.
+- For planning and research artifacts, use `moss-html` for mockups, UI proposals, and prototypes when visual or interactive rendering helps humans understand the plan or research.
+- Use canvas/`moss-canvas` for wireframes, flows, and diagrams.
 
 ## Core rule
 

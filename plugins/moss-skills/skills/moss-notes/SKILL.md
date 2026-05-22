@@ -110,11 +110,11 @@ Priority callouts can optionally put a level on the second line before the conte
 
 ### Canvas
 
-Use `moss-canvas` for ASCII-style diagrams, simple wireframes, flow charts, rough spatial layouts, hand-drawn/diagrammatic visuals, and other rough visual thinking. Avoid it for geographic maps or precise visualizations. The canvas uses a 120x60 grid. Legacy `moss-sketch` fences still import as the same canvas; new content should write `moss-canvas`.
+Prefer `moss-canvas` for wireframes, flows, diagrams, ASCII-style diagrams, flow charts, rough spatial layouts, hand-drawn/diagrammatic visuals, and other rough visual thinking. Avoid it for geographic maps or precise visualizations. The canvas uses a 120x60 grid. Legacy `moss-sketch` fences still import as the same canvas; new content should write `moss-canvas`.
 
 ### HTML Mockups
 
-Use `moss-html` fenced blocks when rendered HTML or interactivity is the right artifact, such as prototypes and interactive design mockups. See the mockup skill (`moss-mockup`).
+Use `moss-html` fenced blocks when rendered HTML or interactivity is the right artifact, such as mockups, UI proposals, prototypes, and interactive design mockups. See the mockup skill (`moss-mockup`).
 
 ### Tabs
 

@@ -20,11 +20,13 @@ Use this skill to create the lightest useful plan for a Moss bb workstream or wo
 2. Stop if an acceptance-critical artifact cannot be inspected; ask the manager to supply or verify it.
 3. Choose the smallest sufficient plan depth: dashboard row, existing note addendum, lightweight plan, or full spec/design note.
 4. Make every plan follow the human-readable written artifact guidance in [../WORKFLOWS.md](../WORKFLOWS.md): optimize for skimmability, decisions, next actions, evidence, and minimal cognitive load.
-5. When a plan includes a mockup, wireframe, UI proposal, flow, or prototype, prefer `moss-html` for that mockup portion if visual or interactive rendering helps humans understand it; keep plain prose and planning details in Markdown.
-6. Define objective, non-goals, owned files, forbidden files, dependencies, acceptance criteria, validation, and review risk.
-7. Include Moss-specific invariants from `AGENTS.md` or `CLAUDE.md` for Lexical, Jotai, IPC, markdown layers, storage, or note-switch behavior when affected.
-8. **Search for existing precedence before designing new effects.** If the work would introduce a new write, IPC channel, migration, lifecycle hook, transformer, decorator, atom, fs walk, or similar effect class, first grep the codebase for an existing framework that already handles that effect class (e.g. `note-markdown-migration-runner.ts` for markdown migrations, `ipcChannels.ts` for IPC, `tokens.css` for color tokens). The default is to register with the existing framework. Inventing a new path requires an explicit documented justification (what's wrong with the existing pattern for this case) in the plan.
-9. Require manager approval before implementation for medium, risky, cross-file, or user-facing work.
+5. When a plan includes a mockup, UI proposal, or prototype, use `moss-html` for that mockup portion if visual or interactive rendering helps humans understand it.
+6. Use canvas/`moss-canvas` for wireframes, flows, and diagrams.
+7. Keep plain prose and planning details in Markdown.
+8. Define objective, non-goals, owned files, forbidden files, dependencies, acceptance criteria, validation, and review risk.
+9. Include Moss-specific invariants from `AGENTS.md` or `CLAUDE.md` for Lexical, Jotai, IPC, markdown layers, storage, or note-switch behavior when affected.
+10. **Search for existing precedence before designing new effects.** If the work would introduce a new write, IPC channel, migration, lifecycle hook, transformer, decorator, atom, fs walk, or similar effect class, first grep the codebase for an existing framework that already handles that effect class (e.g. `note-markdown-migration-runner.ts` for markdown migrations, `ipcChannels.ts` for IPC, `tokens.css` for color tokens). The default is to register with the existing framework. Inventing a new path requires an explicit documented justification (what's wrong with the existing pattern for this case) in the plan.
+11. Require manager approval before implementation for medium, risky, cross-file, or user-facing work.
 
 ## Outputs
 
