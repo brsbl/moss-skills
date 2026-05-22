@@ -13,7 +13,7 @@ Prefer a small set of high-quality sources over broad collection. Stop when the 
 
 If research includes a mockup, UI proposal, or prototype, use `moss-html` for that mockup portion when visual or interactive rendering helps humans understand it.
 
-Use canvas/`moss-canvas` for wireframes, flows, and diagrams. Keep plain prose and evidence synthesis in Markdown.
+Use canvas/`moss-canvas` for wireframes, flows, and diagrams. Keep plain prose and evidence synthesis in Markdown. Emojis may be used sparingly for scanability or status recognition, but pair them with clear words or labels and avoid decorative overload.
 
 ## Source Targets
 

@@ -22,9 +22,10 @@ Use this skill before planning when a product, feature, technical approach, or w
 5. When research includes a mockup, UI proposal, or prototype, use `moss-html` for that mockup portion if visual or interactive rendering helps humans understand the recommendation.
 6. Use canvas/`moss-canvas` for wireframes, flows, and diagrams.
 7. Keep plain prose and evidence synthesis in Markdown.
-8. Synthesize options with a recommendation, pros and cons, source links, assumptions, risks, open questions, and follow-up planning inputs.
-9. Save durable research under `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/research/` using dated filenames.
-10. Link the report from `dashboard.md` or planning artifacts only when those artifacts already exist.
+8. Use emojis sparingly in human-facing research Markdown only when they improve scanability or status recognition; pair them with clear words or labels.
+9. Synthesize options with a recommendation, pros and cons, source links, assumptions, risks, open questions, and follow-up planning inputs.
+10. Save durable research under `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/research/` using dated filenames.
+11. Link the report from `dashboard.md` or planning artifacts only when those artifacts already exist.
 
 ## Outputs
 

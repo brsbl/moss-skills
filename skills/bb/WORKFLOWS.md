@@ -40,6 +40,7 @@ All written artifacts are human-readable first. Optimize for skimmability, clear
 - Use callouts for blockers, decisions, warnings, accepted risks, and human-needed checks.
 - Use tabs only for a few alternate views or large parallel sections that would otherwise make one page hard to scan.
 - Use charts only when trends or comparisons beat a table or list.
+- For human-facing Markdown artifacts such as plans, research, status summaries, and reviews, emojis may be used sparingly when they improve scanability, tone, or section/status recognition; pair them with clear words or labels, and avoid noisy or decorative overload.
 - Keep general prose, status, evidence, and decisions in Markdown; do not wrap plain prose in `moss-html` when Markdown is enough.
 - For planning and research artifacts, use `moss-html` for mockups, UI proposals, and prototypes when visual or interactive rendering helps humans understand the plan or research.
 - Use canvas/`moss-canvas` for wireframes, flows, and diagrams.

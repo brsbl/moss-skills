@@ -14,7 +14,7 @@ Plans must follow the shared human-readable artifact guidance in [../../WORKFLOW
 
 If a plan includes a mockup, UI proposal, or prototype, use `moss-html` for that mockup portion when visual or interactive rendering helps humans understand it.
 
-Use canvas/`moss-canvas` for wireframes, flows, and diagrams. Keep plain prose and planning details in Markdown.
+Use canvas/`moss-canvas` for wireframes, flows, and diagrams. Keep plain prose and planning details in Markdown. Emojis may be used sparingly for scanability or status recognition, but pair them with clear words or labels and avoid decorative overload.
 
 For Moss note creation and editing rules, follow the Moss note skills instead of duplicating note-format instructions here: [moss-notes](../../../moss-notes/SKILL.md), [moss-frontmatter](../../../moss-frontmatter/SKILL.md), [moss-comments](../../../moss-comments/SKILL.md), and [moss-wiki-links](../../../moss-wiki-links/SKILL.md).
 
