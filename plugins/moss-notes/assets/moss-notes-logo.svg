@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 120" role="img" aria-labelledby="title desc">
+  <title id="title">Moss Notes logo</title>
+  <desc id="desc">Moss Notes wordmark with a note and linked-node mark.</desc>
+  <rect width="360" height="120" rx="18" fill="#F8FBF7"/>
+  <rect x="24" y="24" width="72" height="72" rx="16" fill="#2F6F5E"/>
+  <path d="M45 37h23l11 11v35H45z" fill="#F8FBF7"/>
+  <path d="M68 37v12h11z" fill="#CFE5DA"/>
+  <circle cx="57" cy="59" r="3.8" fill="#2F6F5E"/>
+  <circle cx="70" cy="68" r="3.8" fill="#2F6F5E"/>
+  <circle cx="55" cy="76" r="3.8" fill="#2F6F5E"/>
+  <path d="M60.2 61.2l6.6 4.8M66.5 70l-8.1 4.3" fill="none" stroke="#2F6F5E" stroke-width="2.8" stroke-linecap="round"/>
+  <text x="116" y="55" fill="#16382F" font-family="Inter, Arial, sans-serif" font-size="31" font-weight="700">Moss Notes</text>
+  <text x="118" y="82" fill="#3D5D54" font-family="Inter, Arial, sans-serif" font-size="15">Codex app skills</text>
+</svg>

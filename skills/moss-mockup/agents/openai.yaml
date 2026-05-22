@@ -1,0 +1,4 @@
+interface:
+  display_name: "Moss HTML Mockups"
+  short_description: "Embed self-contained interactive HTML prototypes in Moss notes"
+  default_prompt: "Create a self-contained moss-html mockup or prototype inside a Moss note with a meaningful initial state."

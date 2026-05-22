@@ -2,6 +2,8 @@
 
 Use these instructions for Moss bb manager-led work. It describes the workflow the user expects managers to follow.
 
+This checked-in file is the canonical bb workflow policy and routing entrypoint for Moss workstreams. Reference it from bb manager templates or preferences, then use the linked stage skills below for the detailed stage instructions. It is not the Codex app plugin surface, and Codex app plugin packaging should not load these bb-only skills by default.
+
 ## Skill definitions
 
 Canonical bb skill definitions live in the `moss-skills` repo:

@@ -1,7 +1,7 @@
 {
-  "name": "moss-skills",
+  "name": "moss-notes",
   "version": "0.1.0",
-  "description": "Compatibility manifest for the Moss Notes Codex app plugin package.",
+  "description": "Codex app skills for working with mossnotes.app notes.",
   "author": {
     "name": "Bersabel Tadesse"
   },
@@ -11,25 +11,25 @@
   "keywords": [
     "moss",
     "mossnotes",
-    "mossnotes-app",
     "notes",
-    "note-taking",
     "markdown",
-    "claude-code",
-    "codex",
+    "frontmatter",
     "wiki-links",
     "comments",
-    "frontmatter",
     "mockups",
-    "plugin"
+    "codex"
   ],
-  "skills": "./plugins/moss-notes/skills/",
+  "skills": "./skills/",
   "interface": {
-    "displayName": "mossnotes.app for Codex",
-    "shortDescription": "Moss note skills packaged for the Codex app.",
-    "longDescription": "Compatibility manifest for direct root installs. The Codex app package lives at ./plugins/moss-notes and excludes bb-only skills.",
+    "displayName": "Moss Notes",
+    "shortDescription": "Moss note skills for frontmatter, comments, wiki links, and mockups.",
+    "longDescription": "Codex app package for Moss note workflows. It includes only the Moss note, frontmatter, comment, wiki-link, and mockup skills.",
     "developerName": "Bersabel Tadesse",
     "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
     "websiteURL": "https://github.com/brsbl/moss-skills",
     "defaultPrompt": [
       "Create a Moss implementation note with frontmatter and tasks.",
@@ -37,7 +37,7 @@
       "Draft a Moss mockup note for this UI idea."
     ],
     "brandColor": "#2F6F5E",
-    "composerIcon": "./plugins/moss-notes/assets/moss-notes-icon.svg",
-    "logo": "./plugins/moss-notes/assets/moss-notes-logo.svg"
+    "composerIcon": "./assets/moss-notes-icon.svg",
+    "logo": "./assets/moss-notes-logo.svg"
   }
 }
