@@ -19,9 +19,10 @@ Use this skill before planning when a product, feature, technical approach, or w
 2. Use available search, fetch, docs, and browser tools to inspect high-quality sources.
 3. Cover best practices, common pitfalls, popular or reference products, official docs or API references, and UI/reference examples when relevant.
 4. Capture screenshots or browser evidence for UI/reference research when tooling and access are available. If not, record a clear `HUMAN-needed` or blocker note.
-5. Synthesize options with a recommendation, pros and cons, source links, assumptions, risks, open questions, and follow-up planning inputs.
-6. Save durable research under `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/research/` using dated filenames.
-7. Link the report from `dashboard.md` or planning artifacts only when those artifacts already exist.
+5. When research includes a mockup, wireframe, UI proposal, flow, or prototype, prefer `moss-html` for that mockup portion if visual or interactive rendering helps humans understand the recommendation; keep plain prose and evidence synthesis in Markdown.
+6. Synthesize options with a recommendation, pros and cons, source links, assumptions, risks, open questions, and follow-up planning inputs.
+7. Save durable research under `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/research/` using dated filenames.
+8. Link the report from `dashboard.md` or planning artifacts only when those artifacts already exist.
 
 ## Outputs
 
@@ -29,6 +30,7 @@ Use this skill before planning when a product, feature, technical approach, or w
 - Evidence paths for screenshots, browser notes, source excerpts, or blockers.
 - Explicit gaps where source quality, access, browser tooling, or account state limits confidence.
 - Report shape follows the shared written artifact guidance so decisions, next actions, evidence, and gaps are easy to scan.
+- Any mockup, wireframe, UI proposal, flow, or prototype uses `moss-html` for the mockup portion when that makes the research easier to understand.
 
 ## Validation
 

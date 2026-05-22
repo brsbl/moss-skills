@@ -40,7 +40,8 @@ All written artifacts are human-readable first. Optimize for skimmability, clear
 - Use callouts for blockers, decisions, warnings, accepted risks, and human-needed checks.
 - Use tabs only for a few alternate views or large parallel sections that would otherwise make one page hard to scan.
 - Use charts only when trends or comparisons beat a table or list.
-- Use `moss-html` only when extra interactivity is genuinely worth it.
+- Keep general prose, status, evidence, and decisions in Markdown; do not wrap plain prose in `moss-html` when Markdown is enough.
+- For planning and research artifacts that include mockups, wireframes, UI proposals, flows, or prototypes, prefer `moss-html` for the mockup portion when a visual or interactive rendering helps humans understand the plan or research.
 
 ## Core rule
 
