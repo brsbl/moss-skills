@@ -79,6 +79,10 @@ The manager's core role is to keep workers unblocked and on-plan.
 - Keep bb threads for communication and execution details.
 - Before workers start, tell the user each worker's objective, files/scope, validation, expected output, and provider/model when relevant.
 - For non-trivial fanout, pause for user approval before spawning workers.
+- While workers are active, use `ASYNC.md` scheduled nudges at the minimum supported cadence (currently 5 minutes) for manager check-ins.
+- On each scheduled nudge, inspect every active child once, ask or confirm whether a worker is blocked when progress is unclear, send the user concise play-by-play status for each active worker, and update the STATUS/dashboard.
+- Keep immediate event-driven updates for blockers, completions, review/fix loops, and merge-ready state.
+- Do not use shell sleeps, tail loops, or repeated log/status polling to simulate 1-minute checks.
 - Require each worker to write a plan before edits. Review and approve, revise, or block the plan.
 - Route blockers immediately. If a worker lacks source context, attachments, app access, account state, a running target, screenshots, or other acceptance-critical evidence, supply it, move the worker to an environment with access, verify it directly, or ask the user.
 - Do not let workers proceed from guesses or paraphrases when original evidence is required for acceptance.
