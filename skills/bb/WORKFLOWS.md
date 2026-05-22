@@ -64,6 +64,16 @@ Large work must go through the full workflow:
 
 Small work can use an abbreviated workflow, but planning, verification, and review are still expected unless the user explicitly waives them.
 
+## Parallelization
+
+Parallelize independent work as much as practical while keeping ownership and merge safety explicit.
+
+- Decompose large work into independent workers where files, decisions, and validation can be separated.
+- Run read-only discovery, implementation slices, validation/review, docs checks, package checks, and other non-conflicting work in parallel.
+- Keep one owner per write area or file set to avoid conflicts.
+- Do not parallelize tightly coupled, blocking, or likely-conflicting work without sequencing or explicit coordination.
+- Prefer parallel review and validation after implementation, or alongside non-overlapping work that does not affect the same files or acceptance evidence.
+
 ## Analytics work
 
 For PostHog analytics work, use `bb-analytics` instead of the implementation pipeline:
