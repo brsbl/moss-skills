@@ -121,14 +121,14 @@ The user controls the sandbox; managers have full latitude.
 
 ## Provider defaults
 
-Stay provider-agnostic, but use these defaults unless availability, task fit, tooling, context, access, cost, latency, or the user says otherwise:
+Stay provider-agnostic, but prefer Codex for manager-led work unless availability, task fit, tooling, context, access, cost, latency, or the user says otherwise:
 
-- Claude for managers, manager-of-manager threads, planning, QA, summaries, and UI/UX-related work.
-- Codex for review workers, non-UI/UX implementation, cleanup, codebase analysis, mechanical docs/code work, **investigations, regressions, and bug fixes**.
-- Always check `bb provider models <provider>` and use the latest/highest available model.
+- Codex for managers, manager-of-manager threads, planning, QA, summaries, UI/UX-related work, review workers, implementation, cleanup, codebase analysis, mechanical docs/code work, **investigations, regressions, and bug fixes**.
+- Claude or another provider when available models, tool access, context fit, interaction style, or the user's request makes that provider the better choice for the specific thread.
+- Always check `bb provider models <provider>` for candidate providers and use the latest/highest suitable available model.
 - Current example defaults:
-  - Claude: `--provider claude-code --model 'claude-opus-4-7[1m]' --reasoning-level xhigh`
   - Codex: `--provider codex --model gpt-5.5 --reasoning-level xhigh`
+  - Claude: `--provider claude-code --model 'claude-opus-4-7[1m]' --reasoning-level xhigh`
 
 ## Dashboard expectations
 
