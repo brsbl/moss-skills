@@ -30,6 +30,7 @@ Use this skill when changed behavior needs current UI, screenshot, or user-flow 
 - Verification report with target, scope, verdict, evidence, checks, failures, and review handoff.
 - Screenshot, log, console, and manifest artifacts next to the report.
 - Dashboard update with current verification status and evidence links.
+- Report shape follows the shared written artifact guidance so verdict, failures, blockers, and evidence are easy to scan.
 
 ## Validation
 
@@ -41,4 +42,5 @@ Use this skill when changed behavior needs current UI, screenshot, or user-flow 
 
 - Detailed Moss runbook, command examples, environment blockers, workflow, and report template: [references/verification-reference.md](references/verification-reference.md).
 - Exact architecture setup commands: [../bb-workstream/references/architecture-setup.md](../bb-workstream/references/architecture-setup.md).
+- Shared written artifact guidance: [../WORKFLOWS.md](../WORKFLOWS.md).
 - Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).

@@ -10,7 +10,7 @@ Start from the strongest source of truth available:
 - Existing bugs, issues, screenshots, QA notes, verification reports, or PR feedback.
 - Current code and tests.
 
-For Moss note creation and editing rules, follow the Moss note skills instead of duplicating note-format instructions here: [moss-notes](../../../moss-notes/SKILL.md), [moss-frontmatter](../../../moss-frontmatter/SKILL.md), [moss-comments](../../../moss-comments/SKILL.md), and [moss-wiki-links](../../../moss-wiki-links/SKILL.md).
+Plans must follow the shared human-readable artifact guidance in [../../WORKFLOWS.md](../../WORKFLOWS.md): skimmable decisions, next actions, evidence, and low cognitive load. For Moss note creation and editing rules, follow the Moss note skills instead of duplicating note-format instructions here: [moss-notes](../../../moss-notes/SKILL.md), [moss-frontmatter](../../../moss-frontmatter/SKILL.md), [moss-comments](../../../moss-comments/SKILL.md), and [moss-wiki-links](../../../moss-wiki-links/SKILL.md).
 
 ## Planning Depth
 

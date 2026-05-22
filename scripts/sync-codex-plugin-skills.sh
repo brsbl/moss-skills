@@ -3,20 +3,12 @@ set -euo pipefail
 
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 source_root="${repo_root}/skills"
-target_root="${repo_root}/plugins/moss-notes/skills"
-
-skills=(
-  "moss-notes"
-  "moss-frontmatter"
-  "moss-comments"
-  "moss-wiki-links"
-  "moss-mockup"
-)
+target_root="${repo_root}/plugins/moss-skills/skills"
 
 rm -rf "${target_root}"
 mkdir -p "${target_root}"
 
-for skill in "${skills[@]}"; do
-  rm -rf "${target_root}/${skill}"
-  cp -R "${source_root}/${skill}" "${target_root}/${skill}"
-done
+while IFS= read -r skill_dir; do
+  skill="$(basename "${skill_dir}")"
+  cp -R "${skill_dir}" "${target_root}/${skill}"
+done < <(find "${source_root}" -mindepth 1 -maxdepth 1 -type d -name 'moss-*' -print | LC_ALL=C sort)

@@ -9,7 +9,7 @@ Start by writing the decision the research needs to support:
 - What is out of scope for this pass.
 - What evidence would change the recommendation.
 
-Prefer a small set of high-quality sources over broad collection. Stop when the report can support a planning decision and the remaining gaps are explicit.
+Prefer a small set of high-quality sources over broad collection. Stop when the report can support a planning decision and the remaining gaps are explicit. Follow the shared human-readable artifact guidance in [../../WORKFLOWS.md](../../WORKFLOWS.md).
 
 ## Source Targets
 

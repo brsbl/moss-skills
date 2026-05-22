@@ -4,9 +4,7 @@
 
 This repository provides skills for agentically working with [mossnotes.app](https://www.mossnotes.app/) notes, packaged as Claude Code and Codex app plugins.
 
-The Moss app bundles these same note skills for its in-app agent, and this repository makes them available as plugins to use with Claude Code and Codex directly. It also keeps bb-only workflow policy checked in for teams using Moss as a durable workspace for parallel agent work.
-
-Plugin names differ by host: the Claude Code plugin remains the legacy aggregate `moss-skills` plugin, while the Codex app marketplace exposes the note-only `moss-notes` plugin package.
+The Moss app bundles these same note skills for its in-app agent, and this repository makes them available as the `moss-skills` plugin for Claude Code and Codex. It also keeps bb-only workflow policy checked in for teams using Moss as a durable workspace for parallel agent work.
 
 ## What This Repo Is For
 
@@ -24,7 +22,7 @@ Forking this repository only affects the Claude Code and Codex plugins that are 
 
 ### Moss note skills
 
-These are the skills the Codex app plugin is intended to expose by default. They are also the Moss note authoring skills used by Claude Code and by bb workflows when a worker needs to create or edit Moss notes.
+These are the top-level `skills/moss-*` skills the Codex app plugin is intended to expose by default. They are also the Moss note authoring skills used by Claude Code and by bb workflows when a worker needs to create or edit Moss notes.
 
 - [`moss-notes`](skills/moss-notes/SKILL.md): how Moss note folders, markdown files, and supported note blocks work.
 - [`moss-frontmatter`](skills/moss-frontmatter/SKILL.md): how Moss uses YAML frontmatter in note files.
@@ -54,7 +52,7 @@ These stage skills are written for the agent orchestration platform and IDE [bb]
 
 ## Claude Code
 
-The Claude Code plugin is still named `moss-skills`. It is the legacy aggregate plugin for this repository and keeps the existing install and invocation names.
+The Claude Code plugin is named `moss-skills`.
 
 Add this repository as a Claude Code plugin marketplace, then install the Claude Code plugin:
 
@@ -72,11 +70,11 @@ Installed skills are namespaced by the plugin name. For example:
 
 ## Codex
 
-The Codex app plugin is named `moss-notes`. It should expose the Moss note skills listed above, not the bb workflow skills under `skills/bb/**`.
+The Codex app plugin is also named `moss-skills`. It exposes all top-level `skills/moss-*` skills and excludes the bb workflow skills under `skills/bb/**`.
 
-For a marketplace install, add this repository as a Codex plugin marketplace, then install and enable the `moss-notes` plugin from that marketplace. The marketplace entry points at `./plugins/moss-notes`, which is the Codex plugin package root.
+For a marketplace install, add this repository as a Codex plugin marketplace, then install and enable the `moss-skills` plugin from that marketplace. The marketplace entry points at `./plugins/moss-skills`, which is the Codex plugin package root.
 
-For local development, check out this repository and point the Codex app's local plugin or marketplace development flow at `./plugins/moss-notes`. Use the repository root only as the source checkout; do not point Codex at `./skills` when you want the intended app plugin package.
+For local development, check out this repository and point the Codex app's local plugin or marketplace development flow at `./plugins/moss-skills`. Use the repository root only as the source checkout; do not point Codex at `./skills` when you want the intended app plugin package.
 
 The bb workflow files remain checked in separately at [`skills/bb/WORKFLOWS.md`](skills/bb/WORKFLOWS.md) and `skills/bb/*/SKILL.md` for bb manager-led workstreams.
 

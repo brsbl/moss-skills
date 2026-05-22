@@ -27,6 +27,7 @@ Use this skill to clean up bb workstream state only after useful evidence is pre
 
 - Cleanup report with archived threads, preserved environments, dirty or unmerged worktrees, preserved evidence, and remaining manager/user actions.
 - Dashboard or summary update explaining final state.
+- Cleanup report follows the shared written artifact guidance so preserved evidence, risks, and remaining actions are easy to scan.
 
 ## Validation
 
@@ -37,4 +38,5 @@ Use this skill to clean up bb workstream state only after useful evidence is pre
 ## References
 
 - Detailed inventory commands, safety gates, evidence preservation, cleanup commands, and report checklist: [references/cleanup-reference.md](references/cleanup-reference.md).
+- Shared written artifact guidance: [../WORKFLOWS.md](../WORKFLOWS.md).
 - Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).

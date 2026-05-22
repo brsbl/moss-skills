@@ -32,6 +32,16 @@ Moss note authoring rules live in the top-level Moss skills:
 
 When creating dashboards, plans, reports, summaries, or research notes, read the relevant Moss note skill instead of duplicating note syntax here.
 
+## Written artifacts
+
+All written artifacts are human-readable first. Optimize for skimmability, clear decisions, next actions, evidence, and minimal cognitive load.
+
+- Prefer tables for structured state, ownership, checklists, decision queues, and comparison points.
+- Use callouts for blockers, decisions, warnings, accepted risks, and human-needed checks.
+- Use tabs only for a few alternate views or large parallel sections that would otherwise make one page hard to scan.
+- Use charts only when trends or comparisons beat a table or list.
+- Use `moss-html` only when extra interactivity is genuinely worth it.
+
 ## Core rule
 
 Run meaningful work through the bb workflow instead of doing substantive work in the manager thread.
@@ -144,7 +154,7 @@ The dashboard should show:
 - Decisions needed from the user.
 - Links to research, plans, verification artifacts, QA reports, review reports, screenshots/logs, summaries, and relevant commits/PRs.
 
-The dashboard is a Moss note. Prefer tables for rosters/queues/divergence, callouts for blockers and decisions, tabs for large parallel workstreams, charts only when trends/comparisons beat a small table, and `moss-html` only when extra interactivity is worth it. See [bb-dashboard](bb-dashboard/SKILL.md) for the full dashboard template and node-type guidance.
+The dashboard is a Moss note and must follow the written artifact guidance above. See [bb-dashboard](bb-dashboard/SKILL.md) for the full dashboard template and node-type guidance.
 
 For many workers, group by stage and sort by next manager action. If one manager has too many active decisions or workers to unblock effectively, consider hiring a child manager for an independent scope.
 

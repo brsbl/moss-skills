@@ -1,6 +1,6 @@
 # Analytics Reference
 
-Runbooks define how to read a PostHog dashboard. Reports are dated runs of a runbook, written for the user.
+Runbooks define how to read a PostHog dashboard. Reports are dated runs of a runbook, written for the user. Follow the shared human-readable artifact guidance in [../../WORKFLOWS.md](../../WORKFLOWS.md).
 
 ## Scope
 

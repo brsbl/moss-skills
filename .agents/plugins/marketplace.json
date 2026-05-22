@@ -5,10 +5,10 @@
   },
   "plugins": [
     {
-      "name": "moss-notes",
+      "name": "moss-skills",
       "source": {
         "source": "local",
-        "path": "./plugins/moss-notes"
+        "path": "./plugins/moss-skills"
       },
       "policy": {
         "installation": "AVAILABLE",

@@ -11,7 +11,7 @@ Use the dashboard to answer, at a glance:
 - What plan divergence has been proposed, approved, redirected, or escalated.
 - Where to find plans, QA, verification, reviews, screenshots, summaries, commits, and risks.
 
-Aim for concise status sections, counts, evidence links, and a short history of decisions. Use the skeleton in "Dashboard Template" as a starting point, then remove sections that do not apply.
+Aim for concise status sections, counts, evidence links, and a short history of decisions. Follow the shared human-readable artifact guidance in [../../WORKFLOWS.md](../../WORKFLOWS.md). Use the skeleton in "Dashboard Template" as a starting point, then remove sections that do not apply.
 
 ## Artifact Layout
 

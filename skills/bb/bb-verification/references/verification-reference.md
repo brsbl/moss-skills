@@ -16,7 +16,7 @@ Keep screenshots and logs beside the report. For larger checks, use:
 ~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/verification/<check-name>/logs/
 ```
 
-Link the current verification report from the dashboard and from QA when it supports manual/user-flow checks.
+Link the current verification report from the dashboard and from QA when it supports manual/user-flow checks. Follow the shared human-readable artifact guidance in [../../WORKFLOWS.md](../../WORKFLOWS.md).
 
 ## Access Gate
 

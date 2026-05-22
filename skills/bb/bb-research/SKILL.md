@@ -28,6 +28,7 @@ Use this skill before planning when a product, feature, technical approach, or w
 - Source-backed research report with recommendation, options, pros and cons, risks, assumptions, open questions, and planning inputs.
 - Evidence paths for screenshots, browser notes, source excerpts, or blockers.
 - Explicit gaps where source quality, access, browser tooling, or account state limits confidence.
+- Report shape follows the shared written artifact guidance so decisions, next actions, evidence, and gaps are easy to scan.
 
 ## Validation
 
@@ -42,4 +43,5 @@ Use this skill before planning when a product, feature, technical approach, or w
 - Create/manage the broader workstream with [bb-workstream](../bb-workstream/SKILL.md).
 - Turn research into scoped worker plans with [bb-planning](../bb-planning/SKILL.md).
 - Link research reports from the canonical status surface with [bb-dashboard](../bb-dashboard/SKILL.md).
+- Shared written artifact guidance: [../WORKFLOWS.md](../WORKFLOWS.md).
 - Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).

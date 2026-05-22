@@ -1,7 +1,7 @@
 {
   "name": "moss-skills",
   "version": "0.1.0",
-  "description": "Compatibility manifest for the Moss Notes Codex app plugin package.",
+  "description": "Compatibility manifest for the Moss skills Codex app plugin package.",
   "author": {
     "name": "Bersabel Tadesse"
   },
@@ -23,11 +23,11 @@
     "mockups",
     "plugin"
   ],
-  "skills": "./plugins/moss-notes/skills/",
+  "skills": "./plugins/moss-skills/skills/",
   "interface": {
     "displayName": "mossnotes.app for Codex",
-    "shortDescription": "Moss note skills packaged for the Codex app.",
-    "longDescription": "Compatibility manifest for direct root installs. The Codex app package lives at ./plugins/moss-notes and excludes bb-only skills.",
+    "shortDescription": "Moss skills packaged for the Codex app.",
+    "longDescription": "Compatibility manifest for direct root installs. The Codex app package lives at ./plugins/moss-skills, includes top-level skills/moss-* skills, and excludes bb-only workflow skills.",
     "developerName": "Bersabel Tadesse",
     "category": "Productivity",
     "websiteURL": "https://github.com/brsbl/moss-skills",
@@ -37,7 +37,7 @@
       "Draft a Moss mockup note for this UI idea."
     ],
     "brandColor": "#2F6F5E",
-    "composerIcon": "./plugins/moss-notes/assets/moss-notes-icon.svg",
-    "logo": "./plugins/moss-notes/assets/moss-notes-logo.svg"
+    "composerIcon": "./plugins/moss-skills/assets/moss-skills-icon.svg",
+    "logo": "./plugins/moss-skills/assets/moss-skills-logo.svg"
   }
 }

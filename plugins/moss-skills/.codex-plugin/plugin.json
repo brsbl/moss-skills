@@ -1,5 +1,5 @@
 {
-  "name": "moss-notes",
+  "name": "moss-skills",
   "version": "0.1.0",
   "description": "Codex app skills for working with mossnotes.app notes.",
   "author": {
@@ -21,9 +21,9 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Moss Notes",
-    "shortDescription": "Moss note skills for frontmatter, comments, wiki links, and mockups.",
-    "longDescription": "Codex app package for Moss note workflows. It includes only the Moss note, frontmatter, comment, wiki-link, and mockup skills.",
+    "displayName": "Moss Skills",
+    "shortDescription": "Moss skills for notes, frontmatter, comments, wiki links, and mockups.",
+    "longDescription": "Codex app package for Moss skills. It includes top-level skills/moss-* skills and excludes bb-only workflow guidance.",
     "developerName": "Bersabel Tadesse",
     "category": "Productivity",
     "capabilities": [
@@ -37,7 +37,7 @@
       "Draft a Moss mockup note for this UI idea."
     ],
     "brandColor": "#2F6F5E",
-    "composerIcon": "./assets/moss-notes-icon.svg",
-    "logo": "./assets/moss-notes-logo.svg"
+    "composerIcon": "./assets/moss-skills-icon.svg",
+    "logo": "./assets/moss-skills-logo.svg"
   }
 }

@@ -4,7 +4,7 @@
 
 For UI, screenshot, or user-flow work, run verification first and link the report, screenshots, logs, and known limitations from the dashboard. Code review inspects the verified behavior and the implementation behind it.
 
-For non-UI work, require the worker's focused validation first. Use QA when the workstream has a QA checklist or release gate.
+For non-UI work, require the worker's focused validation first. Use QA when the workstream has a QA checklist or release gate. Follow the shared human-readable artifact guidance in [../../WORKFLOWS.md](../../WORKFLOWS.md) for review notes and reports.
 
 Default review workers to the latest available Codex model unless overridden. Check current models with `bb provider models codex`; the current valid example is `--provider codex --model gpt-5.5 --reasoning-level xhigh`. `xhigh` is the bb CLI value for extra-high. This is a default provider selection, not a requirement: the manager may use any available provider, model, or reasoning/thinking level when review fit, tooling, context, environment access, availability, cost, latency, or user preference calls for it.
 
