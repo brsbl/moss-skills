@@ -132,6 +132,8 @@ Store durable workstream artifacts under the Moss workspace, not in the repo che
 
 The dashboard links to the supporting artifacts. Keep long logs, screenshots, reports, and summaries in the matching subdirectories.
 
+When an agent is running inside bb, use the bb-provided Moss workspace and `bb Workspace` paths for Moss notes, artifacts, and workspace references. Do not default to Codex Workspace or Claude Workspace terminology or locations inside bb; reserve those host-specific workspace names for agents actually running in Codex or Claude outside bb.
+
 Repo changes should contain only code/docs/assets intended to be committed.
 
 ## Worker sandbox
