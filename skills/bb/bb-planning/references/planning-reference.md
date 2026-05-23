@@ -66,28 +66,28 @@ Use stage groups for high concurrency: foundation work first, dependent implemen
 
 ## Worker-Ready Plan Format
 
-For medium or larger work, save a concise plan:
+For medium or larger work, save a concise plan with these headings. The emoji helps scanning, but the worded heading carries the meaning; do not add decorative emoji beyond these section labels.
 
 ```markdown
 # <Workstream>: <Scope>
 
-## Objective
-What this worker or stage must deliver.
+## 🧩 Problems
+What is broken, missing, unclear, risky, or motivating the work.
 
-## Scope
-Owned files, forbidden files, dependencies, and source-of-truth links.
+## 🛠️ Planned solution
+The intended approach and source-of-truth links.
 
-## Approach
-The intended implementation or investigation path.
+## 🎯 Goals
+User-facing or internal outcomes this worker or stage must deliver.
 
-## Acceptance
-Observable behavior, contracts, and non-goals.
+## 🚫 Non-goals
+Behavior, files, or decisions that stay out of scope.
 
-## Validation
-Commands, screenshot targets, QA evidence, and expected artifacts.
+## 🧱 Implementation plan
+Owned files, forbidden files, dependencies, sequence, validation commands, screenshot targets, QA evidence, and expected artifacts.
 
-## Risks
-Known conflict points, missing evidence, and review focus.
+## ✅ Acceptance criteria
+Observable behavior, contracts, evidence requirements, known conflict points, missing evidence, and review focus.
 ```
 
 ## Approval And Divergence
