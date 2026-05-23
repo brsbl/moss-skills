@@ -20,7 +20,7 @@ Use this skill for a QA gate that covers automated tests, user flows, and valida
 2. Create a QA report under `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/qa/`.
 3. Use merge-base diffs so QA covers exactly what the workstream introduced.
 4. Draft automated checks and manual/user-flow checks from diff, plan, dashboard decisions, verification, and review findings.
-5. Run focused checks where useful, then run `moss verify` as the hard gate.
+5. Run focused checks where useful, then run `moss verify` as the hard gate. Split QA into parallel workers when automated checks, user flows, and the hard gate can run independently against the same head; keep one synthesis owner for the final verdict. See [Parallelization And Fanout](../bb-workstream/references/manager-flow.md#parallelization-and-fanout).
 6. Classify every issue as product failure, tooling blocker, `HUMAN`, or accepted risk.
 7. Update the dashboard with report path, gate status, blockers, and needed decisions.
 
