@@ -36,7 +36,7 @@ When creating dashboards, plans, reports, summaries, or research notes, read the
 
 All written artifacts are human-readable first. Optimize for skimmability, clear decisions, next actions, evidence, and minimal cognitive load.
 
-- Prefer tables for structured state, ownership, checklists, decision queues, and comparison points.
+- Prefer tables for structured state, ownership, checklists, decision queues, and comparison points; size columns thoughtfully when Moss/table layout metadata supports it, with narrow compact columns and wider prose-heavy columns.
 - Use callouts for blockers, decisions, warnings, accepted risks, and human-needed checks.
 - Use tabs only for a few alternate views or large parallel sections that would otherwise make one page hard to scan.
 - Use charts only when trends or comparisons beat a table or list.

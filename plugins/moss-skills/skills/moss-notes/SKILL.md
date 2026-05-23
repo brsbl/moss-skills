@@ -13,7 +13,7 @@ Related skills: frontmatter (`moss-frontmatter`), comments (`moss-comments`), wi
 - Folders organize notes. Subfolders and nested folders under `~/Moss/Notes/` are valid; create them when grouping helps or when the user asks.
 - Edit the existing markdown content file in the note directory.
 - New notes: create a directory (nested folders allowed) and a markdown file with the first line as `# Title`.
-- Do not create or edit app-owned sidecars such as `meta.json`, `.folder.json`, or `layout.json`; Moss writes these automatically.
+- Do not create or edit app-owned sidecars such as `meta.json`, `.folder.json`, or `layout.json`; Moss writes these automatically, except when a task explicitly includes preserving or updating an existing app-supported table layout metadata mechanism.
 - `comments.json` is a content sidecar: edit it only via the comments skill.
 - `assets/` is note-local content storage for referenced media, not metadata.
 - Use one H1 title only. Body headings start at H2.
@@ -43,9 +43,15 @@ Use tables for structured comparisons, compact data, status matrices, or checkli
 
 - Keep each row on one line.
 - Keep column counts consistent.
+- Size table columns thoughtfully for the available space and content shape when the app/table layout supports it.
+- Use narrow widths for compact columns such as status, owner, priority, dates, IDs, counts, and short labels.
+- Use wider widths for description, evidence, decision, rationale, next action, notes, and other prose-heavy columns.
+- Avoid equal-width tables when content clearly needs different proportions; do not waste space on tiny columns or cramp long-text columns.
 - Cells may contain supported text-level syntax such as emphasis, links, wiki links, inline code, formulas, highlight, underline, and image markdown as cell content. Keep the table row structure valid.
 - Escape literal table pipes as `\|`, except inside formulas.
-- Edit table markdown content only. Moss may preserve column widths in `layout.json` (app-managed); do not encode widths in markdown comments or HTML.
+- If app-supported table layout metadata exists in the artifact being edited (for example `layout.json`) and the task includes preserving or setting table layout, use that mechanism for sensible column widths.
+- If no supported layout metadata is available, keep Markdown valid and let Moss/app layout handle widths.
+- Do not encode widths in Markdown comments, raw HTML, or hidden hacks.
 
 ### Images And Video
 
