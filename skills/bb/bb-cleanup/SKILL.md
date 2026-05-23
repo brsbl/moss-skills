@@ -16,7 +16,7 @@ Use this skill to clean up bb workstream state only after useful evidence is pre
 ## Steps
 
 1. Verify no active worker or manager thread still depends on the environment.
-2. Inventory threads, environments, and worktree status.
+2. Inventory threads, environments, and worktree status. Cleanup across many independent environments can run in parallel by environment group; keep one owner for the final cleanup report and dashboard update. See [Parallelization And Fanout](../bb-workstream/references/manager-flow.md#parallelization-and-fanout).
 3. Stop cleanup when active work, dirty files, missing evidence, unresolved findings, or pending decisions remain.
 4. Preserve dashboard, roster, approved plans, QA reports, verification screenshots/logs, review reports, summaries, and decision history.
 5. Archive threads when safe; delete only with explicit manager/user confirmation that no useful history will be lost.

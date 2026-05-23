@@ -18,7 +18,7 @@ Use this skill to assign and drive scoped implementation work in a bb workstream
 
 1. Verify the integration checkout is clean and usable before creating worker environments.
 2. Confirm architecture setup from the shared reference before assigning workers or running verification.
-3. Start each implementation worker in a separate worktree from the integration branch.
+3. Start each implementation worker in a separate worktree from the integration branch; default to one worker per disjoint-ownership scope and run them in parallel when owned files do not overlap. Sequence shared files explicitly instead of spawning conflicting workers.
 4. Require an initial access report, then require a concise implementation plan before edits.
 5. Approve, revise, or block the plan; record durable plans under `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/plans/` when useful.
 6. Watch for blockers, shared-file dependencies, environment failures, and plan divergence during implementation.
