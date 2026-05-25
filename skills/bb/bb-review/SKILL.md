@@ -31,6 +31,7 @@ Use this skill as the review gate for Moss work implemented through bb worker en
 - Findings prioritized as P0, P1, P2, or decision needed.
 - Verdict: PASS, BLOCKED, or DECISION-NEEDED.
 - Dashboard update with findings, dispositions, and next gate.
+- Report shape follows the shared written artifact guidance so findings, dispositions, evidence, and next actions are easy to scan.
 
 ## Validation
 
@@ -43,4 +44,5 @@ Use this skill as the review gate for Moss work implemented through bb worker en
 
 - Detailed review order, commands, finding priorities, synthesis, report template, and routing: [references/review-reference.md](references/review-reference.md).
 - Provider defaults: [../bb-workstream/references/provider-selection.md](../bb-workstream/references/provider-selection.md).
+- Shared written artifact guidance: [../WORKFLOWS.md](../WORKFLOWS.md).
 - Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).

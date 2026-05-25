@@ -2,6 +2,8 @@
 
 Use these instructions for Moss bb manager-led work. It describes the workflow the user expects managers to follow.
 
+This checked-in file is the canonical bb workflow policy and routing entrypoint for Moss workstreams. Reference it from bb manager templates or preferences, then use the linked stage skills below for the detailed stage instructions. It is not the Codex app plugin surface, and Codex app plugin packaging should not load these bb-only skills by default.
+
 ## Skill definitions
 
 Canonical bb skill definitions live in the `moss-skills` repo:
@@ -30,6 +32,19 @@ Moss note authoring rules live in the top-level Moss skills:
 
 When creating dashboards, plans, reports, summaries, or research notes, read the relevant Moss note skill instead of duplicating note syntax here.
 
+## Written artifacts
+
+All written artifacts are human-readable first. Optimize for skimmability, clear decisions, next actions, evidence, and minimal cognitive load.
+
+- Prefer tables for structured state, ownership, checklists, decision queues, and comparison points; size columns thoughtfully when Moss/table layout metadata supports it, with narrow compact columns and wider prose-heavy columns.
+- Use callouts for blockers, decisions, warnings, accepted risks, and human-needed checks.
+- Use tabs only for a few alternate views or large parallel sections that would otherwise make one page hard to scan.
+- Use charts only when trends or comparisons beat a table or list.
+- For human-facing Markdown artifacts such as plans, research, status summaries, and reviews, emojis may be used sparingly when they improve scanability, tone, or section/status recognition; pair them with clear words or labels, and avoid noisy or decorative overload.
+- Keep general prose, status, evidence, and decisions in Markdown; do not wrap plain prose in `moss-html` when Markdown is enough.
+- For planning and research artifacts, use `moss-html` for mockups, UI proposals, and prototypes when visual or interactive rendering helps humans understand the plan or research.
+- Use canvas/`moss-canvas` for wireframes, flows, and diagrams.
+
 ## Core rule
 
 Run meaningful work through the bb workflow instead of doing substantive work in the manager thread.
@@ -51,7 +66,13 @@ Small work can use an abbreviated workflow, but planning, verification, and revi
 
 ## Parallelization
 
-Default each stage to as many workers as the work usefully splits into. Sequential single-worker stages are a special case for small or tightly-coupled work, not the default. Stages that can fan out: research, planning, implementation, verification, QA, review, summary, cleanup.
+Parallelize independent work as much as practical while keeping ownership and merge safety explicit. Default each stage to as many workers as the work usefully splits into; sequential single-worker stages are a special case for small or tightly-coupled work, not the default. Stages that can fan out include research, planning, implementation, verification, QA, review, summary, and cleanup.
+
+- Decompose large work into independent workers where files, decisions, and validation can be separated.
+- Run read-only discovery, implementation slices, validation/review, docs checks, package checks, and other non-conflicting work in parallel.
+- Keep one owner per write area or file set to avoid conflicts.
+- Do not parallelize tightly coupled, blocking, or likely-conflicting work without sequencing or explicit coordination.
+- Prefer parallel review and validation after implementation, or alongside non-overlapping work that does not affect the same files or acceptance evidence.
 
 Scale fanout to the work, not to a fixed worker count:
 
@@ -70,6 +91,16 @@ For PostHog analytics work, use `bb-analytics` instead of the implementation pip
 - Pair every runbook with a report template in `~/Moss/Notes/Agent Workspaces/bb Workspace/Templates/` and store reports under `~/Moss/Notes/Agent Workspaces/bb Workspace/PostHog Reviews/`.
 - Treat analytics output like research: link the report from `dashboard.md` and add any follow-ups to the workstream decision queue when the analytics work feeds a managed workstream.
 - PostHog credentials come from `.env` or `~/.claude/projects/*/memory/posthog.md`. Never paste or commit raw tokens.
+
+## Investigation before fixes
+
+For regressions, bugs, broken UI behavior, flaky tests, CI failures, visual defects, or user-reported "this is wrong" feedback, investigate and identify root cause before implementing a fix.
+
+- Start with the observed failure, reproduction path, affected files/components, and expected behavior.
+- Produce root-cause evidence with file/line references, screenshots/logs/test output when relevant, and a short proposed fix plan.
+- Do not let workers jump straight to edits from guesses or symptom patches. If a worker starts fixing before proving the cause, redirect them to investigation first.
+- Keep the investigation lightweight for small issues, but make the cause explicit before code changes.
+- After root cause is accepted, implement the smallest fix that addresses the cause, then verify against the original failure.
 
 ## Minimum workflow for small tasks
 
@@ -120,7 +151,15 @@ Store durable workstream artifacts under the Moss workspace, not in the repo che
 
 The dashboard links to the supporting artifacts. Keep long logs, screenshots, reports, and summaries in the matching subdirectories.
 
+When an agent is running inside bb, use the bb-provided Moss workspace and `bb Workspace` paths for Moss notes, artifacts, and workspace references. Do not default to Codex Workspace or Claude Workspace terminology or locations inside bb; reserve those host-specific workspace names for agents actually running in Codex or Claude outside bb.
+
 Repo changes should contain only code/docs/assets intended to be committed.
+
+## Artifact consolidation
+
+When updating plans, dashboards, reviews, or workstream artifacts, prefer consolidating into the existing canonical docs instead of creating a new doc for each update.
+
+Create a new artifact only when it is a distinct durable deliverable, such as a formal review report, QA report, verification report, or when the user explicitly asks. Otherwise, update or append the existing dashboard, plan, or workers doc and link to the relevant section.
 
 ## Worker sandbox
 
@@ -132,14 +171,14 @@ The user controls the sandbox; managers have full latitude.
 
 ## Provider defaults
 
-Stay provider-agnostic, but use these defaults unless availability, task fit, tooling, context, access, cost, latency, or the user says otherwise:
+Stay provider-agnostic, but prefer Codex for manager-led work unless availability, task fit, tooling, context, access, cost, latency, or the user says otherwise:
 
-- Claude for managers, manager-of-manager threads, planning, QA, summaries, and UI/UX-related work.
-- Codex for review workers, non-UI/UX implementation, cleanup, codebase analysis, mechanical docs/code work, **investigations, regressions, and bug fixes**.
-- Always check `bb provider models <provider>` and use the latest/highest available model.
+- Codex for managers, manager-of-manager threads, planning, QA, summaries, UI/UX-related work, review workers, implementation, cleanup, codebase analysis, mechanical docs/code work, **investigations, regressions, and bug fixes**.
+- Claude or another provider when available models, tool access, context fit, interaction style, or the user's request makes that provider the better choice for the specific thread.
+- Always check `bb provider models <provider>` for candidate providers and use the latest/highest suitable available model.
 - Current example defaults:
-  - Claude: `--provider claude-code --model 'claude-opus-4-7[1m]' --reasoning-level xhigh`
   - Codex: `--provider codex --model gpt-5.5 --reasoning-level xhigh`
+  - Claude: `--provider claude-code --model 'claude-opus-4-7[1m]' --reasoning-level xhigh`
 
 ## Dashboard expectations
 
@@ -155,7 +194,7 @@ The dashboard should show:
 - Decisions needed from the user.
 - Links to research, plans, verification artifacts, QA reports, review reports, screenshots/logs, summaries, and relevant commits/PRs.
 
-The dashboard is a Moss note. Prefer tables for rosters/queues/divergence, callouts for blockers and decisions, tabs for large parallel workstreams, charts only when trends/comparisons beat a small table, and `moss-html` only when extra interactivity is worth it. See [bb-dashboard](bb-dashboard/SKILL.md) for the full dashboard template and node-type guidance.
+The dashboard is a Moss note and must follow the written artifact guidance above. See [bb-dashboard](bb-dashboard/SKILL.md) for the full dashboard template and node-type guidance.
 
 For many workers, group by stage and sort by next manager action. If one manager has too many active decisions or workers to unblock effectively, consider hiring a child manager for an independent scope.
 

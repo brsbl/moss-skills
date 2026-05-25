@@ -8,7 +8,7 @@ Write QA artifacts under:
 ~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/qa/
 ```
 
-Use one report per gate run, for example `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/qa/2026-05-18-report.md`. Link the current report from `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/dashboard.md`.
+Use one report per gate run, for example `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/qa/2026-05-18-report.md`. Link the current report from `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/dashboard.md`. Follow the shared human-readable artifact guidance in [../../WORKFLOWS.md](../../WORKFLOWS.md).
 
 ## Access Gate
 

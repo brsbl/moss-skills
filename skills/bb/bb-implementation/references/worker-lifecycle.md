@@ -4,7 +4,7 @@
 
 The manager is not a passive dispatcher. Keep each worker moving by providing context, environment access, file ownership, validation commands, and explicit exit criteria before implementation starts.
 
-Select the implementation provider from [provider-selection](../../bb-workstream/references/provider-selection.md): Claude for UI/UX-related implementation, Codex for non-UI/UX implementation by default. Check current models with `bb provider models <provider>` and use the latest available model for the selected provider unless task fit, tooling, context, environment access, availability, cost, latency, or user preference calls for an override.
+Select the implementation provider from [provider-selection](../../bb-workstream/references/provider-selection.md): Codex is the default for implementation, including UI/UX-related work, unless another provider is a better fit for the specific thread. Check current models with `bb provider models <provider>` and use the latest available model for the selected provider unless task fit, tooling, context, environment access, availability, cost, latency, or user preference calls for an override.
 
 Before starting any worker, tell the user:
 
@@ -15,7 +15,7 @@ Before starting any worker, tell the user:
 - expected final output
 - integration branch and merge plan
 
-Keep `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/dashboard.md` current with worker status, blockers, decisions, validation links, review links, provider/model when known, and merge state. Use `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/workers.md` for worker thread, environment, provider/model, and worktree IDs.
+Keep `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/dashboard.md` current with worker status, blockers, decisions, validation links, review links, provider/model when known, and merge state. Use `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/workers.md` for worker thread, environment, provider/model, and worktree IDs. Follow the shared human-readable artifact guidance in [../../WORKFLOWS.md](../../WORKFLOWS.md) for worker plans, dashboard updates, and handoff notes.
 
 ## Worker Setup
 

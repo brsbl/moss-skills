@@ -27,6 +27,7 @@ Use this skill to keep `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/
 - Scannable dashboard with overview, stage board, worker roster, decision queue, evidence index, and merge state.
 - Parent-manager roll-up when child managers exist.
 - Current blocker owners, decision owners, evidence paths, and next manager actions.
+- Dashboard sections follow the shared written artifact guidance so humans can find decisions, next actions, evidence, and blockers quickly.
 
 ## Node Type Guidance
 
@@ -49,4 +50,5 @@ The dashboard is a Moss note; pick node types that fit each section's job. Follo
 
 - Detailed dashboard sections, table shapes, update rules, inline dashboard template, and node-type guidance: [references/dashboard-reference.md](references/dashboard-reference.md).
 - Shared manager flow and artifact layout: [../bb-workstream/references/manager-flow.md](../bb-workstream/references/manager-flow.md).
+- Shared written artifact guidance: [../WORKFLOWS.md](../WORKFLOWS.md).
 - Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).

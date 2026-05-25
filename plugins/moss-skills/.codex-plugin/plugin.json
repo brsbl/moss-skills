@@ -1,0 +1,43 @@
+{
+  "name": "moss-skills",
+  "version": "0.1.0",
+  "description": "Codex app skills for working with mossnotes.app notes.",
+  "author": {
+    "name": "Bersabel Tadesse"
+  },
+  "homepage": "https://github.com/brsbl/moss-skills",
+  "repository": "https://github.com/brsbl/moss-skills",
+  "license": "MIT",
+  "keywords": [
+    "moss",
+    "mossnotes",
+    "notes",
+    "markdown",
+    "frontmatter",
+    "wiki-links",
+    "comments",
+    "mockups",
+    "codex"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Moss Skills",
+    "shortDescription": "Moss skills for notes, frontmatter, comments, wiki links, and mockups.",
+    "longDescription": "Codex app package for Moss skills. It includes top-level skills/moss-* skills and excludes bb-only workflow guidance.",
+    "developerName": "Bersabel Tadesse",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/brsbl/moss-skills",
+    "defaultPrompt": [
+      "Create a Moss implementation note with frontmatter and tasks.",
+      "Add wiki links and comments to organize these Moss notes.",
+      "Draft a Moss mockup note for this UI idea."
+    ],
+    "brandColor": "#2F6F5E",
+    "composerIcon": "./assets/moss-skills-icon.svg",
+    "logo": "./assets/moss-skills-logo.svg"
+  }
+}

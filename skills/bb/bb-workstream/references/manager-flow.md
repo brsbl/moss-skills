@@ -25,7 +25,7 @@ Create one live artifact tree per effort:
   summaries/
 ```
 
-Use `dashboard.md` as the canonical user review surface. Use bb threads for communication and execution details. Keep detailed plans, QA, verification, reviews, and summaries in their matching directories, then link them from the dashboard.
+Use `dashboard.md` as the canonical user review surface. Use bb threads for communication and execution details. Keep detailed plans, QA, verification, reviews, and summaries in their matching directories, then link them from the dashboard. Follow the shared human-readable artifact guidance in [../../WORKFLOWS.md](../../WORKFLOWS.md) for every dashboard, plan, report, review, and summary.
 
 These artifacts live in the Moss workspace, not in the repo checkout. Do not store workstream dashboards, screenshots, QA reports, reviews, or summaries under the repository unless the user explicitly asks to commit them.
 

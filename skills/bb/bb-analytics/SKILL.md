@@ -44,6 +44,7 @@ Use this skill to (1) author a PostHog analytics runbook that a future agent can
 - Report note with bottom line, decision table, top actions with exit criteria, what changed, evidence, dashboard changes applied, and blockers when needed.
 - Sanitized working artifacts in a tmp directory for reproducibility, never tokens.
 - When this work feeds a managed workstream: a link from `dashboard.md` to the report and any new follow-up rows in the decision queue.
+- Runbooks and reports follow the shared written artifact guidance so health calls, actions, blockers, and evidence are easy to scan.
 
 ## Validation
 
@@ -68,4 +69,5 @@ Use this skill to (1) author a PostHog analytics runbook that a future agent can
 - Run analytics inside a managed workstream: [bb-workstream](../bb-workstream/SKILL.md).
 - Link runbooks, reports, and dashboard gaps from the canonical status surface: [bb-dashboard](../bb-dashboard/SKILL.md).
 - Use research to scope a new dashboard or metric before runbook creation: [bb-research](../bb-research/SKILL.md).
+- Shared written artifact guidance: [../WORKFLOWS.md](../WORKFLOWS.md).
 - Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).

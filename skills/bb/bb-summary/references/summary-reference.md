@@ -8,7 +8,7 @@ Write summary artifacts under:
 ~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/summaries/
 ```
 
-Use a dated file, for example `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/summaries/2026-05-18-handoff.md`. Link the current summary from `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/dashboard.md`.
+Use a dated file, for example `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/summaries/2026-05-18-handoff.md`. Link the current summary from `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/dashboard.md`. Follow the shared human-readable artifact guidance in [../../WORKFLOWS.md](../../WORKFLOWS.md).
 
 ## Access Gate
 

@@ -29,6 +29,7 @@ Use this skill for a QA gate that covers automated tests, user flows, and valida
 - QA report with base/head, scope, automated checks, user flows, hard gate status, blockers, risks, and verdict.
 - Dashboard link to the current QA report and gate status.
 - Clear merge-gate decision: PASS, BLOCKED, DECISION NEEDED, or NOT RUN.
+- Report shape follows the shared written artifact guidance so gate status, blockers, decisions, and evidence are easy to scan.
 
 ## Validation
 
@@ -41,4 +42,5 @@ Use this skill for a QA gate that covers automated tests, user flows, and valida
 
 - Detailed diff basis, checklist scope, gate rules, workflow, and report template: [references/qa-reference.md](references/qa-reference.md).
 - Exact architecture setup commands: [../bb-workstream/references/architecture-setup.md](../bb-workstream/references/architecture-setup.md).
+- Shared written artifact guidance: [../WORKFLOWS.md](../WORKFLOWS.md).
 - Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).

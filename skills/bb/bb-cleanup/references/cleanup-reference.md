@@ -2,7 +2,7 @@
 
 ## Cleanup Rule
 
-Do not delete useful workstream artifacts by default. Preserve dashboard, worker roster, approved plans, QA reports, verification screenshots and logs, review reports, summaries, and any decision history that explains what shipped or why work stopped.
+Do not delete useful workstream artifacts by default. Preserve dashboard, worker roster, approved plans, QA reports, verification screenshots and logs, review reports, summaries, and any decision history that explains what shipped or why work stopped. Follow the shared human-readable artifact guidance in [../../WORKFLOWS.md](../../WORKFLOWS.md) for cleanup reports and dashboard updates.
 
 Cleanup is allowed only after the manager verifies:
 

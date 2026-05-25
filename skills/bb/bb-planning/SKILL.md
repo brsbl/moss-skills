@@ -19,10 +19,16 @@ Use this skill to create the lightest useful plan for a Moss bb workstream or wo
 1. Start from the strongest source of truth available.
 2. Stop if an acceptance-critical artifact cannot be inspected; ask the manager to supply or verify it.
 3. Choose the smallest sufficient plan depth: dashboard row, existing note addendum, lightweight plan, or full spec/design note. For non-trivial work, list the independent slices first and prefer one planning worker per slice with disjoint ownership over a single monolithic plan; collapse slices that share files or acceptance.
-4. Define objective, non-goals, owned files, forbidden files, dependencies, acceptance criteria, validation, and review risk.
-5. Include Moss-specific invariants from `AGENTS.md` or `CLAUDE.md` for Lexical, Jotai, IPC, markdown layers, storage, or note-switch behavior when affected.
-6. **Search for existing precedence before designing new effects.** If the work would introduce a new write, IPC channel, migration, lifecycle hook, transformer, decorator, atom, fs walk, or similar effect class, first grep the codebase for an existing framework that already handles that effect class (e.g. `note-markdown-migration-runner.ts` for markdown migrations, `ipcChannels.ts` for IPC, `tokens.css` for color tokens). The default is to register with the existing framework. Inventing a new path requires an explicit documented justification (what's wrong with the existing pattern for this case) in the plan.
-7. Require manager approval before implementation for medium, risky, cross-file, or user-facing work.
+4. Make every plan follow the human-readable written artifact guidance in [../WORKFLOWS.md](../WORKFLOWS.md): optimize for skimmability, decisions, next actions, evidence, and minimal cognitive load.
+5. When a plan includes a mockup, UI proposal, or prototype, use `moss-html` for that mockup portion if visual or interactive rendering helps humans understand it.
+6. Use canvas/`moss-canvas` for wireframes, flows, and diagrams.
+7. Keep plain prose and planning details in Markdown.
+8. Use emojis sparingly in human-facing plan Markdown only when they improve scanability or status recognition; pair them with clear words or labels.
+9. For durable plan artifacts, use the standard plan headings from [references/planning-reference.md](references/planning-reference.md): `## 🧩 Problems`, `## 🛠️ Planned solution`, `## 🎯 Goals`, `## 🚫 Non-goals`, `## 🧱 Implementation plan`, and `## ✅ Acceptance criteria`.
+10. Define objective, non-goals, owned files, forbidden files, dependencies, acceptance criteria, validation, and review risk.
+11. Include Moss-specific invariants from `AGENTS.md` or `CLAUDE.md` for Lexical, Jotai, IPC, markdown layers, storage, or note-switch behavior when affected.
+12. **Search for existing precedence before designing new effects.** If the work would introduce a new write, IPC channel, migration, lifecycle hook, transformer, decorator, atom, fs walk, or similar effect class, first grep the codebase for an existing framework that already handles that effect class (e.g. `note-markdown-migration-runner.ts` for markdown migrations, `ipcChannels.ts` for IPC, `tokens.css` for color tokens). The default is to register with the existing framework. Inventing a new path requires an explicit documented justification (what's wrong with the existing pattern for this case) in the plan.
+13. Require manager approval before implementation for medium, risky, cross-file, or user-facing work.
 
 ## Outputs
 
@@ -42,4 +48,5 @@ Use this skill to create the lightest useful plan for a Moss bb workstream or wo
 
 - Detailed planning depth, checklist, task decomposition, and plan template: [references/planning-reference.md](references/planning-reference.md).
 - Shared workstream gates and manager flow: [../bb-workstream/references/manager-flow.md](../bb-workstream/references/manager-flow.md).
+- Shared written artifact guidance: [../WORKFLOWS.md](../WORKFLOWS.md).
 - Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).

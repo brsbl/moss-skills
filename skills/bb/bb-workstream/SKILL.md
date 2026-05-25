@@ -31,6 +31,7 @@ Use this skill to run a bb-managed Moss development effort from planning through
 - Worker roster with thread IDs, environments, providers/models, file ownership, validation, and gates.
 - Linked plans, QA reports, verification artifacts, review reports, summaries, and cleanup notes.
 - Explicit user or manager decisions for accepted risks, plan divergence, and unresolved items.
+- Every written workstream artifact follows the shared written artifact guidance so humans can skim state, decisions, next actions, and evidence.
 
 ## Validation
 
@@ -45,4 +46,5 @@ Use this skill to run a bb-managed Moss development effort from planning through
 - Provider defaults and model checks: [references/provider-selection.md](references/provider-selection.md).
 - Architecture setup and environment blockers: [references/architecture-setup.md](references/architecture-setup.md).
 - Manager flow, worker setup, high-concurrency guidance, manager-of-manager rules, and merge gates: [references/manager-flow.md](references/manager-flow.md).
+- Shared written artifact guidance: [../WORKFLOWS.md](../WORKFLOWS.md).
 - Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).

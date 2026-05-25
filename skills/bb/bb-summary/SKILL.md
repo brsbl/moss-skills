@@ -28,6 +28,7 @@ Use this skill to produce the final workstream summary, PR/handoff notes, or man
 
 - Final summary or handoff note with verdict, what changed, worker scopes, evidence, screenshots/logs, review disposition, risks, follow-up, and PR or handoff status.
 - Updated dashboard links to the current summary and supporting evidence.
+- Summary shape follows the shared written artifact guidance so verdict, decisions, evidence, risks, and next actions are easy to scan.
 
 ## Validation
 
@@ -38,4 +39,5 @@ Use this skill to produce the final workstream summary, PR/handoff notes, or man
 ## References
 
 - Detailed access gate, diff basis, summary contents, workflow, and report template: [references/summary-reference.md](references/summary-reference.md).
+- Shared written artifact guidance: [../WORKFLOWS.md](../WORKFLOWS.md).
 - Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).
