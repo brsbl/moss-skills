@@ -18,7 +18,7 @@ Use this skill to create the lightest useful plan for a Moss bb workstream or wo
 
 1. Start from the strongest source of truth available.
 2. Stop if an acceptance-critical artifact cannot be inspected; ask the manager to supply or verify it.
-3. Choose the smallest sufficient plan depth: dashboard row, existing note addendum, lightweight plan, or full spec/design note.
+3. Choose the smallest sufficient plan depth: dashboard row, existing note addendum, lightweight plan, or full spec/design note. For non-trivial work, list the independent slices first and prefer one planning worker per slice with disjoint ownership over a single monolithic plan; collapse slices that share files or acceptance.
 4. Make every plan follow the human-readable written artifact guidance in [../WORKFLOWS.md](../WORKFLOWS.md): optimize for skimmability, decisions, next actions, evidence, and minimal cognitive load.
 5. When a plan includes a mockup, UI proposal, or prototype, use `moss-html` for that mockup portion if visual or interactive rendering helps humans understand it.
 6. Use canvas/`moss-canvas` for wireframes, flows, and diagrams.

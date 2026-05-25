@@ -19,7 +19,7 @@ Use this skill when changed behavior needs current UI, screenshot, or user-flow 
 1. Stop if the running app target, reference, attachment, required state, or account access is missing.
 2. Confirm architecture setup or record an environment/tooling blocker.
 3. Create a verification report under `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/verification/`.
-4. Exercise changed flows and nearby regressions; for editor work include loading, editing, saving, note switching, markdown persistence, and affected decorator blocks when relevant.
+4. Exercise changed flows and nearby regressions; for editor work include loading, editing, saving, note switching, markdown persistence, and affected decorator blocks when relevant. For multi-surface work, default to one verification worker per independent flow, platform, or evidence type (fresh-app screenshot, editor flow, IPC/log capture); keep tightly-coupled flows in a single worker. See [Parallelization And Fanout](../bb-workstream/references/manager-flow.md#parallelization-and-fanout).
 5. Capture screenshots, logs, console output, manifests, and DOM or ARIA snippets needed to explain failures.
 6. Separate product failures from tooling blockers and `HUMAN` checks.
 7. Link the report, screenshot/log paths, verdict, and blockers from the dashboard.

@@ -62,6 +62,8 @@ Split work into scopes a single worker can complete in one environment:
 - Give each scope a stable slug for filenames, dashboard rows, and evidence.
 - Include dependencies only when one scope truly cannot start before another finishes.
 
+Default to parallel planning across the decomposed slices when slices have disjoint ownership and independent acceptance; do not collapse non-trivial work into a single monolithic plan, and do not invent slices to look parallel. Scale planner count to the number of real independent slices, not a fixed target. See [Parallelization And Fanout](../../bb-workstream/references/manager-flow.md#parallelization-and-fanout).
+
 Use stage groups for high concurrency: foundation work first, dependent implementation second, QA or verification third, review and integration last. Record stage membership in `dashboard.md`.
 
 ## Worker-Ready Plan Format

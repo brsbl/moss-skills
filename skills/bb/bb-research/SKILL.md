@@ -16,7 +16,7 @@ Use this skill before planning when a product, feature, technical approach, or w
 ## Workflow
 
 1. Frame the research question, scope, non-goals, and decision the research must support.
-2. Use available search, fetch, docs, and browser tools to inspect high-quality sources.
+2. Use available search, fetch, docs, and browser tools to inspect high-quality sources. For multi-question research, default to one research worker per independent question (e.g. competitive UX, API docs, perf prior art) when evidence does not overlap; keep questions sharing the same primary source in a single worker. See [Parallelization And Fanout](../bb-workstream/references/manager-flow.md#parallelization-and-fanout).
 3. Cover best practices, common pitfalls, popular or reference products, official docs or API references, and UI/reference examples when relevant.
 4. Capture screenshots or browser evidence for UI/reference research when tooling and access are available. If not, record a clear `HUMAN-needed` or blocker note.
 5. When research includes a mockup, UI proposal, or prototype, use `moss-html` for that mockup portion if visual or interactive rendering helps humans understand the recommendation.

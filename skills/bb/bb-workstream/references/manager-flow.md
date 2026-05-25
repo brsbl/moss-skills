@@ -123,6 +123,36 @@ bb environment squash-merge <worker-environment-id> --merge-base-branch <integra
 
 After merge, update `dashboard.md`, `workers.md`, and the relevant plan, QA, verification, review, or summary links. Run integration validation appropriate to the blast radius.
 
+## Parallelization And Fanout
+
+Default each stage to as many workers as the work usefully splits into. Sequential single-worker stages are a special case for small or tightly-coupled work, not the default.
+
+Scale fanout to the work:
+
+- More workers when there are independent product areas, packages, platforms, test surfaces, risky integrations, evidence types (screenshots, logs, perf, accessibility), or distinct review concerns.
+- Fewer or one worker when scope is tiny, tightly coupled, edits the same files, or coordination cost exceeds the work.
+
+Per-stage starting points — adjust to the actual slice list, do not pad it:
+
+- Research: one worker per independent question when evidence does not overlap.
+- Planning: one planner per independent slice with disjoint ownership and acceptance. Do not collapse non-trivial work into a single monolithic plan; do not split a cohesive plan to look parallel.
+- Dashboard / roster setup: usually one worker; split only when child managers own separate dashboards.
+- Implementation: one worker per disjoint-ownership scope. Sequence shared files explicitly.
+- Verification: one worker per independent flow, platform, or evidence type.
+- QA: split when automated checks, user flows, and `moss verify` can run independently against the same head.
+- Review: split a large diff by ownership boundary or risk theme when one reviewer would miss coverage; keep one synthesis owner.
+- Summary / cleanup: one synthesis owner; parallelize only across genuinely independent sub-workstreams or environment groups.
+
+Run sidecar work in parallel with the critical path when it touches different files: validation, review, verification capture, QA scaffolding, summary drafting, and cleanup of merged workers can overlap with active implementation.
+
+Manager actions to make fanout safe:
+
+1. Name the independent slices before spawning. If you cannot list disjoint owned-file sets, do not split.
+2. Assign disjoint write ownership; record shared-file sequencing in the dashboard before workers start.
+3. Pause for user approval on non-trivial fanout, naming each worker's objective, scope, and validation.
+4. Group dashboard roster rows by stage so coordination cost stays visible as fanout grows.
+5. Collapse and reassign immediately if two workers start duplicating effort or contending for the same files.
+
 ## High-Concurrency Management
 
 Maintain four working views:

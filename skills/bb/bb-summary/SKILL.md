@@ -21,7 +21,7 @@ Use this skill to produce the final workstream summary, PR/handoff notes, or man
 3. Collect merge-base diff stats, changed-file list, and commit log.
 4. Read only relevant implementation, QA, verification, and review artifacts.
 5. Confirm gate status: verification before review when needed, QA gate, and `moss verify` hard gate.
-6. Write the summary under `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/summaries/`.
+6. Write the summary under `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/summaries/`. Default to a single summary owner; parallelize section drafting only when the workstream spans genuinely independent sub-workstreams or child managers, and reconcile through one final synthesis. See [Parallelization And Fanout](../bb-workstream/references/manager-flow.md#parallelization-and-fanout).
 7. Link the summary, QA, verification, review, and PR/handoff artifacts from the dashboard.
 
 ## Outputs

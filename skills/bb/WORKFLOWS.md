@@ -66,13 +66,22 @@ Small work can use an abbreviated workflow, but planning, verification, and revi
 
 ## Parallelization
 
-Parallelize independent work as much as practical while keeping ownership and merge safety explicit.
+Parallelize independent work as much as practical while keeping ownership and merge safety explicit. Default each stage to as many workers as the work usefully splits into; sequential single-worker stages are a special case for small or tightly-coupled work, not the default. Stages that can fan out include research, planning, implementation, verification, QA, review, summary, and cleanup.
 
 - Decompose large work into independent workers where files, decisions, and validation can be separated.
 - Run read-only discovery, implementation slices, validation/review, docs checks, package checks, and other non-conflicting work in parallel.
 - Keep one owner per write area or file set to avoid conflicts.
 - Do not parallelize tightly coupled, blocking, or likely-conflicting work without sequencing or explicit coordination.
 - Prefer parallel review and validation after implementation, or alongside non-overlapping work that does not affect the same files or acceptance evidence.
+
+Scale fanout to the work, not to a fixed worker count:
+
+- More workers when there are independent product areas, packages, platforms (web/desktop/mobile), test surfaces, risky integrations, or distinct evidence/review concerns.
+- Fewer or one worker when scope is tiny, tightly coupled, edits the same files, or coordination cost exceeds the work itself.
+
+Do not collapse non-trivial work into a single monolithic plan, and do not split a cohesive task into pretend-parallel workers. Run sidecar work in parallel with the critical path when it touches different files (e.g. reviewing one merged worker while another is implementing).
+
+Before spawning, list the independent slices, assign disjoint write ownership, sequence shared files, and pause for user approval on non-trivial fanout. Per-stage starting points and safety actions live in [bb-workstream/references/manager-flow.md](bb-workstream/references/manager-flow.md).
 
 ## Analytics work
 
