@@ -30,6 +30,13 @@ These are the top-level `skills/moss-*` skills the Codex app plugin is intended 
 - [`moss-wiki-links`](skills/moss-wiki-links/SKILL.md): how to link to notes and headings with Moss wiki links.
 - [`moss-mockup`](skills/moss-mockup/SKILL.md): how to author interactive `moss-html` mockups.
 
+
+### Add to your agent instructions
+
+Paste this into `AGENTS.md`, `CLAUDE.md`, or equivalent agent instructions so agents know when to use these skills:
+
+> Before creating or editing Moss notes under `~/Moss/Notes/**`, read the relevant `moss-skills` instructions—at minimum `moss-notes`, plus `moss-frontmatter`, `moss-comments`, `moss-wiki-links`, or `moss-mockup` when the note uses those features.
+
 ## Skills CLI
 
 Use the skills CLI when you want to discover or install the standalone Moss note skills directly from this repository, separate from the Claude Code plugin marketplace and the Codex app plugin marketplace.
@@ -46,6 +53,12 @@ Install the skills through the skills CLI:
 
 ```bash
 npx skills add brsbl/moss-skills
+```
+
+If your agent or network setup prefers an explicit HTTPS URL:
+
+```bash
+npx skills add https://github.com/brsbl/moss-skills
 ```
 
 ### bb workflows for Moss as an agentic workspace

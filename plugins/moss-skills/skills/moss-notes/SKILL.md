@@ -1,9 +1,11 @@
 ---
 name: moss-notes
-description: Create or edit Moss notes under ~/Moss/Notes/ using canonical Moss markdown syntax, note directories, assets, charts, callouts, wiki links, comments, and HTML mockups.
+description: Create or edit any Moss note or artifact under ~/Moss/Notes/**, including dashboards, QA notes, plans, reports, specs, summaries, research notes, workstream docs, mockups, note directories, assets, charts, callouts, wiki links, comments, and HTML mockups.
 ---
 
 # Moss Notes
+
+Use this whenever creating or editing output under `~/Moss/Notes/**`, even if another task skill also applies (for example QA, planning, dashboard, review, summary, research, or mockup work). This skill owns note directory shape, the Markdown content file, supported node syntax, and sidecar boundaries.
 
 Related skills: frontmatter (`moss-frontmatter`), comments (`moss-comments`), wiki links (`moss-wiki-links`), mockups (`moss-mockup`).
 

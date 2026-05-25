@@ -1,43 +1,38 @@
 ---
 name: bb-summary
-description: Use to produce final Moss bb workstream summaries, PR or handoff notes, and manager-to-user status updates after dashboard, implementation, verification, QA, review, validation, risks, decisions, and merge evidence are available.
+description: "Use to produce final bb workstream summaries, PR summaries, handoff notes, and user updates after implementation, validation, verification, QA, review, risks, and decisions are known."
 ---
 
 # Moss BB Summary
 
-Use this skill to produce the final workstream summary, PR/handoff notes, or manager-to-user status update after implementation, verification, QA, and review evidence is available.
+## When To Use
 
-## Inputs
+Use this to close a completed scope or hand it off for review/merge.
 
-- Dashboard and worker roster.
-- Implementation plans, changed-file scopes, merge-base diff, and commit log.
-- QA report, verification reports, screenshots, logs, review report, and validation results.
-- `moss verify` status, PR link or handoff target, decisions, accepted risks, tooling blockers, and `HUMAN` checks.
+## Read First
+- ../WORKFLOWS.md
+- references/summary-reference.md
+- ../../moss-notes/SKILL.md for summary notes under ~/Moss/Notes/**
+- ../../moss-wiki-links/SKILL.md for note links
 
 ## Steps
-
-1. Read the dashboard first; it is the canonical user review surface.
-2. Stop if required evidence is missing; ask the manager to supply, move, verify, or escalate it.
-3. Collect merge-base diff stats, changed-file list, and commit log.
-4. Read only relevant implementation, QA, verification, and review artifacts.
-5. Confirm gate status: verification before review when needed, QA gate, and `moss verify` hard gate.
-6. Write the summary under `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/summaries/`. Default to a single summary owner; parallelize section drafting only when the workstream spans genuinely independent sub-workstreams or child managers, and reconcile through one final synthesis. See [Parallelization And Fanout](../bb-workstream/references/manager-flow.md#parallelization-and-fanout).
-7. Link the summary, QA, verification, review, and PR/handoff artifacts from the dashboard.
+1. Read the dashboard first.
+2. Collect changed files, commits, PRs, validation, verification, QA, review, risks, decisions, and follow-ups.
+3. Do not summarize missing evidence as complete.
+4. Write the shortest useful summary for the audience: user update, PR body, handoff note, or final workstream summary.
+5. Link summary/evidence from the dashboard.
 
 ## Outputs
-
-- Final summary or handoff note with verdict, what changed, worker scopes, evidence, screenshots/logs, review disposition, risks, follow-up, and PR or handoff status.
-- Updated dashboard links to the current summary and supporting evidence.
-- Summary shape follows the shared written artifact guidance so verdict, decisions, evidence, risks, and next actions are easy to scan.
+- Final summary or handoff
+- PR body/update when needed
+- Dashboard links and closeout state
 
 ## Validation
-
-- Missing evidence is not summarized as complete.
-- Product failures, tooling blockers, accepted risks, and `HUMAN` checks are distinct.
-- Local paths are used for private repo artifacts unless the manager/user asks for remote links.
+- Product failures, tooling blockers, accepted risks, and HUMAN checks are distinct.
+- Evidence paths/links work.
+- Open follow-ups have owner and next action.
 
 ## References
-
-- Detailed access gate, diff basis, summary contents, workflow, and report template: [references/summary-reference.md](references/summary-reference.md).
-- Shared written artifact guidance: [../WORKFLOWS.md](../WORKFLOWS.md).
-- Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).
+- Summary template: [references/summary-reference.md](references/summary-reference.md)
+- Dashboard source of truth: [../bb-dashboard/SKILL.md](../bb-dashboard/SKILL.md)
+- QA evidence: [../bb-qa/SKILL.md](../bb-qa/SKILL.md)

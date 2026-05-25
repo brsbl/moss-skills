@@ -1,210 +1,113 @@
 # Default bb manager workflow instructions
 
-Use these instructions for Moss bb manager-led work. It describes the workflow the user expects managers to follow.
+This is the canonical bb workflow policy for Moss manager-led work. Manager templates and `PREFERENCES.md` should point here instead of copying or overriding policy.
 
-This checked-in file is the canonical bb workflow policy and routing entrypoint for Moss workstreams. Reference it from bb manager templates or preferences, then use the linked stage skills below for the detailed stage instructions. It is not the Codex app plugin surface, and Codex app plugin packaging should not load these bb-only skills by default.
+## Start Here: Choose Stage + Artifact Skills
 
-## Skill definitions
+Before doing work, choose both:
 
-Canonical bb skill definitions live in the `moss-skills` repo:
+1. **Stage skill** — the bb stage you are running now.
+2. **Artifact skill** — the skill for the thing you will create or edit.
 
-- [bb-workstream](bb-workstream/SKILL.md)
-- [bb-research](bb-research/SKILL.md)
-- [bb-planning](bb-planning/SKILL.md)
-- [bb-dashboard](bb-dashboard/SKILL.md)
-- [bb-implementation](bb-implementation/SKILL.md)
-- [bb-verification](bb-verification/SKILL.md)
-- [bb-qa](bb-qa/SKILL.md)
-- [bb-review](bb-review/SKILL.md)
-- [bb-summary](bb-summary/SKILL.md)
-- [bb-cleanup](bb-cleanup/SKILL.md)
-- [bb-analytics](bb-analytics/SKILL.md)
+| If the work is about... | Read this first |
+| --- | --- |
+| Workstream setup, managers, workers, gates | [bb-workstream](bb-workstream/SKILL.md) |
+| Research, product examples, APIs, docs, prior art | [bb-research](bb-research/SKILL.md) |
+| Plans, specs, worker scopes, acceptance criteria | [bb-planning](bb-planning/SKILL.md) |
+| Status dashboards, worker rosters, decision queues | [bb-dashboard](bb-dashboard/SKILL.md) |
+| Worker handoffs, implementation, merges | [bb-implementation](bb-implementation/SKILL.md) |
+| App/browser/Electron screenshots or behavior evidence | [bb-verification](bb-verification/SKILL.md) |
+| QA gates and release checklists | [bb-qa](bb-qa/SKILL.md) |
+| Review findings and dispositions | [bb-review](bb-review/SKILL.md) |
+| Final summaries, handoffs, PR summaries | [bb-summary](bb-summary/SKILL.md) |
+| Archiving threads/worktrees/artifacts | [bb-cleanup](bb-cleanup/SKILL.md) |
+| PostHog runbooks or analytics reports | [bb-analytics](bb-analytics/SKILL.md) |
+| Anything under `~/Moss/Notes/**` | [moss-notes](../moss-notes/SKILL.md) |
+| YAML frontmatter | [moss-frontmatter](../moss-frontmatter/SKILL.md) |
+| Moss comments or `comments.json` | [moss-comments](../moss-comments/SKILL.md) |
+| `[[wiki links]]` | [moss-wiki-links](../moss-wiki-links/SKILL.md) |
+| `moss-html` mockups/prototypes | [moss-mockup](../moss-mockup/SKILL.md) |
 
-Read the relevant `SKILL.md` before running that stage. Treat this file as workflow policy and the linked skills as the detailed stage definitions.
+If writing a dashboard, plan, report, QA note, review, summary, research note, or mockup under `~/Moss/Notes/**`, read the relevant bb stage skill **and** `moss-notes`. Add the Moss subskills only when the artifact uses their syntax.
 
-Moss note authoring rules live in the top-level Moss skills:
+These bb workflow skills are checked in for bb manager-led workstreams. They are not the Codex app plugin surface; Codex plugin packaging should expose the top-level Moss note skills, not `skills/bb/**`.
 
-- [moss-notes](../moss-notes/SKILL.md)
-- [moss-frontmatter](../moss-frontmatter/SKILL.md)
-- [moss-comments](../moss-comments/SKILL.md)
-- [moss-wiki-links](../moss-wiki-links/SKILL.md)
-- [moss-mockup](../moss-mockup/SKILL.md)
+## High-Level Workflow
 
-When creating dashboards, plans, reports, summaries, or research notes, read the relevant Moss note skill instead of duplicating note syntax here.
+Large work goes through the full workflow:
 
-## Written artifacts
+1. `bb-workstream` — set up the workstream, integration branch, ownership model, and manager responsibilities.
+2. `bb-research` — gather evidence when external context, examples, APIs, docs, or UI references improve planning.
+3. `bb-planning` — turn source material into scoped work with ownership, acceptance criteria, validation, and evidence gates.
+4. `bb-dashboard` — create/update the canonical user review surface before work starts.
+5. `bb-implementation` — hand off approved scopes with required skills, files, validation, and reporting expectations.
+6. `bb-verification` — verify behavior before review, especially for UI, screenshots, Electron, browser, or user flows.
+7. `bb-qa` — run a formal merge/release gate when risk, release scope, or user-facing behavior warrants it.
+8. `bb-review` — perform manager first pass and same-environment readonly review for non-trivial changes.
+9. `bb-summary` — summarize what changed, validation, verification, QA, review, risks, decisions, and PR/handoff state.
+10. `bb-cleanup` — archive/clean threads and environments only after preserving useful artifacts.
 
-All written artifacts are human-readable first. Optimize for skimmability, clear decisions, next actions, evidence, and minimal cognitive load.
+Small tasks can abbreviate this flow, but planning, verification, and review still apply unless the user explicitly waives them.
 
-- Prefer tables for structured state, ownership, checklists, decision queues, and comparison points; size columns thoughtfully when Moss/table layout metadata supports it, with narrow compact columns and wider prose-heavy columns.
-- Use callouts for blockers, decisions, warnings, accepted risks, and human-needed checks.
-- Use tabs only for a few alternate views or large parallel sections that would otherwise make one page hard to scan.
-- Use charts only when trends or comparisons beat a table or list.
-- For human-facing Markdown artifacts such as plans, research, status summaries, and reviews, emojis may be used sparingly when they improve scanability, tone, or section/status recognition; pair them with clear words or labels, and avoid noisy or decorative overload.
-- Keep general prose, status, evidence, and decisions in Markdown; do not wrap plain prose in `moss-html` when Markdown is enough.
-- For planning and research artifacts, use `moss-html` for mockups, UI proposals, and prototypes when visual or interactive rendering helps humans understand the plan or research.
-- Use canvas/`moss-canvas` for wireframes, flows, and diagrams.
+## Non-Negotiables
 
-## Core rule
+- **Delegation-first by default:** managers coordinate; workers do substantive coding, edits, investigations, and multi-step analysis unless the user explicitly says otherwise.
+- **Fresh base:** before spawning workers from the repo, fetch/pull the intended base and pass the base branch explicitly.
+- **Plan before edits:** workers report source access and a short plan before changing files.
+- **Name required skills in handoffs:** every worker prompt includes a `Read first / Skills to apply` section with the stage skill and any artifact skills.
+- **One owner per write area:** parallelize independent work; sequence shared files.
+- **Verify before review:** UI/user-flow/screenshot/Electron/browser work needs evidence before review.
+- **QA is a gate when risk warrants it:** product failures block unless accepted by the user/manager.
+- **Dashboard/status stay current:** update after state changes, worker completions, blockers, PRs, merges, and scheduled check-ins.
+- **5-minute manager check-ins:** when requested or scheduled, inspect active managers/workers once, update status/dashboard, and avoid polling loops.
 
-Run meaningful work through the bb workflow instead of doing substantive work in the manager thread.
+## Investigation Before Fixes
 
-Large work must go through the full workflow:
+For regressions, bugs, broken UI behavior, flaky tests, CI failures, visual defects, or user-reported wrong behavior, identify the root cause before fixing.
 
-1. `bb-workstream` - set up the workstream, integration branch, ownership model, and manager responsibilities.
-2. `bb-research` - research product/feature ideas when external context, examples, best practices, APIs, or UI references would improve planning.
-3. `bb-planning` - turn the request/source material into scoped work with acceptance criteria, owned files, validation, and evidence gates.
-4. `bb-dashboard` - create or update the canonical dashboard before workers start.
-5. `bb-implementation` - spawn workers only after the user has seen the worker plan list and approved non-trivial fanout.
-6. `bb-verification` - verify behavior before review, including screenshots/user-flow evidence when UI-facing or interactive.
-7. `bb-qa` - run the QA gate when the work is user-facing, multi-worker, high-risk, release-relevant, or otherwise needs a formal merge gate.
-8. `bb-review` - do manager first pass, then dedicated same-environment readonly review for non-trivial work.
-9. `bb-summary` - summarize what changed, validation, verification, QA, review, risks, decisions, and PR/handoff state.
-10. `bb-cleanup` - archive/clean completed or stale workers only after preserving useful artifacts.
+- Start with observed failure, reproduction path, expected behavior, and affected files/components.
+- Capture root-cause evidence: file/line references, screenshots, logs, test output, or source links when relevant.
+- Do not let workers jump straight to symptom edits.
+- Implement the smallest fix that addresses the cause and verify against the original failure.
 
-Small work can use an abbreviated workflow, but planning, verification, and review are still expected unless the user explicitly waives them.
+## Written Artifacts
 
-## Parallelization
+Written artifacts are human-readable first: decisions, next actions, evidence, blockers, and risks should be easy to skim.
 
-Parallelize independent work as much as practical while keeping ownership and merge safety explicit. Default each stage to as many workers as the work usefully splits into; sequential single-worker stages are a special case for small or tightly-coupled work, not the default. Stages that can fan out include research, planning, implementation, verification, QA, review, summary, and cleanup.
+- Prefer tables for structured state, ownership, checks, decisions, and comparisons.
+- Use callouts for blockers, warnings, decisions, accepted risks, and human-needed checks.
+- Use tabs only for a few alternate views or large parallel sections.
+- Use charts only when a trend/comparison is clearer than a list/table.
+- Use `moss-html` for mockups/prototypes, not plain prose.
+- Use `moss-canvas` for wireframes, flows, and diagrams.
+- Consolidate updates into canonical docs; create new artifacts only for distinct deliverables such as formal QA, verification, review, or summary notes.
 
-- Decompose large work into independent workers where files, decisions, and validation can be separated.
-- Run read-only discovery, implementation slices, validation/review, docs checks, package checks, and other non-conflicting work in parallel.
-- Keep one owner per write area or file set to avoid conflicts.
-- Do not parallelize tightly coupled, blocking, or likely-conflicting work without sequencing or explicit coordination.
-- Prefer parallel review and validation after implementation, or alongside non-overlapping work that does not affect the same files or acceptance evidence.
+## Moss Artifact Location
 
-Scale fanout to the work, not to a fixed worker count:
-
-- More workers when there are independent product areas, packages, platforms (web/desktop/mobile), test surfaces, risky integrations, or distinct evidence/review concerns.
-- Fewer or one worker when scope is tiny, tightly coupled, edits the same files, or coordination cost exceeds the work itself.
-
-Do not collapse non-trivial work into a single monolithic plan, and do not split a cohesive task into pretend-parallel workers. Run sidecar work in parallel with the critical path when it touches different files (e.g. reviewing one merged worker while another is implementing).
-
-Before spawning, list the independent slices, assign disjoint write ownership, sequence shared files, and pause for user approval on non-trivial fanout. Per-stage starting points and safety actions live in [bb-workstream/references/manager-flow.md](bb-workstream/references/manager-flow.md).
-
-## Analytics work
-
-For PostHog analytics work, use `bb-analytics` instead of the implementation pipeline:
-
-- Use `bb-analytics` when authoring a new runbook (decision-supporting "how to read this dashboard" note) or running an existing runbook to produce a dated analytics report.
-- Pair every runbook with a report template in `~/Moss/Notes/Agent Workspaces/bb Workspace/Templates/` and store reports under `~/Moss/Notes/Agent Workspaces/bb Workspace/PostHog Reviews/`.
-- Treat analytics output like research: link the report from `dashboard.md` and add any follow-ups to the workstream decision queue when the analytics work feeds a managed workstream.
-- PostHog credentials come from `.env` or `~/.claude/projects/*/memory/posthog.md`. Never paste or commit raw tokens.
-
-## Investigation before fixes
-
-For regressions, bugs, broken UI behavior, flaky tests, CI failures, visual defects, or user-reported "this is wrong" feedback, investigate and identify root cause before implementing a fix.
-
-- Start with the observed failure, reproduction path, affected files/components, and expected behavior.
-- Produce root-cause evidence with file/line references, screenshots/logs/test output when relevant, and a short proposed fix plan.
-- Do not let workers jump straight to edits from guesses or symptom patches. If a worker starts fixing before proving the cause, redirect them to investigation first.
-- Keep the investigation lightweight for small issues, but make the cause explicit before code changes.
-- After root cause is accepted, implement the smallest fix that addresses the cause, then verify against the original failure.
-
-## Minimum workflow for small tasks
-
-For small, low-risk tasks:
-
-1. Plan the task inline or in the dashboard: objective, files/scope, acceptance criteria, validation, expected output.
-2. Tell the user the worker plan before spawning a worker when a worker is needed.
-3. Run focused implementation.
-4. Verify the changed behavior with the smallest sufficient check.
-5. Review the diff before merge. Use a dedicated review worker when the change is non-trivial, risky, cross-cutting, or user-facing.
-6. Record the result in the dashboard or final update.
-
-Do not skip verification just because code review is pending. Verification comes before review for UI-facing, screenshot, Electron, browser, or user-flow work.
-
-## Manager responsibilities
-
-The manager's core role is to keep workers unblocked and on-plan.
-
-- Keep the dashboard as the canonical user review surface.
-- Keep bb threads for communication and execution details.
-- Before workers start, tell the user each worker's objective, files/scope, validation, expected output, and provider/model when relevant.
-- For non-trivial fanout, pause for user approval before spawning workers.
-- While workers are active, use `ASYNC.md` scheduled nudges at the minimum supported cadence (currently 5 minutes) for manager check-ins.
-- On each scheduled nudge, inspect every active child once, ask or confirm whether a worker is blocked when progress is unclear, send the user concise play-by-play status for each active worker, and update the STATUS/dashboard.
-- Keep immediate event-driven updates for blockers, completions, review/fix loops, and merge-ready state.
-- Do not use shell sleeps, tail loops, or repeated log/status polling to simulate 1-minute checks.
-- Require each worker to write a plan before edits. Review and approve, revise, or block the plan.
-- Route blockers immediately. If a worker lacks source context, attachments, app access, account state, a running target, screenshots, or other acceptance-critical evidence, supply it, move the worker to an environment with access, verify it directly, or ask the user.
-- Do not let workers proceed from guesses or paraphrases when original evidence is required for acceptance.
-- Track plan divergence. Workers must report why they diverged, what files/behavior changed, and how validation is affected. The manager approves, redirects, or escalates.
-- Merge only after required verification, QA when applicable, and review gates are resolved.
-
-## Artifact location
-
-Store durable workstream artifacts under the Moss workspace, not in the repo checkout:
+Store durable bb workstream artifacts in Moss, not the repo checkout. New Moss notes are directories with a Markdown file inside:
 
 ```text
 ~/Moss/Notes/Agent Workspaces/bb Workspace/workstreams/<slug>/
-  dashboard.md
-  workers.md
-  research/
-  plans/
-  verification/
-  qa/
-  reviews/
-  summaries/
+  <Dashboard Title>/<Dashboard Title>.md
+  plans/<Plan Title>/<Plan Title>.md
+  qa/<QA Title>/<QA Title>.md
+  verification/<Verification Title>/<Verification Title>.md
+  reviews/<Review Title>/<Review Title>.md
+  summaries/<Summary Title>/<Summary Title>.md
 ```
 
-The dashboard links to the supporting artifacts. Keep long logs, screenshots, reports, and summaries in the matching subdirectories.
+Do not create flat `.md` files as durable Moss notes. Do not edit app-owned sidecars such as `meta.json`, `.folder.json`, or `layout.json` unless a Moss skill explicitly says the task requires it.
 
-When an agent is running inside bb, use the bb-provided Moss workspace and `bb Workspace` paths for Moss notes, artifacts, and workspace references. Do not default to Codex Workspace or Claude Workspace terminology or locations inside bb; reserve those host-specific workspace names for agents actually running in Codex or Claude outside bb.
+## Manager Responsibilities
 
-Repo changes should contain only code/docs/assets intended to be committed.
+- Keep the dashboard as the canonical user review surface.
+- Keep bb threads for execution details and communication.
+- Tell the user worker objectives, scope, files, validation, and expected output before non-trivial fanout.
+- Route blockers immediately; do not let missing evidence become guesses.
+- Track plan divergence and approve, redirect, or escalate it.
+- Merge only after required verification, QA, and review gates are resolved.
+- Use child managers when coordination itself is the bottleneck.
 
-## Artifact consolidation
+## Provider Guidance
 
-When updating plans, dashboards, reviews, or workstream artifacts, prefer consolidating into the existing canonical docs instead of creating a new doc for each update.
-
-Create a new artifact only when it is a distinct durable deliverable, such as a formal review report, QA report, verification report, or when the user explicitly asks. Otherwise, update or append the existing dashboard, plan, or workers doc and link to the relevant section.
-
-## Worker sandbox
-
-The user controls the sandbox; managers have full latitude.
-
-- Default `bb thread spawn` to `--permission-mode full` so workers can run `WebFetch` and `WebSearch` and write outside the project worktree (e.g. `~/Moss/Notes/`, `~/Moss/Agent Workspaces/`).
-- Drop to `--permission-mode workspace-write` or `--permission-mode readonly` only with a concrete reason — a strictly-scoped readonly review pass, an untrusted external task, or a codebase-only edit where blast radius matters.
-- If a worker reports it couldn't fetch a URL, run a search, or write to a Moss path, re-spawn with `--permission-mode full` instead of routing around the sandbox via staging + copy.
-
-## Provider defaults
-
-Stay provider-agnostic, but prefer Codex for manager-led work unless availability, task fit, tooling, context, access, cost, latency, or the user says otherwise:
-
-- Codex for managers, manager-of-manager threads, planning, QA, summaries, UI/UX-related work, review workers, implementation, cleanup, codebase analysis, mechanical docs/code work, **investigations, regressions, and bug fixes**.
-- Claude or another provider when available models, tool access, context fit, interaction style, or the user's request makes that provider the better choice for the specific thread.
-- Always check `bb provider models <provider>` for candidate providers and use the latest/highest suitable available model.
-- Current example defaults:
-  - Codex: `--provider codex --model gpt-5.5 --reasoning-level xhigh`
-  - Claude: `--provider claude-code --model 'claude-opus-4-7[1m]' --reasoning-level xhigh`
-
-## Dashboard expectations
-
-Every active workstream needs a dashboard unless the task is truly trivial.
-
-The dashboard should show:
-
-- Goal and source context.
-- Integration branch and PR/handoff state.
-- Worker roster: thread ID, environment ID, worktree, provider/model, scope, owned files, stage, blocker, next action.
-- Research, plan approvals, and plan divergence.
-- Verification, QA, review, merge, and cleanup state.
-- Decisions needed from the user.
-- Links to research, plans, verification artifacts, QA reports, review reports, screenshots/logs, summaries, and relevant commits/PRs.
-
-The dashboard is a Moss note and must follow the written artifact guidance above. See [bb-dashboard](bb-dashboard/SKILL.md) for the full dashboard template and node-type guidance.
-
-For many workers, group by stage and sort by next manager action. If one manager has too many active decisions or workers to unblock effectively, consider hiring a child manager for an independent scope.
-
-## When to hire another manager
-
-Hire or delegate to another manager instead of spawning more workers directly when:
-
-- There are many workers with independent decision queues.
-- The work has distinct product areas or release tracks.
-- A child scope needs its own dashboard, blockers, QA/review routing, or merge readiness.
-- The parent manager would otherwise become a bottleneck for unblocking workers.
-
-The parent manager keeps the roll-up dashboard and owns cross-workstream decisions, shared-file conflicts, user escalations, accepted risks, and final PR/release state unless explicitly delegated.
+Stay provider-agnostic. Prefer Codex for manager-led work unless task fit, tooling, context, access, cost, latency, or the user says otherwise. See [provider-selection](bb-workstream/references/provider-selection.md) for current command snippets.

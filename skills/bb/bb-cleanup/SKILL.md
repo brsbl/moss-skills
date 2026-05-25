@@ -1,42 +1,38 @@
 ---
 name: bb-cleanup
-description: Use to safely clean up Moss bb workstream state after completion, pause, or cancellation while preserving dashboards, worker rosters, plans, QA, verification, review, summaries, decision history, dirty worktrees, and useful evidence.
+description: "Use to clean up bb workstream threads, environments, branches, and artifacts after completion/pause/cancellation while preserving dashboards, evidence, dirty worktrees, decisions, and useful history."
 ---
 
 # Moss BB Cleanup
 
-Use this skill to clean up bb workstream state only after useful evidence is preserved. Cleanup should archive by default and avoid deleting work that explains what shipped or why work stopped.
+## When To Use
 
-## Inputs
+Use this only after useful evidence is preserved and merge/closeout state is clear.
 
-- Dashboard, worker roster, thread IDs, environment IDs, and worktree paths.
-- QA, verification, review, summary, decision, and merge evidence.
-- Current status: completed, paused, canceled, merged, intentionally abandoned, or still active.
+## Read First
+- ../WORKFLOWS.md
+- references/cleanup-reference.md
+- ../../moss-notes/SKILL.md for cleanup notes under ~/Moss/Notes/**
 
 ## Steps
-
-1. Verify no active worker or manager thread still depends on the environment.
-2. Inventory threads, environments, and worktree status. Cleanup across many independent environments can run in parallel by environment group; keep one owner for the final cleanup report and dashboard update. See [Parallelization And Fanout](../bb-workstream/references/manager-flow.md#parallelization-and-fanout).
-3. Stop cleanup when active work, dirty files, missing evidence, unresolved findings, or pending decisions remain.
-4. Preserve dashboard, roster, approved plans, QA reports, verification screenshots/logs, review reports, summaries, and decision history.
-5. Archive threads when safe; delete only with explicit manager/user confirmation that no useful history will be lost.
-6. Do not invent environment deletion commands; confirm local bb help and policy first when environment removal is needed.
-7. Record a cleanup result in the dashboard or final summary.
+1. Inventory active threads, environments, branches, worktrees, PRs, dashboards, and evidence.
+2. Stop if active work, dirty files, missing evidence, or unresolved decisions remain.
+3. Archive/close threads only when safe; delete only with explicit approval or clearly disposable state.
+4. Preserve dashboards, plans, QA, verification, reviews, summaries, and decisions.
+5. Record final cleanup state.
 
 ## Outputs
-
-- Cleanup report with archived threads, preserved environments, dirty or unmerged worktrees, preserved evidence, and remaining manager/user actions.
-- Dashboard or summary update explaining final state.
-- Cleanup report follows the shared written artifact guidance so preserved evidence, risks, and remaining actions are easy to scan.
+- Cleanup report or dashboard section
+- Archived/stopped thread list
+- Preserved dirty worktrees/evidence
+- Remaining actions
 
 ## Validation
-
 - No useful dirty or unmerged worktree is removed.
-- Referenced screenshots, logs, reviews, QA artifacts, summaries, and decisions remain available.
-- Destructive cleanup has explicit approval unless the file is obviously disposable and unreferenced.
+- All referenced evidence remains available.
+- Destructive cleanup has approval.
 
 ## References
-
-- Detailed inventory commands, safety gates, evidence preservation, cleanup commands, and report checklist: [references/cleanup-reference.md](references/cleanup-reference.md).
-- Shared written artifact guidance: [../WORKFLOWS.md](../WORKFLOWS.md).
-- Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).
+- Cleanup checklist: [references/cleanup-reference.md](references/cleanup-reference.md)
+- Summary closeout: [../bb-summary/SKILL.md](../bb-summary/SKILL.md)
+- Dashboard state: [../bb-dashboard/SKILL.md](../bb-dashboard/SKILL.md)

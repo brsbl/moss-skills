@@ -1,46 +1,39 @@
 ---
 name: bb-verification
-description: Use for Moss UI, screenshot, Electron, browser, or user-flow verification in bb workstreams, including long-lived running app target access gates, architecture checks, screenshot evidence, logs, product-vs-tooling classification, and review handoff before code review.
+description: "Use for Moss UI, screenshot, browser, Electron, or user-flow verification before review; writes verification evidence under ~/Moss/Notes/** when durable."
 ---
 
 # Moss BB Verification
 
-Use this skill when changed behavior needs current UI, screenshot, or user-flow evidence. Verification comes before code review for UI/screenshot/user-flow work so reviewers inspect behavior with screenshots and logs in hand.
+## When To Use
 
-## Inputs
+Use this when changed behavior must be seen or exercised, not just tested.
 
-- Workstream name, integration branch, feature scope, implementation plan, and dashboard.
-- Exact long-lived app target: running URL, running Electron app, or launch command that stays available through verification.
-- Seed workspace expectations, notes, attachments, design references, expected states, and flows.
-- Permission to use a prepared/shared long-lived verification environment when local launch is unavailable.
+## Read First
+- ../WORKFLOWS.md
+- references/verification-reference.md
+- ../bb-workstream/references/architecture-setup.md
+- ../../moss-notes/SKILL.md for verification reports under ~/Moss/Notes/**
 
 ## Steps
-
-1. Stop if the running app target, reference, attachment, required state, or account access is missing.
-2. Confirm architecture setup or record an environment/tooling blocker.
-3. Create a verification report under `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/verification/`.
-4. Exercise changed flows and nearby regressions; for editor work include loading, editing, saving, note switching, markdown persistence, and affected decorator blocks when relevant. For multi-surface work, default to one verification worker per independent flow, platform, or evidence type (fresh-app screenshot, editor flow, IPC/log capture); keep tightly-coupled flows in a single worker. See [Parallelization And Fanout](../bb-workstream/references/manager-flow.md#parallelization-and-fanout).
-5. Capture screenshots, logs, console output, manifests, and DOM or ARIA snippets needed to explain failures.
-6. Separate product failures from tooling blockers and `HUMAN` checks.
-7. Link the report, screenshot/log paths, verdict, and blockers from the dashboard.
-8. Hand off to review only after evidence exists or the manager records why verification is blocked.
+1. Confirm running target, app state, seed data, account access, and references.
+2. Classify missing runtime/tooling as blockers, not product bugs.
+3. Exercise changed flows and nearby regressions.
+4. Capture screenshots/logs/console/DOM evidence needed for review.
+5. Link verdict and evidence from the dashboard.
 
 ## Outputs
-
-- Verification report with long-lived target, scope, verdict, evidence, checks, failures, and review handoff.
-- Screenshot, log, console, and manifest artifacts next to the report.
-- Dashboard update with current verification status and evidence links.
-- Report shape follows the shared written artifact guidance so verdict, failures, blockers, and evidence are easy to scan.
+- Verification report
+- Screenshots/logs/console evidence
+- PASS/BLOCKED/FAIL verdict
+- Review handoff notes
 
 ## Validation
-
-- Verification uses current implementation state and a documented long-lived running target.
-- Tooling blockers are not reported as product failures.
-- Evidence is sufficient for a reviewer or manager to inspect behavior without replaying the entire thread.
+- Evidence matches current implementation state.
+- Tooling blockers are distinct from product failures.
+- Reviewer can understand behavior without replaying the whole thread.
 
 ## References
-
-- Detailed Moss runbook, command examples, environment blockers, workflow, and report template: [references/verification-reference.md](references/verification-reference.md).
-- Exact architecture setup commands: [../bb-workstream/references/architecture-setup.md](../bb-workstream/references/architecture-setup.md).
-- Shared written artifact guidance: [../WORKFLOWS.md](../WORKFLOWS.md).
-- Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).
+- Verification template: [references/verification-reference.md](references/verification-reference.md)
+- Architecture checks: [../bb-workstream/references/architecture-setup.md](../bb-workstream/references/architecture-setup.md)
+- Review handoff: [../bb-review/SKILL.md](../bb-review/SKILL.md)

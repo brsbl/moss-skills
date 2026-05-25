@@ -1,74 +1,55 @@
 # Architecture Setup Reference
 
-Use one architecture for the whole workstream. On Apple Silicon, the default is native arm64 from Node through dependencies, esbuild, Electron, and native packages.
+Read [../../WORKFLOWS.md](../../WORKFLOWS.md) first. Use this when workers or verification need a prepared app/runtime target.
 
-The manager bootstraps dependencies once in a prepared source checkout, usually the main or integration checkout. Do not run this setup from fresh worker worktrees. Workers should receive one of:
+## Prepared Environment Contract
 
-- access to the prepared checkout
-- a running app or URL
-- a worker worktree with `node_modules` linked to the prepared dependency source
+Give each worker one dependency/runtime source:
 
-Manager/prepared-checkout bootstrap:
+- prepared checkout access
+- manager-provided running app or URL
+- linked `node_modules` from a prepared checkout
+
+Workers should not run fresh installs/rebuilds by default.
+
+## Access Report Snippet
 
 ```bash
-cat > /tmp/moss-arm64-dev-setup.sh <<'SH'
-set -euo pipefail
+pwd
+git branch --show-current
+git status --short
+command -v rg || true
+uname -m
+node -p 'process.platform + " " + process.arch'
+pnpm --version || true
+test -e node_modules && echo node_modules-present || echo node_modules-missing
+readlink node_modules || true
+```
 
-echo "machine: $(uname -m)"
-echo "node: $(node -p 'process.platform + " " + process.arch')"
+For Electron/Moss verification add:
+
+```bash
 file "$(command -v node)"
-
-test "$(node -p 'process.arch')" = "arm64" || {
-  echo "Expected arm64 Node. Switch to native arm64 Node before installing dependencies."
-  exit 1
-}
-
-rm -rf node_modules packages/*/node_modules
-
-env -u NODE_ENV pnpm install --frozen-lockfile --config.production=false
-pnpm rebuild --pending esbuild electron
-node node_modules/electron/install.js
-
-node -e 'console.log("node", process.arch); console.log("electron", require("electron")); console.log("esbuild", require("esbuild").version)'
-SH
-
-arch -arm64 zsh /tmp/moss-arm64-dev-setup.sh
+node -p 'process.versions.modules'
+node -p "require.resolve('@electron-forge/cli/package.json')"
+node -e 'console.log(require("electron"))'
 ```
 
-If the session is intentionally all-Rosetta/x64, create and run the x64 variant instead:
-
-```bash
-sed -e 's/= "arm64"/= "x64"/' \
-  -e 's/Expected arm64 Node. Switch to native arm64 Node/Expected x64 Node. Switch to Rosetta x64 Node/' \
-  /tmp/moss-arm64-dev-setup.sh > /tmp/moss-x64-dev-setup.sh
-arch -x86_64 zsh /tmp/moss-x64-dev-setup.sh
-```
-
-Simple rules:
-
-- Managers check Node architecture before installing dependencies in the prepared source checkout.
-- Never reuse `node_modules` after switching architecture.
-- If architecture changes, rebuild the prepared dependency source. Do not make each fresh worker worktree run its own install/rebuild/Electron postinstall.
-- If setup fails, record an environment/tooling blocker and fix the prepared source before assigning workers or running verification.
-
-Fresh worker worktrees do not run fresh `pnpm install`, `pnpm rebuild`, or `node node_modules/electron/install.js` by default. Use a prepared environment, a running app or URL, or link root dependencies from the prepared checkout:
+## Link Root Dependencies When Approved
 
 ```bash
 rm -rf node_modules
 ln -s <prepared-checkout>/node_modules node_modules
 ```
 
-Before launching Electron or running screenshot/user-flow checks, record architecture and package resolution from the checkout that will run the app:
+## Environment Blockers
 
-```bash
-uname -m
-node -p 'process.platform + " " + process.arch'
-file "$(command -v node)"
-node -p 'process.versions.modules'
-test -e node_modules
-readlink node_modules || true
-node -p "require.resolve('@electron-forge/cli/package.json')"
-node -e 'console.log(require("electron"))'
-```
+Treat these as tooling blockers until proven otherwise:
 
-Missing `node_modules`, missing `rg`, unavailable package-manager access, Electron download/postinstall failures, Electron launch failures, sandbox or permission failures, CDP failures, package resolution failures, and Node/esbuild/Electron/native-package architecture mismatches are environment/tooling blockers. The manager either rebuilds the prepared dependency source, supplies a prepared/shared environment, provides a running app or URL for verification, links worker dependencies to the prepared checkout, or asks the user. Do not let a worker treat these access failures as product defects or proceed with acceptance-critical checks missing.
+- missing `node_modules`, `rg`, package manager access, or package resolution
+- Electron download/postinstall/runtime launch failures
+- sandbox, permission, or CDP failures
+- Node/esbuild/Electron/native package architecture mismatch
+- missing long-lived app target or account state
+
+The manager supplies a prepared target, fixes the environment, or asks the user. Do not report environment access failures as product defects.

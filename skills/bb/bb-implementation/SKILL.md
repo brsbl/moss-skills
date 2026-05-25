@@ -1,50 +1,41 @@
 ---
 name: bb-implementation
-description: Use when a bb manager assigns scoped Moss implementation work to worker environments, covering provider defaults, clean worktree setup, architecture checks, worker handoff, plan approval before edits, divergence handling, validation, verification-before-review, QA/review routing, moss verify, and squash merge.
+description: "Use when a bb manager assigns scoped implementation to workers: clean base, explicit skills to read, file ownership, plan-before-edits, validation, evidence, divergence, review, and merge handling."
 ---
 
 # Moss BB Implementation
 
-Use this skill to assign and drive scoped implementation work in a bb workstream. The manager remains active: context, environment access, file ownership, validation, and exit criteria must be clear before implementation starts.
+## When To Use
 
-## Inputs
+Use this after planning is approved and before any worker starts edits.
 
-- Approved or manager-ready scope, source context, integration branch, owned paths, forbidden paths, and acceptance criteria.
-- Provider/model default or override reason.
-- Validation commands, `moss verify` expectations, UI/user-flow verification targets, and expected final output.
-- Dashboard and worker roster paths.
+## Read First
+- ../WORKFLOWS.md
+- references/worker-lifecycle.md
+- ../bb-workstream/references/architecture-setup.md
+- ../bb-workstream/references/provider-selection.md
+- ../../moss-notes/SKILL.md when worker outputs are Moss notes
 
 ## Steps
-
-1. Verify the integration checkout is clean and usable before creating worker environments.
-2. Confirm architecture setup from the shared reference before assigning workers or running verification.
-3. Start each implementation worker in a separate worktree from the integration branch; default to one worker per disjoint-ownership scope and run them in parallel when owned files do not overlap. Sequence shared files explicitly instead of spawning conflicting workers.
-4. Require an initial access report, then require a concise implementation plan before edits.
-5. Approve, revise, or block the plan; record durable plans under `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/plans/` when useful.
-6. Watch for blockers, shared-file dependencies, environment failures, and plan divergence during implementation.
-7. Require changed files, focused validation, `moss verify` status, UI verification evidence when applicable, and unresolved risks.
-8. Route ready work through verification, QA, manager first pass, same-environment review, hard gate, and squash merge.
+1. Confirm integration checkout/base is clean and current.
+2. Write a worker handoff with objective, done conditions, owned/forbidden files, validation, evidence, and coordination rules.
+3. Include `Read first / Skills to apply` with the stage skill and artifact skills.
+4. Require an access report and plan before edits.
+5. Approve, redirect, or escalate divergence; then route to verification/QA/review/merge.
 
 ## Outputs
-
-- Worker prompt with objective, done conditions, owned files, forbidden files, validation, output format, and coordination rules.
-- Updated dashboard and `workers.md` with thread IDs, environments, providers/models, worktree paths, blockers, plans, validation, and merge state.
-- Merged or explicitly blocked worker environment with evidence links.
-- Worker plans, dashboard updates, and handoff notes follow the shared written artifact guidance so decisions, blockers, next actions, and evidence are easy to scan.
+- Worker prompt
+- Updated dashboard/worker roster
+- Validation/evidence report
+- Merged or intentionally blocked worker environment
 
 ## Validation
-
-- No worker starts from an unknown, dirty, or inaccessible base.
-- Workers wait for manager approval before editing.
-- Plan divergence is approved, redirected, or escalated before drift.
-- UI/user-flow work has verification evidence before review.
-- `moss verify` passes before squash merge, or the blocker is recorded with owner and next action.
+- No worker starts from unknown/dirty/inaccessible base.
+- Required skills are named in the handoff.
+- Workers wait for plan approval before edits.
+- UI/user-flow work has verification before review.
 
 ## References
-
-- Detailed worker lifecycle, handoff prompts, access checks, and merge flow: [references/worker-lifecycle.md](references/worker-lifecycle.md).
-- Provider defaults: [../bb-workstream/references/provider-selection.md](../bb-workstream/references/provider-selection.md).
-- Exact architecture setup commands: [../bb-workstream/references/architecture-setup.md](../bb-workstream/references/architecture-setup.md).
-- Shared manager flow: [../bb-workstream/references/manager-flow.md](../bb-workstream/references/manager-flow.md).
-- Shared written artifact guidance: [../WORKFLOWS.md](../WORKFLOWS.md).
-- Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).
+- Worker prompts: [references/worker-lifecycle.md](references/worker-lifecycle.md)
+- Manager flow: [../bb-workstream/references/manager-flow.md](../bb-workstream/references/manager-flow.md)
+- Provider commands: [../bb-workstream/references/provider-selection.md](../bb-workstream/references/provider-selection.md)

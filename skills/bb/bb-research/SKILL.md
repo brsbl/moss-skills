@@ -1,53 +1,40 @@
 ---
 name: bb-research
-description: Use when researching a product, feature, technical direction, or workstream idea before bb-planning or bb-workstream, including best practices, pitfalls, reference products, docs, UI examples, source links, options, risks, and planning inputs.
+description: "Use when researching product, feature, technical, API, docs, UI, competitor, or prior-art questions before planning; writes source-backed research notes under ~/Moss/Notes/** when durable."
 ---
 
 # Moss BB Research
 
-Use this skill before planning when a product, feature, technical approach, or workstream needs source-backed context. Keep research bounded: gather enough evidence to guide the next planning decision, not an exhaustive market study.
+## When To Use
 
-## Inputs
+Use this before planning when evidence will improve the decision, scope, or acceptance criteria.
 
-- User idea, workstream goal, issue, PR feedback, note, screenshot, or manager question.
-- Existing workstream slug or artifact path when one exists.
-- Relevant product area, users, constraints, platform, integrations, and known decisions.
+## Read First
+- ../WORKFLOWS.md
+- references/research-reference.md
+- ../../moss-notes/SKILL.md for durable research notes under ~/Moss/Notes/**
+- ../../moss-mockup/SKILL.md for moss-html mockups
+- ../../moss-wiki-links/SKILL.md for note links
 
-## Workflow
-
-1. Frame the research question, scope, non-goals, and decision the research must support.
-2. Use available search, fetch, docs, and browser tools to inspect high-quality sources. For multi-question research, default to one research worker per independent question (e.g. competitive UX, API docs, perf prior art) when evidence does not overlap; keep questions sharing the same primary source in a single worker. See [Parallelization And Fanout](../bb-workstream/references/manager-flow.md#parallelization-and-fanout).
-3. Cover best practices, common pitfalls, popular or reference products, official docs or API references, and UI/reference examples when relevant.
-4. Capture screenshots or browser evidence for UI/reference research when tooling and access are available. If not, record a clear `HUMAN-needed` or blocker note.
-5. When research includes a mockup, UI proposal, or prototype, use `moss-html` for that mockup portion if visual or interactive rendering helps humans understand the recommendation.
-6. Use canvas/`moss-canvas` for wireframes, flows, and diagrams.
-7. Keep plain prose and evidence synthesis in Markdown.
-8. Use emojis sparingly in human-facing research Markdown only when they improve scanability or status recognition; pair them with clear words or labels.
-9. Synthesize options with a recommendation, pros and cons, source links, assumptions, risks, open questions, and follow-up planning inputs.
-10. Save durable research under `~/Moss/Agent Workspaces/bb Workspace/workstreams/<slug>/research/` using dated filenames.
-11. Link the report from `dashboard.md` or planning artifacts only when those artifacts already exist.
+## Steps
+1. Frame the decision, scope, non-goals, and sources to inspect.
+2. Use search/fetch/docs/browser tools; prefer official/primary sources for technical claims.
+3. Capture references, screenshots, options, risks, assumptions, and gaps.
+4. Synthesize recommendation and planning inputs.
+5. Link the research from the dashboard or plan.
 
 ## Outputs
-
-- Source-backed research report with recommendation, options, pros and cons, risks, assumptions, open questions, and planning inputs.
-- Evidence paths for screenshots, browser notes, source excerpts, or blockers.
-- Explicit gaps where source quality, access, browser tooling, or account state limits confidence.
-- Report shape follows the shared written artifact guidance so decisions, next actions, evidence, and gaps are easy to scan.
-- Any mockup, UI proposal, or prototype uses `moss-html` for the mockup portion when that makes the research easier to understand.
-- Wireframes, flows, and diagrams use canvas/`moss-canvas`.
+- Research note or dashboard section
+- Recommendation with options and tradeoffs
+- Source/evidence links and gaps
+- Planning inputs and open questions
 
 ## Validation
-
-- Every key claim links to a source or is marked as an assumption.
-- UI/reference claims include screenshot evidence when available or a `HUMAN-needed` blocker when not.
-- Recommendation connects directly to planning choices, acceptance criteria, constraints, or follow-up questions.
-- Research artifacts stay in the Moss workspace, not repo checkouts.
+- Key claims cite sources or are marked assumptions.
+- UI/reference claims have screenshots or HUMAN-needed blockers.
+- Recommendation maps to planning decisions or acceptance criteria.
 
 ## References
-
-- Research workflow, evidence rules, and report template: [references/research-reference.md](references/research-reference.md).
-- Create/manage the broader workstream with [bb-workstream](../bb-workstream/SKILL.md).
-- Turn research into scoped worker plans with [bb-planning](../bb-planning/SKILL.md).
-- Link research reports from the canonical status surface with [bb-dashboard](../bb-dashboard/SKILL.md).
-- Shared written artifact guidance: [../WORKFLOWS.md](../WORKFLOWS.md).
-- Moss note authoring rules: [moss-notes](../../moss-notes/SKILL.md), [moss-frontmatter](../../moss-frontmatter/SKILL.md), [moss-comments](../../moss-comments/SKILL.md), [moss-wiki-links](../../moss-wiki-links/SKILL.md), [moss-mockup](../../moss-mockup/SKILL.md).
+- Research template: [references/research-reference.md](references/research-reference.md)
+- Planning handoff: [../bb-planning/SKILL.md](../bb-planning/SKILL.md)
+- Dashboard linking: [../bb-dashboard/SKILL.md](../bb-dashboard/SKILL.md)
