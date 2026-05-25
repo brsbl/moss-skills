@@ -92,6 +92,16 @@ For PostHog analytics work, use `bb-analytics` instead of the implementation pip
 - Treat analytics output like research: link the report from `dashboard.md` and add any follow-ups to the workstream decision queue when the analytics work feeds a managed workstream.
 - PostHog credentials come from `.env` or `~/.claude/projects/*/memory/posthog.md`. Never paste or commit raw tokens.
 
+## Investigation before fixes
+
+For regressions, bugs, broken UI behavior, flaky tests, CI failures, visual defects, or user-reported "this is wrong" feedback, investigate and identify root cause before implementing a fix.
+
+- Start with the observed failure, reproduction path, affected files/components, and expected behavior.
+- Produce root-cause evidence with file/line references, screenshots/logs/test output when relevant, and a short proposed fix plan.
+- Do not let workers jump straight to edits from guesses or symptom patches. If a worker starts fixing before proving the cause, redirect them to investigation first.
+- Keep the investigation lightweight for small issues, but make the cause explicit before code changes.
+- After root cause is accepted, implement the smallest fix that addresses the cause, then verify against the original failure.
+
 ## Minimum workflow for small tasks
 
 For small, low-risk tasks:
