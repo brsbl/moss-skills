@@ -136,6 +136,12 @@ When an agent is running inside bb, use the bb-provided Moss workspace and `bb W
 
 Repo changes should contain only code/docs/assets intended to be committed.
 
+## Artifact consolidation
+
+When updating plans, dashboards, reviews, or workstream artifacts, prefer consolidating into the existing canonical docs instead of creating a new doc for each update.
+
+Create a new artifact only when it is a distinct durable deliverable, such as a formal review report, QA report, verification report, or when the user explicitly asks. Otherwise, update or append the existing dashboard, plan, or workers doc and link to the relevant section.
+
 ## Worker sandbox
 
 The user controls the sandbox; managers have full latitude.
