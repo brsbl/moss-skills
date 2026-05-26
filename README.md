@@ -10,8 +10,6 @@ This repository provides standalone skills for creating and editing [Moss](https
 - Help agents write valid Moss notes under `~/Moss/Notes/**` without breaking note directories, sidecars, comments, wiki links, or embedded `moss-html` / `moss-canvas` blocks.
 - Fork or customize the agent instructions while preserving Moss note syntax that the app expects.
 
-This repo contains Moss note-authoring skills only. Team-specific workflow policies, release processes and project-management preferences should live in your private agent instructions or project docs, not in these public Moss skills.
-
 ### Important note ⚠️
 
 If you customize these skills, do not change the Moss note syntax itself. The Moss app expects specific Markdown and sidecar shapes. You **can** customize how agents apply the syntax, such as whether they leave comments instead of editing directly or how they style embedded HTML.
