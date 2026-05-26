@@ -7,7 +7,7 @@ description: Create or edit Moss notes under ~/Moss/Notes/** using Moss note dir
 
 Use this whenever creating or editing Moss notes under `~/Moss/Notes/**`. This skill owns note directory shape, the Markdown content file, supported node syntax, and sidecar boundaries.
 
-Related skills: frontmatter (`moss-frontmatter`), comments (`moss-comments`), wiki links (`moss-wiki-links`), mockups (`moss-mockup`).
+Related skills: frontmatter (`moss-frontmatter`), comments (`moss-comments`), wiki links (`moss-wiki-links`), HTML/mockups (`moss-html`).
 
 ## Files
 
@@ -122,7 +122,7 @@ Prefer `moss-canvas` for wireframes, flows, diagrams, ASCII-style diagrams, flow
 
 ### HTML Mockups
 
-Use `moss-html` fenced blocks when rendered HTML or interactivity is the right artifact, such as mockups, UI proposals, prototypes, and interactive design mockups. See the mockup skill (`moss-mockup`).
+Use `moss-html` fenced blocks when rendered HTML or interactivity is the right artifact, such as mockups, UI proposals, prototypes, and interactive design mockups. See the HTML skill (`moss-html`).
 
 ### Tabs
 

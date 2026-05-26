@@ -15,6 +15,7 @@
     "notes",
     "note-taking",
     "markdown",
+    "html",
     "claude-code",
     "codex",
     "wiki-links",
@@ -26,15 +27,15 @@
   "skills": "./plugins/moss-skills/skills/",
   "interface": {
     "displayName": "mossnotes.app for Codex",
-    "shortDescription": "Moss skills packaged for the Codex app.",
+    "shortDescription": "Moss skills for notes, frontmatter, comments, wiki links, and HTML previews.",
     "longDescription": "Compatibility manifest for direct root installs. The Codex app package lives at ./plugins/moss-skills and includes the Moss note skills from this repository.",
     "developerName": "Bersabel Tadesse",
     "category": "Productivity",
     "websiteURL": "https://github.com/brsbl/moss-skills",
     "defaultPrompt": [
-      "Create a Moss implementation note with frontmatter and tasks.",
-      "Add wiki links and comments to organize these Moss notes.",
-      "Draft a Moss mockup note for this UI idea."
+      "Create a Moss note in ~/Moss/Notes with the right note-directory structure and Markdown syntax.",
+      "Review this Moss note for comments, wiki links, frontmatter, and Moss-specific syntax issues.",
+      "Add a focused moss-html preview to this Moss note for the UI state I describe."
     ],
     "brandColor": "#2F6F5E",
     "composerIcon": "./plugins/moss-skills/assets/moss-skills-icon.svg",

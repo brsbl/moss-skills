@@ -2,7 +2,7 @@
 
 <img width="1392" height="912" alt="Screenshot 2026-05-20 at 3 30 23 PM" src="https://github.com/user-attachments/assets/da7cf452-e37e-41d9-8bff-e4173723dd41" />
 
-This repository provides standalone skills for creating and editing [Moss](https://www.mossnotes.app/) notes with coding agents. The skills teach Moss note structure, Markdown syntax, comments, wiki links, frontmatter, and embedded mockups.
+This repository provides standalone skills for creating and editing [Moss](https://www.mossnotes.app/) notes with coding agents. The skills teach Moss note structure, Markdown syntax, comments, wiki links, frontmatter, and embedded HTML previews/mockups.
 
 ## What this repo is for
 
@@ -14,7 +14,7 @@ This repo contains Moss note-authoring skills only. Team-specific workflow polic
 
 ### Important note ⚠️
 
-If you customize these skills, do not change the Moss note syntax itself. The Moss app expects specific Markdown and sidecar shapes. You **can** customize how agents apply the syntax, such as whether they leave comments instead of editing directly or how they style embedded mockups.
+If you customize these skills, do not change the Moss note syntax itself. The Moss app expects specific Markdown and sidecar shapes. You **can** customize how agents apply the syntax, such as whether they leave comments instead of editing directly or how they style embedded HTML previews/mockups.
 
 Forking this repository only affects agents that install skills from it. It does not change the in-app Moss agent unless you separately update the app-bundled skills.
 
@@ -24,13 +24,13 @@ Forking this repository only affects agents that install skills from it. It does
 - [`moss-frontmatter`](skills/moss-frontmatter/SKILL.md): YAML frontmatter metadata at the top of Moss notes.
 - [`moss-comments`](skills/moss-comments/SKILL.md): Moss comment markers and `comments.json` metadata.
 - [`moss-wiki-links`](skills/moss-wiki-links/SKILL.md): `[[Note]]`, `[[#Heading]]`, aliases, and note-heading links.
-- [`moss-mockup`](skills/moss-mockup/SKILL.md): self-contained `moss-html` mockups, UI proposals, and prototypes.
+- [`moss-html`](skills/moss-html/SKILL.md): self-contained `moss-html` previews, UI mockups, proposals, and prototypes.
 
 ## One-line agent instruction
 
 Paste this into `AGENTS.md`, `CLAUDE.md`, or equivalent agent instructions:
 
-> When creating or editing files under `~/Moss/Notes/**`, use the locally available `moss-notes` skill before writing; also use `moss-frontmatter`, `moss-comments`, `moss-wiki-links`, or `moss-mockup` when the note uses those features.
+> When creating or editing files under `~/Moss/Notes/**`, use the locally available `moss-notes` skill before writing; also use `moss-frontmatter`, `moss-comments`, `moss-wiki-links`, or `moss-html` when the note uses those features.
 
 At runtime, agents should use their **locally installed** skills. This GitHub repo is the install/update source, not the path agents should reread for every task.
 
@@ -67,7 +67,7 @@ Installed skills are namespaced by plugin name. For example:
 
 ```bash
 /moss-skills:moss-notes
-/moss-skills:moss-mockup
+/moss-skills:moss-html
 ```
 
 ## Codex
