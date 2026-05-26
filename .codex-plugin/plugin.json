@@ -22,12 +22,14 @@
     "comments",
     "frontmatter",
     "mockups",
-    "plugin"
+    "plugin",
+    "formulas",
+    "variables"
   ],
   "skills": "./plugins/moss-skills/skills/",
   "interface": {
     "displayName": "mossnotes.app for Codex",
-    "shortDescription": "Moss skills for notes, frontmatter, comments, wiki links, and HTML previews.",
+    "shortDescription": "Moss skills for notes, formulas, variables, frontmatter, comments, wiki links, and HTML previews.",
     "longDescription": "Compatibility manifest for direct root installs. The Codex app package lives at ./plugins/moss-skills and includes the Moss note skills from this repository.",
     "developerName": "Bersabel Tadesse",
     "category": "Productivity",
