@@ -24,7 +24,7 @@ Forking this repository only affects agents that install skills from it. It does
 - [`moss-wiki-links`](skills/moss-wiki-links/SKILL.md): Use when linking Moss notes and headings with `[[Note]]`, `[[#Heading]]`, aliases, or note-heading links.
 - [`moss-html`](skills/moss-html/SKILL.md): Use when a note needs embedded HTML, such as a UI prototype, behavior demo, or focused interactive preview.
 
-## Skills CLI
+## Install with npx
 
 List installable skills:
 
@@ -44,7 +44,7 @@ If your environment needs an explicit HTTPS URL:
 npx skills add https://github.com/brsbl/moss-skills
 ```
 
-## Claude Code
+## Claude Code Plugin
 
 The Claude Code plugin is named `moss-skills`.
 
@@ -60,7 +60,7 @@ Installed skills are namespaced by plugin name. For example:
 /moss-skills:moss-html
 ```
 
-## Codex
+## Codex Plugin
 
 The Codex app plugin is also named `moss-skills`. It exposes the Moss note skills listed above.
 
