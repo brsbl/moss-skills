@@ -18,19 +18,11 @@ Forking this repository only affects agents that install skills from it. It does
 
 ## Included skills
 
-- [`moss-notes`](skills/moss-notes/SKILL.md): Moss note directories, Markdown files, supported node syntax, assets, formulas, callouts, `moss-html`, and `moss-canvas`.
-- [`moss-frontmatter`](skills/moss-frontmatter/SKILL.md): YAML frontmatter metadata at the top of Moss notes.
-- [`moss-comments`](skills/moss-comments/SKILL.md): Moss comment markers and `comments.json` metadata.
-- [`moss-wiki-links`](skills/moss-wiki-links/SKILL.md): `[[Note]]`, `[[#Heading]]`, aliases, and note-heading links.
-- [`moss-html`](skills/moss-html/SKILL.md): self-contained `moss-html` previews, UI mockups, proposals, and prototypes.
-
-## One-line agent instruction
-
-Paste this into `AGENTS.md`, `CLAUDE.md`, or equivalent agent instructions:
-
-> When creating or editing files under `~/Moss/Notes/**`, use the locally available `moss-notes` skill before writing; also use `moss-frontmatter`, `moss-comments`, `moss-wiki-links`, or `moss-html` when the note uses those features.
-
-At runtime, agents should use their **locally installed** skills. This GitHub repo is the install/update source, not the path agents should reread for every task.
+- [`moss-notes`](skills/moss-notes/SKILL.md): Start here when an agent needs to create or edit a Moss note. It explains note folders, the Markdown file, assets, sidecars, headings, tables, formulas, callouts, charts, `moss-canvas`, and `moss-html` blocks.
+- [`moss-frontmatter`](skills/moss-frontmatter/SKILL.md): Use when a note needs structured metadata at the top, such as tags, status, dates, or other searchable fields.
+- [`moss-comments`](skills/moss-comments/SKILL.md): Use when adding or preserving inline review comments. It covers the body markers and matching `comments.json` metadata Moss needs.
+- [`moss-wiki-links`](skills/moss-wiki-links/SKILL.md): Use when linking Moss notes and headings with `[[Note]]`, `[[#Heading]]`, aliases, or note-heading links.
+- [`moss-html`](skills/moss-html/SKILL.md): Use when a note needs embedded HTML, such as a UI prototype, behavior demo, or focused interactive preview.
 
 ## Skills CLI
 

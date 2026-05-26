@@ -38,7 +38,7 @@
       "Review this Moss spec for broken wiki links, comments/frontmatter issues, and whether its embedded moss-html prototype matches the described behavior."
     ],
     "brandColor": "#2F6F5E",
-    "composerIcon": "./plugins/moss-skills/assets/moss-sprout-icon.png",
-    "logo": "./plugins/moss-skills/assets/moss-logotype.png"
+    "composerIcon": "./plugins/moss-skills/assets/moss-icon.png",
+    "logo": "./plugins/moss-skills/assets/moss-icon.png"
   }
 }
