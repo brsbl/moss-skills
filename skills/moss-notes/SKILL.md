@@ -165,7 +165,8 @@ Stored markdown syntax for both kinds of pills:
 - Put the source (expression or symbolic label) before the first `|` and the rendered display value after it.
 - Symbolic variables use the variable name as the source and the text value as the display, for example `{{timeline|6 weeks}}`.
 - Named executable variables store the expression in the source and the name in metadata, for example `{{5000|5,000|name=budget}}`. Existing IDs, display formats, and stale flags may appear as `id=...;name=...;format=...;stale=1`; preserve them when editing.
-- Formula references use bound tokens like `@(budget#NOTE_ID#FORMULA_ID)` inside the source. Do not invent references unless the target formula ID is known.
+- For token families, define the minimum editable anchors, then put those named variables inside later variable expressions so the system relationship is live. For example, define `{{28|28|name=h1_size}}`, then derive `{{h1_size-6|22|name=h2_size}}` and `{{h2_size-4|18|name=h3_size}}`; changing `h1_size` should show how the dependent scale moves. For weights, define `{{400|400|name=normal_weight}}`, then derive `{{normal_weight+100|500|name=medium_weight}}`.
+- Formula references may serialize as bound tokens like `@(budget#NOTE_ID#FORMULA_ID)` inside the source. Preserve existing bound references; do not invent them unless the target formula ID is known.
 - Keep pills inline; do not use them for multi-line calculations or chart data.
 - Pipes inside pills are part of the syntax and do not split table cells.
 
