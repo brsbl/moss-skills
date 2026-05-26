@@ -1,6 +1,6 @@
 ---
 name: moss-mockup
-description: Author interactive HTML mockups, UI proposals, prototypes, and embedded designs in Moss notes using self-contained moss-html fenced blocks.
+description: Author self-contained moss-html mockups, UI proposals, prototypes, and embedded designs in Moss notes.
 ---
 
 # HTML Mockups

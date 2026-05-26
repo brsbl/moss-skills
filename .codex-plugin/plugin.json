@@ -27,7 +27,7 @@
   "interface": {
     "displayName": "mossnotes.app for Codex",
     "shortDescription": "Moss skills packaged for the Codex app.",
-    "longDescription": "Compatibility manifest for direct root installs. The Codex app package lives at ./plugins/moss-skills, includes top-level skills/moss-* skills, and excludes bb-only workflow skills.",
+    "longDescription": "Compatibility manifest for direct root installs. The Codex app package lives at ./plugins/moss-skills and includes the Moss note skills from this repository.",
     "developerName": "Bersabel Tadesse",
     "category": "Productivity",
     "websiteURL": "https://github.com/brsbl/moss-skills",

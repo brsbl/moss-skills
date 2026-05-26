@@ -23,7 +23,7 @@
   "interface": {
     "displayName": "Moss Skills",
     "shortDescription": "Moss skills for notes, frontmatter, comments, wiki links, and mockups.",
-    "longDescription": "Codex app package for Moss skills. It includes top-level skills/moss-* skills and excludes bb-only workflow guidance.",
+    "longDescription": "Codex app package for Moss skills. It includes the Moss note skills from this repository.",
     "developerName": "Bersabel Tadesse",
     "category": "Productivity",
     "capabilities": [
