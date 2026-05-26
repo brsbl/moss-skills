@@ -150,10 +150,11 @@ Use text-level syntax for compact references and emphasis inside paragraphs, lis
 
 ### Formulas And Variables
 
-Use formulas and variables for compact computed or labeled values displayed inline with surrounding text or table cells.
+Use formulas and variables for compact computed or labeled values displayed inline with surrounding text or table cells. The core use case is defining a small set of editable anchors, then deriving related values from those named anchors so the system updates together instead of becoming a set of disconnected numbers.
 
 - `Formula` is an unnamed executable expression like `=2+2`.
 - `Variable` is a named value — executable like `sum=2+2`, or symbolic like `timeline=6 weeks`. Any named variable can be referenced from other formulas through the cross-note lookup/typeahead, whether its value is executable or symbolic.
+- Use variables when a value has a name or should become an editable anchor for related formulas; use formulas when a one-off computed result is enough.
 
 Stored markdown syntax for both kinds of pills:
 
@@ -165,7 +166,7 @@ Stored markdown syntax for both kinds of pills:
 - Put the source (expression or symbolic label) before the first `|` and the rendered display value after it.
 - Symbolic variables use the variable name as the source and the text value as the display, for example `{{timeline|6 weeks}}`.
 - Named executable variables store the expression in the source and the name in metadata, for example `{{5000|5,000|name=budget}}`. Existing IDs, display formats, and stale flags may appear as `id=...;name=...;format=...;stale=1`; preserve them when editing.
-- For token families, define the minimum editable anchors, then put bound variable references inside later variable expressions so the system relationship is live. For example, define `{{28|28|id=H1_ID;name=h1_size}}`, then derive `{{@(h1_size#NOTE_ID#H1_ID)-6|22|id=H2_ID;name=h2_size}}` and `{{@(h2_size#NOTE_ID#H2_ID)-4|18|id=H3_ID;name=h3_size}}`; changing `h1_size` should show how the dependent scale moves. For weights, define `{{400|400|id=NORMAL_ID;name=normal_weight}}`, then derive `{{@(normal_weight#NOTE_ID#NORMAL_ID)+100|500|id=MEDIUM_ID;name=medium_weight}}`.
+- For related values, put bound variable references inside later variable expressions so the relationship is live. For example, define `{{28|28|id=H1_ID;name=h1_size}}`, then derive `{{@(h1_size#NOTE_ID#H1_ID)-6|22|id=H2_ID;name=h2_size}}` and `{{@(h2_size#NOTE_ID#H2_ID)-4|18|id=H3_ID;name=h3_size}}`; changing `h1_size` should show how the dependent values move.
 - Formula references may serialize as bound tokens like `@(budget#NOTE_ID#FORMULA_ID)` inside the source. Preserve existing bound references; do not invent them unless the target formula ID is known.
 - Keep pills inline; do not use them for multi-line calculations or chart data.
 - Pipes inside pills are part of the syntax and do not split table cells.
