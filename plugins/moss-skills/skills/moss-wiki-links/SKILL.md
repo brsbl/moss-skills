@@ -1,6 +1,6 @@
 ---
 name: moss-wiki-links
-description: Add or edit Moss wiki links like [[Note]], [[#Heading]], aliases, and note-heading references between existing Moss notes.
+description: Wiki link syntax for linking Moss notes and headings. Use when adding or editing `[[Note]]` links between notes.
 ---
 
 # Wiki Links

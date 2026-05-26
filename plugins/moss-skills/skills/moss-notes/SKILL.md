@@ -1,13 +1,11 @@
 ---
 name: moss-notes
-description: Create or edit Moss notes under ~/Moss/Notes/** using Moss note directories, Markdown conventions, assets, sidecar boundaries, callouts, formulas, wiki links, comments, and moss-html or moss-canvas blocks.
+description: Syntax and file rules for creating or editing Moss notes under ~/Moss/Notes/. Use when authoring or modifying notes, choosing a node type, or following Moss markdown conventions.
 ---
 
 # Moss Notes
 
-Use this whenever creating or editing Moss notes under `~/Moss/Notes/**`. This skill owns note directory shape, the Markdown content file, supported node syntax, and sidecar boundaries.
-
-Related skills: frontmatter (`moss-frontmatter`), comments (`moss-comments`), wiki links (`moss-wiki-links`), HTML/mockups (`moss-html`).
+Related skills: frontmatter (`moss-frontmatter`), comments (`moss-comments`), wiki links (`moss-wiki-links`), HTML (`moss-html`).
 
 ## Files
 
@@ -15,7 +13,7 @@ Related skills: frontmatter (`moss-frontmatter`), comments (`moss-comments`), wi
 - Folders organize notes. Subfolders and nested folders under `~/Moss/Notes/` are valid; create them when grouping helps or when the user asks.
 - Edit the existing markdown content file in the note directory.
 - New notes: create a directory (nested folders allowed) and a markdown file with the first line as `# Title`.
-- Do not create or edit app-owned sidecars such as `meta.json`, `.folder.json`, or `layout.json`; Moss writes these automatically, except when a task explicitly includes preserving or updating an existing app-supported table layout metadata mechanism.
+- Do not create or edit app-owned sidecars such as `meta.json`, `.folder.json`, or `layout.json`; Moss writes these automatically.
 - `comments.json` is a content sidecar: edit it only via the comments skill.
 - `assets/` is note-local content storage for referenced media, not metadata.
 - Use one H1 title only. Body headings start at H2.
@@ -45,15 +43,9 @@ Use tables for structured comparisons, compact data, status matrices, or checkli
 
 - Keep each row on one line.
 - Keep column counts consistent.
-- Size table columns thoughtfully for the available space and content shape when the app/table layout supports it.
-- Use narrow widths for compact columns such as status, owner, priority, dates, IDs, counts, and short labels.
-- Use wider widths for description, evidence, decision, rationale, next action, notes, and other prose-heavy columns.
-- Avoid equal-width tables when content clearly needs different proportions; do not waste space on tiny columns or cramp long-text columns.
 - Cells may contain supported text-level syntax such as emphasis, links, wiki links, inline code, formulas, highlight, underline, and image markdown as cell content. Keep the table row structure valid.
 - Escape literal table pipes as `\|`, except inside formulas.
-- If app-supported table layout metadata exists in the artifact being edited (for example `layout.json`) and the task includes preserving or setting table layout, use that mechanism for sensible column widths.
-- If no supported layout metadata is available, keep Markdown valid and let Moss/app layout handle widths.
-- Do not encode widths in Markdown comments, raw HTML, or hidden hacks.
+- Edit table markdown content only. Moss may preserve column widths in `layout.json` (app-managed); do not encode widths in markdown comments or HTML.
 
 ### Images And Video
 
@@ -118,11 +110,11 @@ Priority callouts can optionally put a level on the second line before the conte
 
 ### Canvas
 
-Prefer `moss-canvas` for wireframes, flows, diagrams, ASCII-style diagrams, flow charts, rough spatial layouts, hand-drawn/diagrammatic visuals, and other rough visual thinking. Avoid it for geographic maps or precise visualizations. The canvas uses a 120x60 grid. Legacy `moss-sketch` fences still import as the same canvas; new content should write `moss-canvas`.
+Use `moss-canvas` for ASCII-style diagrams, simple wireframes, flow charts, rough spatial layouts, hand-drawn/diagrammatic visuals, and other rough visual thinking. Avoid it for geographic maps or precise visualizations. The canvas uses a 120x60 grid. Legacy `moss-sketch` fences still import as the same canvas for old notes; new content must write `moss-canvas`.
 
 ### HTML Mockups
 
-Use `moss-html` fenced blocks when rendered HTML or interactivity is the right artifact, such as mockups, UI proposals, prototypes, and interactive design mockups. See the HTML skill (`moss-html`).
+Use `moss-html` fenced blocks when rendered HTML or interactivity is the right artifact, such as prototypes and interactive design mockups. See the HTML skill (`moss-html`).
 
 ### Tabs
 
@@ -153,7 +145,8 @@ Use text-level syntax for compact references and emphasis inside paragraphs, lis
 - Wiki links connect notes/headings or create navigable references in the Moss workspace; see the wiki-link skill for variants.
 - Highlight marks important text, status, or attention within prose; use `<mark data-color="yellow">...</mark>` rather than `==...==`.
 - Underline is for intentional emphasis where it will not be confused with a link.
-- Color literals (`#rgb`, `#rgba`, `#rrggbb`, `#rrggbbaa`, `rgb()`/`rgba()`, `hsl()`/`hsla()`) in body text, inline code, and code blocks automatically get a hover swatch preview; write them plainly and do not wrap them in custom spans, HTML, or `data-*` attributes.
+- Color literals in prose become atomic color pills and still export as plain text. Supported forms are `#rgb`, `#rgba`, `#rrggbb`, `#rrggbbaa`, `rgb()`/`rgba()`, `hsl()`/`hsla()`, and CSS named colors such as `rebeccapurple` or `transparent`; `currentColor` is intentionally excluded because it depends on surrounding text color.
+- Color literals inside inline code or fenced code blocks stay code. They get code-only preview affordances, not prose color pills. Write color values plainly and do not wrap them in custom spans, HTML, or `data-*` attributes.
 
 ### Formulas And Variables
 
@@ -170,6 +163,9 @@ Stored markdown syntax for both kinds of pills:
 
 - Writing `{{source|display}}` into a note creates a live pill. When showing the syntax as a code example in prose, wrap it in backticks.
 - Put the source (expression or symbolic label) before the first `|` and the rendered display value after it.
+- Symbolic variables use the variable name as the source and the text value as the display, for example `{{timeline|6 weeks}}`.
+- Named executable variables store the expression in the source and the name in metadata, for example `{{5000|5,000|name=budget}}`. Existing IDs, display formats, and stale flags may appear as `id=...;name=...;format=...;stale=1`; preserve them when editing.
+- Formula references use bound tokens like `@(budget#NOTE_ID#FORMULA_ID)` inside the source. Do not invent references unless the target formula ID is known.
 - Keep pills inline; do not use them for multi-line calculations or chart data.
 - Pipes inside pills are part of the syntax and do not split table cells.
 

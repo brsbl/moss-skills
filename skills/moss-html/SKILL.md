@@ -5,7 +5,7 @@ description: Author self-contained moss-html blocks for HTML previews, UI mockup
 
 # Moss HTML
 
-Use `moss-html` when rendered HTML or interactivity is the right artifact for HTML previews, UI mockups, UI proposals, prototypes, or embedded designs. Prefer semantic markdown, charts, callouts, `moss-canvas`, or images when those fit the request; see the notes skill for those node types (`moss-notes`).
+Use `moss-html` when rendered HTML or interactivity is the right artifact for HTML previews, UI mockups, UI proposals, prototypes, or embedded designs. Prefer semantic markdown, charts, callouts, Canvas, or images when those fit the request; see the notes skill for those node types (`moss-notes`). For rough wireframes, flows, and spatial diagrams, use the Canvas node with the canonical `moss-canvas` fence instead of HTML.
 
 Embed HTML directly in the note:
 

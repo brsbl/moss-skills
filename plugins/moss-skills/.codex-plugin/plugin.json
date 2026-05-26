@@ -33,12 +33,12 @@
     ],
     "websiteURL": "https://github.com/brsbl/moss-skills",
     "defaultPrompt": [
-      "Create a Moss note in ~/Moss/Notes with the right note-directory structure and Markdown syntax.",
-      "Review this Moss note for comments, wiki links, frontmatter, and Moss-specific syntax issues.",
-      "Add a focused moss-html preview to this Moss note for the UI state I describe."
+      "Create a Moss product spec under ~/Moss/Notes for this feature, with goals, requirements, open questions, and a focused moss-html prototype that demonstrates the core interaction.",
+      "Turn this rough UI idea into a Moss spec with frontmatter, decision notes, and separate small moss-html previews for the main states.",
+      "Review this Moss spec for broken wiki links, comments/frontmatter issues, and whether its embedded moss-html prototype matches the described behavior."
     ],
     "brandColor": "#2F6F5E",
-    "composerIcon": "./assets/moss-skills-icon.svg",
-    "logo": "./assets/moss-skills-logo.svg"
+    "composerIcon": "./assets/moss-sprout-icon.png",
+    "logo": "./assets/moss-logotype.png"
   }
 }
