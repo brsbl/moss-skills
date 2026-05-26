@@ -2,7 +2,7 @@
 
 <img width="1392" height="912" alt="Screenshot 2026-05-20 at 3 30 23 PM" src="https://github.com/user-attachments/assets/da7cf452-e37e-41d9-8bff-e4173723dd41" />
 
-This repository provides standalone skills for creating and editing [Moss](https://www.mossnotes.app/) notes with coding agents. The skills teach Moss note structure, Markdown syntax, comments, wiki links, frontmatter, and embedded HTML previews/mockups.
+This repository provides standalone skills for creating and editing [Moss](https://www.mossnotes.app/) notes with coding agents. The skills teach Moss note structure, Markdown syntax, comments, wiki links, frontmatter, and embedded HTML.
 
 ## What this repo is for
 
@@ -14,7 +14,7 @@ This repo contains Moss note-authoring skills only. Team-specific workflow polic
 
 ### Important note ⚠️
 
-If you customize these skills, do not change the Moss note syntax itself. The Moss app expects specific Markdown and sidecar shapes. You **can** customize how agents apply the syntax, such as whether they leave comments instead of editing directly or how they style embedded HTML previews/mockups.
+If you customize these skills, do not change the Moss note syntax itself. The Moss app expects specific Markdown and sidecar shapes. You **can** customize how agents apply the syntax, such as whether they leave comments instead of editing directly or how they style embedded HTML.
 
 Forking this repository only affects agents that install skills from it. It does not change the in-app Moss agent unless you separately update the app-bundled skills.
 
