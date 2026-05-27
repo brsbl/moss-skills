@@ -15,17 +15,19 @@
     "markdown",
     "html",
     "frontmatter",
-    "wiki-links",
+    "wiki",
     "comments",
-    "mockups",
     "codex",
     "formulas",
-    "variables"
+    "variables",
+    "links",
+    "youtube",
+    "canvas"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Moss Skills",
-    "shortDescription": "Moss skills for notes, formulas, variables, frontmatter, comments, wiki links, and HTML previews.",
+    "shortDescription": "Moss skills for notes, formulas, variables, links, frontmatter, comments, canvas, and HTML previews.",
     "longDescription": "Codex app package for Moss skills. It includes the Moss note skills from this repository.",
     "developerName": "Bersabel Tadesse",
     "category": "Productivity",

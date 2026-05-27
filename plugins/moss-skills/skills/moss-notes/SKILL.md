@@ -5,7 +5,7 @@ description: Syntax and file rules for creating or editing Moss notes under ~/Mo
 
 # Moss Notes
 
-Related skills: frontmatter (`moss-frontmatter`), comments (`moss-comments`), wiki links (`moss-wiki-links`), HTML (`moss-html`).
+Related skills: frontmatter (`moss-frontmatter`), comments (`moss-comments`), links (`moss-links`), formulas and variables (`moss-formulas-variables`), canvas (`moss-canvas`), HTML (`moss-html`).
 
 ## Files
 
@@ -49,7 +49,7 @@ Use tables for structured comparisons, compact data, status matrices, or checkli
 
 ### Images And Video
 
-Use images for visual evidence, diagrams, screenshots, and local media assets; use video for playable recordings or YouTube references.
+Use images for visual evidence, diagrams, screenshots, and local media assets; use video for playable recordings or YouTube references. See the links skill (`moss-links`) for YouTube and media-link behavior.
 
 ```markdown
 ![Alt text](assets/file-name.png)
@@ -110,11 +110,11 @@ Priority callouts can optionally put a level on the second line before the conte
 
 ### Canvas
 
-Use `moss-canvas` for ASCII-style diagrams, simple wireframes, flow charts, rough spatial layouts, hand-drawn/diagrammatic visuals, and other rough visual thinking. Avoid it for geographic maps or precise visualizations. The canvas uses a 120x60 grid. Legacy `moss-sketch` fences still import as the same canvas for old notes; new content must write `moss-canvas`.
+Use `moss-canvas` for ASCII-style diagrams, simple wireframes, flow charts, rough spatial layouts, hand-drawn/diagrammatic visuals, and other rough visual thinking. See the canvas skill (`moss-canvas`) for detailed rules, including when to avoid canvas and when to use `moss-html` or `moss-chart` instead.
 
 ### HTML
 
-Use `moss-html` fenced blocks when rendered HTML or interactivity is the right artifact, such as prototypes and interactive design mockups. See the HTML skill (`moss-html`).
+Use `moss-html` fenced blocks when rendered HTML or interactivity is the right artifact, such as prototypes, behavior demos, clickable UI states, or focused embedded HTML previews. See the HTML skill (`moss-html`).
 
 ### Tabs
 
@@ -134,7 +134,7 @@ Use 2-4 tabs unless the user asks for more.
 
 ### Text-Level Syntax
 
-Use text-level syntax for compact references and emphasis inside paragraphs, list items, or table cells. See the wiki-link skill for link details (`moss-wiki-links`).
+Use text-level syntax for compact references and emphasis inside paragraphs, list items, or table cells. See the links skill (`moss-links`) for wiki links, Markdown links, YouTube links, and media-link behavior.
 
 | Format | Syntax |
 |--------|--------|
@@ -142,7 +142,7 @@ Use text-level syntax for compact references and emphasis inside paragraphs, lis
 | Highlight | `<mark data-color="yellow">text</mark>` |
 | Underline | `<u>text</u>` |
 
-- Wiki links connect notes/headings or create navigable references in the Moss workspace; see the wiki-link skill for variants.
+- Wiki links connect notes/headings or create navigable references in the Moss workspace; see the links skill (`moss-links`) for variants and other link types.
 - Highlight marks important text, status, or attention within prose; use `<mark data-color="yellow">...</mark>` rather than `==...==`.
 - Underline is for intentional emphasis where it will not be confused with a link.
 - Color literals in prose become atomic color pills and still export as plain text. Supported forms are `#rgb`, `#rgba`, `#rrggbb`, `#rrggbbaa`, `rgb()`/`rgba()`, `hsl()`/`hsla()`, and CSS named colors such as `rebeccapurple` or `transparent`; `currentColor` is intentionally excluded because it depends on surrounding text color.

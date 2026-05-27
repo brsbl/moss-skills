@@ -1,6 +1,6 @@
 ---
 name: moss-html
-description: Author self-contained moss-html blocks for HTML previews, UI mockups, interactive prototypes, and embedded designs in Moss notes.
+description: Author self-contained moss-html blocks for HTML previews, embedded HTML, interactive prototypes, and behavior demos in Moss notes.
 ---
 
 # Moss HTML
@@ -46,7 +46,7 @@ Rules:
 - Define intrinsic size on `body` or `html` with `width` and `height` or `min-height`; Moss uses that footprint for the static PNG preview, defaulting to 1200x900 if omitted.
 - Note view shows a static screenshot first, then a live iframe after activation. Design a meaningful initial state without depending on JS or network.
 - Fullscreen mode exists, but the design should still read clearly within the note-view max height.
-- Multiple HTML previews or mockups should be separate fences. Prefer several small focused blocks over one oversized all-in-one preview.
+- Multiple HTML previews should be separate fences. Prefer several small focused blocks over one oversized all-in-one preview.
 - Scripts, forms, dialogs, popups, and CSS-only interactions can be used.
 - Initialize script behavior with `DOMContentLoaded`.
 - If a control looks interactive (checkbox, toggle, tab, filter, menu, button), make it work with native controls and minimal script. Do not draw inert controls with plain `div`s.
