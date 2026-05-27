@@ -37,9 +37,9 @@
     "category": "Productivity",
     "websiteURL": "https://github.com/brsbl/moss-skills",
     "defaultPrompt": [
-      "Create a Moss product spec under ~/Moss/Notes for this feature, with goals, requirements, open questions, and a focused moss-html prototype that demonstrates the core interaction.",
-      "Turn this rough UI idea into a Moss spec with frontmatter, decision notes, and separate small moss-html previews for the main states.",
-      "Review this Moss spec for broken wiki links, comments/frontmatter issues, and whether its embedded moss-html prototype matches the described behavior."
+      "Create a Moss product analysis note under ~/Moss/Notes for this feature, with goals, requirements, open questions, and a focused moss-html prototype that demonstrates the core interaction.",
+      "Turn this rough UI idea into a Moss product analysis note with frontmatter, decision notes, and separate small moss-html previews for the main states.",
+      "Review this Moss product analysis note for broken wiki links, comments/frontmatter issues, and whether its embedded moss-html prototype matches the described behavior."
     ],
     "brandColor": "#2F6F5E",
     "composerIcon": "./plugins/moss-skills/assets/moss-icon.png",
