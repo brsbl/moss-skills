@@ -65,7 +65,7 @@ Use images for visual evidence, diagrams, screenshots, and local media assets; u
 
 ### Code Blocks
 
-Use code blocks for source code, command snippets, logs, SQL, JSON/config, or literal text that should keep spacing. Use standard fenced code blocks with a language identifier:
+Use code blocks for source code, command snippets, logs, SQL, JSON/config, ASCII wireframes, or literal text that should keep spacing. Use standard fenced code blocks with a language identifier:
 
 ````markdown
 ```sql
@@ -111,6 +111,8 @@ Priority callouts can optionally put a level on the second line before the conte
 ### Canvas
 
 Use `moss-canvas` for ASCII-style diagrams, simple wireframes, flow charts, rough spatial layouts, hand-drawn/diagrammatic visuals, and other rough visual thinking. See the canvas skill (`moss-canvas`) for detailed rules, including when to avoid canvas and when to use `moss-html` or `moss-chart` instead.
+
+**ASCII code blocks vs moss-canvas:** If a reader needs to read words in the diagram body (option sketches, menu layouts, shortcut maps, before/after comparisons), use a plain fenced code block. If the value is in spatial layout and labels can float as overlays, use `moss-canvas`. For UI/UX proposal notes, use concise option cards with ASCII wireframes in code blocks when they clarify the decision; keep task plans concise and link to a separate proposal note when visuals get long.
 
 ### HTML
 
