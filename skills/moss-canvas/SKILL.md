@@ -1,6 +1,6 @@
 ---
 name: moss-canvas
-description: Create or edit Moss canvas blocks using the canonical moss-canvas fence for rough diagrams, wireframes, flows, and spatial visual thinking.
+description: Create or edit Moss canvas blocks and choose between moss-canvas and plain ASCII sketches for proposal notes, UI option cards, ASCII wireframes, rough diagrams, flows, and spatial visual thinking.
 ---
 
 # Moss Canvas
