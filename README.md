@@ -28,47 +28,22 @@ Forking this repository only affects agents that install skills from it. It does
 
 ## Install with npx
 
-List installable skills:
-
-```bash
-npx --yes skills add brsbl/moss-skills --list
-```
-
-Install the skills:
-
 ```bash
 npx skills add brsbl/moss-skills
 ```
 
-If your environment needs an explicit HTTPS URL:
-
-```bash
-npx skills add https://github.com/brsbl/moss-skills
-```
-
 ## Claude Code Plugin
-
-The Claude Code plugin is named `moss-skills`.
 
 ```bash
 /plugin marketplace add brsbl/moss-skills
 /plugin install moss-skills@moss-skills
 ```
 
-Installed skills are namespaced by plugin name. For example:
-
-```bash
-/moss-skills:moss-notes
-/moss-skills:moss-html
-```
-
 ## Codex Plugin
 
-The Codex app plugin is also named `moss-skills`. It exposes the Moss note skills listed above.
-
-For marketplace install, add this repository as a Codex plugin marketplace, then install and enable `moss-skills`. The marketplace entry points at `./plugins/moss-skills`, the Codex plugin package root.
-
-For local development, check out this repository and point the Codex app's local plugin or marketplace development flow at `./plugins/moss-skills`. Use the repository root only as the source checkout; do not point Codex at `./skills` when you want the intended app plugin package.
+```bash
+codex plugin marketplace add brsbl/moss-skills
+```
 
 ## License
 
