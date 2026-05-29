@@ -1,6 +1,6 @@
 ---
 name: moss-comments
-description: Add, preserve, or edit Moss note comments with %%m:id:start%% body markers and comments.json sidecar metadata, including attachments and @mentions.
+description: Comment annotation syntax for Moss notes. Use when adding, preserving, or editing note comments and their sidecar metadata.
 ---
 
 # Comments
@@ -43,7 +43,7 @@ Write `comments.json` beside the note markdown file:
 %%m:b1:end%%
 ```
 
-Do not place markers inside wiki links, formula/variable pills, fenced block payloads, or raw HTML comments.
+Do not place markers inside wiki links, formula/variable pills, color code pills, fenced block payloads, or raw HTML comments. Treat atomic inline pills as indivisible. For color literals such as `#4f8a6b`, `rebeccapurple`, or `rgb(72, 67, 60)`, prefer annotating the surrounding sentence or phrase rather than trying to split the literal itself.
 
 ## Image Attachments
 

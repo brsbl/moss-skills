@@ -1,7 +1,7 @@
 {
   "name": "moss-skills",
   "version": "0.1.0",
-  "description": "Codex app skills for working with mossnotes.app notes.",
+  "description": "Codex app skills for working with mossnotes.app notes, formulas, and variables.",
   "author": {
     "name": "Bersabel Tadesse"
   },
@@ -13,17 +13,22 @@
     "mossnotes",
     "notes",
     "markdown",
+    "html",
     "frontmatter",
-    "wiki-links",
+    "wiki",
     "comments",
-    "mockups",
-    "codex"
+    "codex",
+    "formulas",
+    "variables",
+    "links",
+    "youtube",
+    "canvas"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Moss Skills",
-    "shortDescription": "Moss skills for notes, frontmatter, comments, wiki links, and mockups.",
-    "longDescription": "Codex app package for Moss skills. It includes top-level skills/moss-* skills and excludes bb-only workflow guidance.",
+    "shortDescription": "Moss skills for notes, formulas, variables, links, frontmatter, comments, canvas, and HTML previews.",
+    "longDescription": "Codex app package for Moss skills. It includes the Moss note skills from this repository.",
     "developerName": "Bersabel Tadesse",
     "category": "Productivity",
     "capabilities": [
@@ -32,12 +37,12 @@
     ],
     "websiteURL": "https://github.com/brsbl/moss-skills",
     "defaultPrompt": [
-      "Create a Moss implementation note with frontmatter and tasks.",
-      "Add wiki links and comments to organize these Moss notes.",
-      "Draft a Moss mockup note for this UI idea."
+      "Create a Moss product analysis note under ~/Moss/Notes for this feature, with goals, requirements, open questions, and a focused moss-html prototype that demonstrates the core interaction.",
+      "Turn this rough UI idea into a Moss product analysis note with frontmatter, decision notes, and separate small moss-html previews for the main states.",
+      "Review this Moss product analysis note for broken wiki links, comments/frontmatter issues, and whether its embedded moss-html prototype matches the described behavior."
     ],
     "brandColor": "#2F6F5E",
-    "composerIcon": "./assets/moss-skills-icon.svg",
-    "logo": "./assets/moss-skills-logo.svg"
+    "composerIcon": "./assets/moss-icon.png",
+    "logo": "./assets/moss-icon.png"
   }
 }

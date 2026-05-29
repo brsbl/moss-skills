@@ -1,11 +1,11 @@
 ---
 name: moss-notes
-description: Create or edit Moss notes under ~/Moss/Notes/ using canonical Moss markdown syntax, note directories, assets, charts, callouts, wiki links, comments, and HTML mockups.
+description: Syntax and file rules for creating or editing Moss notes under ~/Moss/Notes/. Use when authoring or modifying notes, choosing a node type, or following Moss markdown conventions.
 ---
 
 # Moss Notes
 
-Related skills: frontmatter (`moss-frontmatter`), comments (`moss-comments`), wiki links (`moss-wiki-links`), mockups (`moss-mockup`).
+Related skills: frontmatter (`moss-frontmatter`), comments (`moss-comments`), links (`moss-links`), formulas and variables (`moss-formulas-variables`), canvas (`moss-canvas`), HTML (`moss-html`).
 
 ## Files
 
@@ -13,7 +13,7 @@ Related skills: frontmatter (`moss-frontmatter`), comments (`moss-comments`), wi
 - Folders organize notes. Subfolders and nested folders under `~/Moss/Notes/` are valid; create them when grouping helps or when the user asks.
 - Edit the existing markdown content file in the note directory.
 - New notes: create a directory (nested folders allowed) and a markdown file with the first line as `# Title`.
-- Do not create or edit app-owned sidecars such as `meta.json`, `.folder.json`, or `layout.json`; Moss writes these automatically, except when a task explicitly includes preserving or updating an existing app-supported table layout metadata mechanism.
+- Do not create or edit app-owned sidecars such as `meta.json`, `.folder.json`, or `layout.json`; Moss writes these automatically.
 - `comments.json` is a content sidecar: edit it only via the comments skill.
 - `assets/` is note-local content storage for referenced media, not metadata.
 - Use one H1 title only. Body headings start at H2.
@@ -43,19 +43,13 @@ Use tables for structured comparisons, compact data, status matrices, or checkli
 
 - Keep each row on one line.
 - Keep column counts consistent.
-- Size table columns thoughtfully for the available space and content shape when the app/table layout supports it.
-- Use narrow widths for compact columns such as status, owner, priority, dates, IDs, counts, and short labels.
-- Use wider widths for description, evidence, decision, rationale, next action, notes, and other prose-heavy columns.
-- Avoid equal-width tables when content clearly needs different proportions; do not waste space on tiny columns or cramp long-text columns.
 - Cells may contain supported text-level syntax such as emphasis, links, wiki links, inline code, formulas, highlight, underline, and image markdown as cell content. Keep the table row structure valid.
 - Escape literal table pipes as `\|`, except inside formulas.
-- If app-supported table layout metadata exists in the artifact being edited (for example `layout.json`) and the task includes preserving or setting table layout, use that mechanism for sensible column widths.
-- If no supported layout metadata is available, keep Markdown valid and let Moss/app layout handle widths.
-- Do not encode widths in Markdown comments, raw HTML, or hidden hacks.
+- Edit table markdown content only. Moss may preserve column widths in `layout.json` (app-managed); do not encode widths in markdown comments or HTML.
 
 ### Images And Video
 
-Use images for visual evidence, diagrams, screenshots, and local media assets; use video for playable recordings or YouTube references.
+Use images for visual evidence, diagrams, screenshots, and local media assets; use video for playable recordings or YouTube references. See the links skill (`moss-links`) for YouTube and media-link behavior.
 
 ```markdown
 ![Alt text](assets/file-name.png)
@@ -71,7 +65,7 @@ Use images for visual evidence, diagrams, screenshots, and local media assets; u
 
 ### Code Blocks
 
-Use code blocks for source code, command snippets, logs, SQL, JSON/config, or literal text that should keep spacing. Use standard fenced code blocks with a language identifier:
+Use code blocks for source code, command snippets, logs, SQL, JSON/config, ASCII wireframes, or literal text that should keep spacing. Use standard fenced code blocks with a language identifier:
 
 ````markdown
 ```sql
@@ -116,11 +110,13 @@ Priority callouts can optionally put a level on the second line before the conte
 
 ### Canvas
 
-Prefer `moss-canvas` for wireframes, flows, diagrams, ASCII-style diagrams, flow charts, rough spatial layouts, hand-drawn/diagrammatic visuals, and other rough visual thinking. Avoid it for geographic maps or precise visualizations. The canvas uses a 120x60 grid. Legacy `moss-sketch` fences still import as the same canvas; new content should write `moss-canvas`.
+Use `moss-canvas` for ASCII-style diagrams, simple wireframes, flow charts, rough spatial layouts, hand-drawn/diagrammatic visuals, and other rough visual thinking. See the canvas skill (`moss-canvas`) for detailed rules, including when to avoid canvas and when to use `moss-html` or `moss-chart` instead.
 
-### HTML Mockups
+**ASCII code blocks vs moss-canvas:** If a reader needs to read words in the diagram body (option sketches, menu layouts, shortcut maps, before/after comparisons), use a plain fenced code block. If the value is in spatial layout and labels can float as overlays, use `moss-canvas`. For UI/UX proposal notes, use concise option cards with ASCII wireframes in code blocks when they clarify the decision; keep task plans concise and link to a separate proposal note when visuals get long.
 
-Use `moss-html` fenced blocks when rendered HTML or interactivity is the right artifact, such as mockups, UI proposals, prototypes, and interactive design mockups. See the mockup skill (`moss-mockup`).
+### HTML
+
+Use `moss-html` fenced blocks when rendered HTML or interactivity is the right artifact, such as prototypes, behavior demos, clickable UI states, or focused embedded HTML previews. See the HTML skill (`moss-html`).
 
 ### Tabs
 
@@ -140,7 +136,7 @@ Use 2-4 tabs unless the user asks for more.
 
 ### Text-Level Syntax
 
-Use text-level syntax for compact references and emphasis inside paragraphs, list items, or table cells. See the wiki-link skill for link details (`moss-wiki-links`).
+Use text-level syntax for compact references and emphasis inside paragraphs, list items, or table cells. See the links skill (`moss-links`) for wiki links, Markdown links, YouTube links, and media-link behavior.
 
 | Format | Syntax |
 |--------|--------|
@@ -148,28 +144,17 @@ Use text-level syntax for compact references and emphasis inside paragraphs, lis
 | Highlight | `<mark data-color="yellow">text</mark>` |
 | Underline | `<u>text</u>` |
 
-- Wiki links connect notes/headings or create navigable references in the Moss workspace; see the wiki-link skill for variants.
+- Wiki links connect notes/headings or create navigable references in the Moss workspace; see the links skill (`moss-links`) for variants and other link types.
 - Highlight marks important text, status, or attention within prose; use `<mark data-color="yellow">...</mark>` rather than `==...==`.
 - Underline is for intentional emphasis where it will not be confused with a link.
-- Color literals (`#rgb`, `#rgba`, `#rrggbb`, `#rrggbbaa`, `rgb()`/`rgba()`, `hsl()`/`hsla()`) in body text, inline code, and code blocks automatically get a hover swatch preview; write them plainly and do not wrap them in custom spans, HTML, or `data-*` attributes.
+- Color literals in prose become atomic color pills and still export as plain text. Supported forms are `#rgb`, `#rgba`, `#rrggbb`, `#rrggbbaa`, `rgb()`/`rgba()`, `hsl()`/`hsla()`, and CSS named colors such as `rebeccapurple` or `transparent`; `currentColor` is intentionally excluded because it depends on surrounding text color.
+- Color literals inside inline code or fenced code blocks stay code. They get code-only preview affordances, not prose color pills. Write color values plainly and do not wrap them in custom spans, HTML, or `data-*` attributes.
 
 ### Formulas And Variables
 
-Use formulas and variables for compact computed or labeled values displayed inline with surrounding text or table cells.
+Use formulas and variables for compact computed or labeled values displayed inline with surrounding text or table cells. The core use case is defining editable anchors, then deriving related values from those anchors so a note can show how a system changes together.
 
-- `Formula` is an unnamed executable expression like `=2+2`.
-- `Variable` is a named value — executable like `sum=2+2`, or symbolic like `timeline=6 weeks`. Any named variable can be referenced from other formulas through the cross-note lookup/typeahead, whether its value is executable or symbolic.
-
-Stored markdown syntax for both kinds of pills:
-
-```markdown
-{{source|display}}
-```
-
-- Writing `{{source|display}}` into a note creates a live pill. When showing the syntax as a code example in prose, wrap it in backticks.
-- Put the source (expression or symbolic label) before the first `|` and the rendered display value after it.
-- Keep pills inline; do not use them for multi-line calculations or chart data.
-- Pipes inside pills are part of the syntax and do not split table cells.
+For detailed authoring rules — editable anchors, derived values, bound references, IDs, display values, and table-cell usage — use the formulas and variables skill (`moss-formulas-variables`).
 
 ## Avoid
 

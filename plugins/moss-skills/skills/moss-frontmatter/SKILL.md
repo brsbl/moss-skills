@@ -1,6 +1,6 @@
 ---
 name: moss-frontmatter
-description: Add or edit YAML frontmatter metadata at the top of Moss notes for searchable fields, tags, status, dates, and other structured note metadata.
+description: YAML frontmatter rules for Moss note metadata. Use when adding or editing the optional metadata block at the top of a note.
 ---
 
 # Frontmatter

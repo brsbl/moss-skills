@@ -15,29 +15,34 @@
     "notes",
     "note-taking",
     "markdown",
+    "html",
     "claude-code",
     "codex",
-    "wiki-links",
+    "wiki",
     "comments",
     "frontmatter",
-    "mockups",
-    "plugin"
+    "plugin",
+    "formulas",
+    "variables",
+    "links",
+    "youtube",
+    "canvas"
   ],
   "skills": "./plugins/moss-skills/skills/",
   "interface": {
     "displayName": "mossnotes.app for Codex",
-    "shortDescription": "Moss skills packaged for the Codex app.",
-    "longDescription": "Compatibility manifest for direct root installs. The Codex app package lives at ./plugins/moss-skills, includes top-level skills/moss-* skills, and excludes bb-only workflow skills.",
+    "shortDescription": "Moss skills for notes, formulas, variables, links, frontmatter, comments, canvas, and HTML previews.",
+    "longDescription": "Compatibility manifest for direct root installs. The Codex app package lives at ./plugins/moss-skills and includes the Moss note skills from this repository.",
     "developerName": "Bersabel Tadesse",
     "category": "Productivity",
     "websiteURL": "https://github.com/brsbl/moss-skills",
     "defaultPrompt": [
-      "Create a Moss implementation note with frontmatter and tasks.",
-      "Add wiki links and comments to organize these Moss notes.",
-      "Draft a Moss mockup note for this UI idea."
+      "Create a Moss product analysis note under ~/Moss/Notes for this feature, with goals, requirements, open questions, and a focused moss-html prototype that demonstrates the core interaction.",
+      "Turn this rough UI idea into a Moss product analysis note with frontmatter, decision notes, and separate small moss-html previews for the main states.",
+      "Review this Moss product analysis note for broken wiki links, comments/frontmatter issues, and whether its embedded moss-html prototype matches the described behavior."
     ],
     "brandColor": "#2F6F5E",
-    "composerIcon": "./plugins/moss-skills/assets/moss-skills-icon.svg",
-    "logo": "./plugins/moss-skills/assets/moss-skills-logo.svg"
+    "composerIcon": "./plugins/moss-skills/assets/moss-icon.png",
+    "logo": "./plugins/moss-skills/assets/moss-icon.png"
   }
 }
