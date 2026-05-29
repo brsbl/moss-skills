@@ -14,7 +14,7 @@ This repository provides standalone skills for creating and editing [Moss](https
 
 If you customize these skills, do not change the Moss note syntax itself. The Moss app expects specific Markdown and sidecar shapes. You **can** customize how agents apply the syntax, such as whether they leave comments instead of editing directly or how they style embedded HTML.
 
-Forking this repository only affects agents that install skills from it. It does not change the in-app Moss agent unless you separately update the app-bundled skills.
+Forking this repository only affects agents that install skills from it. It does not change the default behavior of the in-app Moss agent.
 
 ## Included skills
 
