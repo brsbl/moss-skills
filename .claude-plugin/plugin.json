@@ -23,6 +23,8 @@
     "comments",
     "frontmatter",
     "mockups",
+    "writing-guidelines",
+    "scannability",
     "plugin"
   ],
   "skills": "./skills/"

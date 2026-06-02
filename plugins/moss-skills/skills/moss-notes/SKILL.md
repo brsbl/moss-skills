@@ -5,7 +5,7 @@ description: Syntax and file rules for creating or editing Moss notes under ~/Mo
 
 # Moss Notes
 
-Related skills: frontmatter (`moss-frontmatter`), comments (`moss-comments`), links (`moss-links`), formulas and variables (`moss-formulas-variables`), canvas (`moss-canvas`), HTML (`moss-html`).
+Related skills: writing guidelines (`moss-writing-guidelines`), frontmatter (`moss-frontmatter`), comments (`moss-comments`), links (`moss-links`), formulas and variables (`moss-formulas-variables`), canvas (`moss-canvas`), HTML (`moss-html`).
 
 ## Files
 
@@ -24,6 +24,10 @@ Related skills: frontmatter (`moss-frontmatter`), comments (`moss-comments`), li
 - The first H1 is the note title.
 - Body markdown follows the title.
 - Comments use body markers plus a sibling `comments.json`; see the comments skill (`moss-comments`).
+
+## Writing Quality
+
+Write notes for a reader who skims first: lead with the takeaway, order sections most- to least-important, and keep paragraphs short. Choose the lightest node that makes the content scannable, and use rich nodes (tables, charts, callouts, canvas, HTML) when they improve scanning, not gratuitously. For the full reader-first structure, node decision matrix, note archetypes, and review checklist, see the writing guidelines skill (`moss-writing-guidelines`).
 
 ## Core Syntax
 
