@@ -1,4 +1,4 @@
 interface:
   display_name: "Moss Wiki Links"
   short_description: "Link existing Moss notes and headings with wiki-link syntax"
-  default_prompt: "Add or update Moss wiki links between existing notes and headings using canonical [[Note]] syntax."
+  default_prompt: "Use $moss-links to add or update Moss wiki links between existing notes and headings using canonical [[Note]] syntax."

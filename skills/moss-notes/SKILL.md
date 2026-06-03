@@ -5,7 +5,7 @@ description: Syntax and file rules for creating or editing Moss notes under ~/Mo
 
 # Moss Notes
 
-Related skills: frontmatter (`moss-frontmatter`), comments (`moss-comments`), links (`moss-links`), formulas and variables (`moss-formulas-variables`), canvas (`moss-canvas`), HTML (`moss-html`).
+Related skills: writing guidelines (`moss-writing-guidelines`), frontmatter (`moss-frontmatter`), comments (`moss-comments`), links (`moss-links`), formulas and variables (`moss-formulas-variables`), canvas (`moss-canvas`), HTML (`moss-html`).
 
 ## Files
 
@@ -24,6 +24,10 @@ Related skills: frontmatter (`moss-frontmatter`), comments (`moss-comments`), li
 - The first H1 is the note title.
 - Body markdown follows the title.
 - Comments use body markers plus a sibling `comments.json`; see the comments skill (`moss-comments`).
+
+## Writing Quality
+
+Write notes for a reader who skims first: lead with the takeaway, order sections most- to least-important, and keep paragraphs short. Match the representation to the information's shape, hierarchy, and density: paragraph for one connective idea, bullets for several grouped points, table for repeated attributes, tabs as containers for peer views, ASCII code blocks for agent-generated diagrams and literal text, canvas only when the user asks for canvas, and scoped HTML for visual planning artifacts. Moss nodes compose — tabs can contain tables, callouts, charts, code, HTML, and commentable text. For the full reader-first structure, node composition guidance, note archetypes, and review checklist, see the writing guidelines skill (`moss-writing-guidelines`).
 
 ## Core Syntax
 
@@ -116,11 +120,11 @@ Use `moss-canvas` for ASCII-style diagrams, simple wireframes, flow charts, roug
 
 ### HTML
 
-Use `moss-html` fenced blocks when rendered HTML or interactivity is the right artifact, such as prototypes, behavior demos, clickable UI states, or focused embedded HTML previews. See the HTML skill (`moss-html`).
+Use `moss-html` fenced blocks for scoped visual planning artifacts — prototypes, mockups, state boards, data-flow diagrams, explainers, behavior demos, and clickable UI states — as well as focused embedded HTML previews. Keep each block scoped to one job rather than one giant block, and ground UI HTML in the real product design. See the HTML skill (`moss-html`).
 
 ### Tabs
 
-Use tabs for 2-4 alternate views, options, examples, or mutually exclusive variants that share the same context.
+Use tabs as an outer container for 2-4 peer views, options, examples, personas, modes, or states that share one context and are best inspected one at a time.
 
 ```markdown
 :::tabs
@@ -132,7 +136,7 @@ Other content.
 :::
 ```
 
-Use 2-4 tabs unless the user asks for more.
+Use 2-4 tabs unless the user asks for more. Tab panels may contain normal Moss content: headings, paragraphs, lists, tables, callouts, charts, code blocks, `moss-html`, media, links, formulas, and comment markers where those nodes are valid. Use a table or matrix instead when the reader needs to compare all peers side by side; use scoped HTML instead when seeing the whole visual state/layout at once is the point.
 
 ### Text-Level Syntax
 

@@ -2,7 +2,7 @@
 
 <img width="1392" height="912" alt="Screenshot 2026-05-20 at 3 30 23 PM" src="https://github.com/user-attachments/assets/da7cf452-e37e-41d9-8bff-e4173723dd41" />
 
-This repository provides standalone skills for creating and editing [Moss](https://www.mossnotes.app/) notes with coding agents. The skills teach Moss note structure, Markdown syntax, formulas and variables, comments, links, frontmatter, canvas, and embedded HTML.
+This repository provides standalone skills for creating and editing [Moss](https://www.mossnotes.app/) notes with coding agents. The skills teach Moss writing guidelines, note structure, Markdown syntax, formulas and variables, comments, links, frontmatter, canvas, and embedded HTML.
 
 ## What this repo is for
 
@@ -18,7 +18,8 @@ Forking this repository only affects agents that install skills from it. It does
 
 ## Included skills
 
-- [`moss-notes`](skills/moss-notes/SKILL.md): Start here when an agent needs to create or edit a Moss note. It explains note folders, the Markdown file, assets, sidecars, headings, tables, callouts, charts, and when to use the focused Moss skills below.
+- [`moss-writing-guidelines`](skills/moss-writing-guidelines/SKILL.md): Read first when creating, editing, restructuring, or reviewing a note for quality. It covers reader-first structure, progressive disclosure, a node decision matrix, note archetypes, and a final review checklist.
+- [`moss-notes`](skills/moss-notes/SKILL.md): Start here for syntax when an agent needs to create or edit a Moss note. It explains note folders, the Markdown file, assets, sidecars, headings, tables, callouts, charts, and when to use the focused Moss skills below.
 - [`moss-formulas-variables`](skills/moss-formulas-variables/SKILL.md): Use when a note needs formulas or variables, including editable anchors, derived values, bound references, display values, IDs, and table-cell usage.
 - [`moss-frontmatter`](skills/moss-frontmatter/SKILL.md): Use when a note needs structured metadata at the top, such as tags, status, dates, or other searchable fields.
 - [`moss-comments`](skills/moss-comments/SKILL.md): Use when adding or preserving inline review comments. It covers the body markers and matching `comments.json` metadata Moss needs.

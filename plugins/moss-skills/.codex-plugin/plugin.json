@@ -1,6 +1,6 @@
 {
   "name": "moss-skills",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Codex app skills for working with mossnotes.app notes, formulas, and variables.",
   "author": {
     "name": "Bersabel Tadesse"
@@ -22,12 +22,14 @@
     "variables",
     "links",
     "youtube",
-    "canvas"
+    "canvas",
+    "writing-guidelines",
+    "scannability"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Moss Skills",
-    "shortDescription": "Moss skills for notes, formulas, variables, links, frontmatter, comments, canvas, and HTML previews.",
+    "shortDescription": "Moss skills for writing guidelines, notes, formulas, variables, links, frontmatter, comments, canvas, and HTML previews.",
     "longDescription": "Codex app package for Moss skills. It includes the Moss note skills from this repository.",
     "developerName": "Bersabel Tadesse",
     "category": "Productivity",

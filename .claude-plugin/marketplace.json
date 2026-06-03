@@ -9,7 +9,7 @@
       "name": "moss-skills",
       "source": "./",
       "description": "Skills for using Claude Code with mossnotes.app notes, packaged for reference use and customization.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "Bersabel Tadesse"
       },
@@ -30,6 +30,8 @@
         "comments",
         "frontmatter",
         "mockups",
+        "writing-guidelines",
+        "scannability",
         "plugin"
       ]
     }
