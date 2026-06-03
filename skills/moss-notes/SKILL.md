@@ -27,7 +27,7 @@ Related skills: writing guidelines (`moss-writing-guidelines`), frontmatter (`mo
 
 ## Writing Quality
 
-Write notes for a reader who skims first: lead with the takeaway, order sections most- to least-important, and keep paragraphs short. Match the representation to the information's shape, hierarchy, and density: paragraph for one connective idea, bullets for several grouped points, table for repeated attributes, tabs as containers for peer views, ASCII code blocks for agent-generated diagrams and literal text, canvas when spatial layout is the point, and scoped HTML for visual planning artifacts. Moss nodes compose — tabs can contain tables, callouts, charts, code, HTML, and commentable text. For the full reader-first structure, node composition guidance, note archetypes, and review checklist, see the writing guidelines skill (`moss-writing-guidelines`).
+Write notes for a reader who skims first: lead with the takeaway, order sections most- to least-important, and keep paragraphs short. Match the representation to the information's shape, hierarchy, and density: paragraph for one connective idea, bullets for several grouped points, table for repeated attributes, tabs as containers for peer views, ASCII code blocks for agent-generated diagrams and literal text, canvas only when the user asks for canvas, and scoped HTML for visual planning artifacts. Moss nodes compose — tabs can contain tables, callouts, charts, code, HTML, and commentable text. For the full reader-first structure, node composition guidance, note archetypes, and review checklist, see the writing guidelines skill (`moss-writing-guidelines`).
 
 ## Core Syntax
 
