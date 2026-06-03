@@ -27,7 +27,7 @@ Related skills: writing guidelines (`moss-writing-guidelines`), frontmatter (`mo
 
 ## Writing Quality
 
-Write notes for a reader who skims first: lead with the takeaway, order sections most- to least-important, and keep paragraphs short. Choose the lightest node that makes the content scannable, and use rich nodes (tables, charts, callouts, canvas, HTML) when they improve scanning, not gratuitously. For the full reader-first structure, node decision matrix, note archetypes, and review checklist, see the writing guidelines skill (`moss-writing-guidelines`).
+Write notes for a reader who skims first: lead with the takeaway, order sections most- to least-important, and keep paragraphs short. Match the representation to the information's shape, hierarchy, and density: paragraph for one connective idea, bullets for several grouped points, table for repeated attributes, tabs for alternate views, ASCII code blocks for agent-generated diagrams and literal text, canvas when spatial layout is the point, and scoped HTML for visual planning artifacts. For the full reader-first structure, node decision matrix, note archetypes, and review checklist, see the writing guidelines skill (`moss-writing-guidelines`).
 
 ## Core Syntax
 
@@ -120,7 +120,7 @@ Use `moss-canvas` for ASCII-style diagrams, simple wireframes, flow charts, roug
 
 ### HTML
 
-Use `moss-html` fenced blocks when rendered HTML or interactivity is the right artifact, such as prototypes, behavior demos, clickable UI states, or focused embedded HTML previews. See the HTML skill (`moss-html`).
+Use `moss-html` fenced blocks for scoped visual planning artifacts — prototypes, mockups, state boards, data-flow diagrams, explainers, behavior demos, and clickable UI states — as well as focused embedded HTML previews. Keep each block scoped to one job rather than one giant block, and ground UI HTML in the real product design. See the HTML skill (`moss-html`).
 
 ### Tabs
 
