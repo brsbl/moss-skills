@@ -27,7 +27,7 @@ Related skills: writing guidelines (`moss-writing-guidelines`), frontmatter (`mo
 
 ## Writing Quality
 
-Write notes for a reader who skims first: lead with the takeaway, order sections most- to least-important, and keep paragraphs short. Match the representation to the information's shape, hierarchy, and density: paragraph for one connective idea, bullets for several grouped points, table for repeated attributes, tabs for alternate views, ASCII code blocks for agent-generated diagrams and literal text, canvas when spatial layout is the point, and scoped HTML for visual planning artifacts. For the full reader-first structure, node decision matrix, note archetypes, and review checklist, see the writing guidelines skill (`moss-writing-guidelines`).
+Write notes for a reader who skims first: lead with the takeaway, order sections most- to least-important, and keep paragraphs short. Match the representation to the information's shape, hierarchy, and density: paragraph for one connective idea, bullets for several grouped points, table for repeated attributes, tabs as containers for peer views, ASCII code blocks for agent-generated diagrams and literal text, canvas when spatial layout is the point, and scoped HTML for visual planning artifacts. Moss nodes compose — tabs can contain tables, callouts, charts, code, HTML, and commentable text. For the full reader-first structure, node composition guidance, note archetypes, and review checklist, see the writing guidelines skill (`moss-writing-guidelines`).
 
 ## Core Syntax
 
@@ -124,7 +124,7 @@ Use `moss-html` fenced blocks for scoped visual planning artifacts — prototype
 
 ### Tabs
 
-Use tabs for 2-4 alternate views, options, examples, or mutually exclusive variants that share the same context.
+Use tabs as an outer container for 2-4 peer views, options, examples, personas, modes, or states that share one context and are best inspected one at a time.
 
 ```markdown
 :::tabs
@@ -136,7 +136,7 @@ Other content.
 :::
 ```
 
-Use 2-4 tabs unless the user asks for more.
+Use 2-4 tabs unless the user asks for more. Tab panels may contain normal Moss content: headings, paragraphs, lists, tables, callouts, charts, code blocks, `moss-html`, media, links, formulas, and comment markers where those nodes are valid. Use a table or matrix instead when the reader needs to compare all peers side by side; use scoped HTML instead when seeing the whole visual state/layout at once is the point.
 
 ### Text-Level Syntax
 
