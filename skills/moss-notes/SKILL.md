@@ -51,21 +51,46 @@ Use tables for structured comparisons, compact data, status matrices, or checkli
 - Escape literal table pipes as `\|`, except inside formulas.
 - Edit table markdown content only. Moss may preserve column widths in `layout.json` (app-managed); do not encode widths in markdown comments or HTML.
 
-### Images And Video
+### Images, Video, And Webpage Embeds
 
-Use images for visual evidence, diagrams, screenshots, and local media assets; use video for playable recordings or YouTube references. See the links skill (`moss-links`) for YouTube and media-link behavior.
+Use images for visual evidence, diagrams, screenshots, and local media assets; use video for playable recordings or YouTube references; a safe HTTPS link to a regular webpage (not an image or video) becomes a webpage embed card. See the links skill (`moss-links`) for YouTube and media-link behavior.
 
 ```markdown
 ![Alt text](assets/file-name.png)
 ![Demo recording](assets/demo-recording.mp4)
 ![YouTube demo](https://youtu.be/dQw4w9WgXcQ)
+![Linear board](https://linear.app/myteam/board)
+![Release thread](https://x.com/obsdmd/status/1580548874246443010)
 ```
+
+The `![alt](src)` syntax is shared; the `src` decides which node you get:
+
+| `src` | Node |
+| --- | --- |
+| local video (`.mp4`/`.webm`/`.mov`) or a YouTube URL | video |
+| safe HTTPS URL that is **not** an image and **not** a video | webpage embed card |
+| local/relative path, image URL, or known image host | image |
 
 - Images: PNG, JPG, GIF, WebP, SVG.
 - Video: local `.mp4`, `.webm`, `.mov`, or YouTube URLs.
+- Webpage embeds: HTTPS only; no loopback/private hosts and no downloadable-file URLs. Image URLs and YouTube/video URLs are never embeds.
 - Prefer note-local assets. Do not use `file://` or absolute local paths.
 - Preserve existing URLs exactly unless asked to change them.
 - Remote non-YouTube video files are not video nodes.
+
+A webpage embed has two display states of the **same** embed:
+
+| Syntax | State | Looks like |
+| --- | --- | --- |
+| `?[text](https://…)` | collapsed | an inline **pill** inside a paragraph, list, or table cell |
+| `![alt](https://…)` | expanded | a block **card** on its own line |
+
+```markdown
+The plan landed in ?[Figma file](https://www.figma.com/file/abc123/Project) — see the mocks.
+```
+
+- `?[text](url)` is the inline pill; `![alt](url)` is the block card. Both are HTTPS-only (same safety rules as above). Switching state in the editor rewrites only the token between the two forms; the URL, text, and any comments are preserved.
+- Use the pill (`?[…]`) for an inline reference mid-sentence; use the card (`![…]`) when the preview should be pinned as its own block.
 
 ### Code Blocks
 
@@ -151,7 +176,7 @@ Use text-level syntax for compact references and emphasis inside paragraphs, lis
 - Wiki links connect notes/headings or create navigable references in the Moss workspace; see the links skill (`moss-links`) for variants and other link types.
 - Highlight marks important text, status, or attention within prose; use `<mark data-color="yellow">...</mark>` rather than `==...==`.
 - Underline is for intentional emphasis where it will not be confused with a link.
-- Color literals in prose become atomic color pills and still export as plain text. Supported forms are `#rgb`, `#rgba`, `#rrggbb`, `#rrggbbaa`, `rgb()`/`rgba()`, `hsl()`/`hsla()`, and CSS named colors such as `rebeccapurple` or `transparent`; `currentColor` is intentionally excluded because it depends on surrounding text color.
+- Color literals in prose become atomic color pills and still export as plain text. Supported forms are 6-digit hex `#rrggbb` plus the functional `rgb()`/`rgba()` and `hsl()`/`hsla()` forms. Hex-like strings of any other length stay plain text — 3-, 4-, 7-, and 8-digit hex (`#456`, `#4567`, `#11223344`) and issue/PR-style refs are never turned into color pills. CSS named colors (e.g. `rebeccapurple`, `transparent`) and `currentColor` are not converted.
 - Color literals inside inline code or fenced code blocks stay code. They get code-only preview affordances, not prose color pills. Write color values plainly and do not wrap them in custom spans, HTML, or `data-*` attributes.
 
 ### Formulas And Variables

@@ -52,6 +52,24 @@ Moss treats YouTube URLs as video-capable references when written as image/video
 - Use a normal Markdown link when the user only wants a text link to YouTube.
 - Remote non-YouTube video files are not video nodes; use local video assets for `.mp4`, `.webm`, or `.mov`.
 
+## Web Embeds and In-App Browser
+
+Moss turns a standalone browser-safe URL into an inline web embed pill that opens in the in-app browser.
+
+```markdown
+https://example.com/research
+Research link: https://example.com/research
+http://localhost:3000/prototype
+[https://example.com/research](https://example.com/research)
+```
+
+- Use a bare `http://` or `https://` URL anywhere in prose or table cells when you want Moss to create the browser pill.
+- Self-referential Markdown links such as `[https://example.com](https://example.com)` also become browser pills. Named links such as `[Example](https://example.com)` stay normal Markdown links.
+- Public pages must use HTTPS. Loopback development URLs such as `localhost`, `*.localhost`, `127.0.0.1`, and `::1` may use HTTP or HTTPS because they open in the browser surface.
+- Private network, link-local, `.local`, credentialed, and obvious downloadable-file URLs stay plain text or open externally instead of becoming browser pills.
+- Image URLs, YouTube URLs, and tweet status URLs route to their own image, video, or tweet nodes instead of browser pills.
+- The legacy `?[text](https://...)` pill syntax still imports, but Moss exports browser pills as the raw URL so the markdown stays portable.
+
 ## Local Assets and Media Links
 
 Use note-local assets for files stored with the note.
