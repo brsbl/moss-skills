@@ -12,7 +12,7 @@ Related skills: writing guidelines (`moss-writing-guidelines`), frontmatter (`mo
 - Notes are stored as directories under `~/Moss/Notes/`, but Moss can also promote loose markdown files in workspace folders into note directories.
 - Folders organize notes. Subfolders and nested folders under `~/Moss/Notes/` are valid; create them when grouping helps or when the user asks.
 - Edit the existing markdown content file in the note directory.
-- New notes: either create a directory with a same-named markdown file, or create a loose `.md` file inside an existing Moss folder and let Moss promote it. In both cases, make the first line `# Title`.
+- New notes: either create a directory with a same-named markdown file (`<Note Title>/<Note Title>.md`; `note.md` also works — new note files with other names are rejected), or create a loose `.md` file inside an existing Moss folder and let Moss promote it. In both cases, make the first line `# Title`.
 - Do not create or edit app-owned sidecars such as `meta.json`, `.folder.json`, or `layout.json`; Moss writes these automatically.
 - `comments.json` is a content sidecar: edit it only via the comments skill.
 - `assets/` is note-local content storage for referenced media, not metadata.
@@ -33,7 +33,7 @@ Write notes for a reader who skims first: lead with the takeaway, order sections
 
 ### Headings
 
-Use headings to structure note sections. H1 is reserved for the note title; use H2/H3+ for body hierarchy and scannable/collapsible sections.
+Use headings to structure note sections. H1 is reserved for the note title; use H2-H4 for body hierarchy and scannable/collapsible sections. Moss styles and outlines H1-H4 only; avoid H5/H6.
 
 ### Tables
 
@@ -77,7 +77,7 @@ The `![alt](src)` syntax carries strong image intent; the `src` decides which no
 - Web embed pills: public pages must use HTTPS; loopback development URLs (`localhost`, `127.0.0.1`, `::1`) may use HTTP. The legacy `?[text](url)` pill syntax still imports, but Moss exports pills as the raw URL. Details in `moss-links`.
 - Prefer note-local assets. Do not use `file://` or absolute local paths.
 - Preserve existing URLs exactly unless asked to change them.
-- Remote non-YouTube video files are not video nodes.
+- Remote non-YouTube video files are not video nodes; a remote video-file URL in `![…](…)` stays plain text (neither video nor image).
 
 ### Code Blocks
 
@@ -89,7 +89,7 @@ SELECT id, title FROM notes WHERE updated_at > '2026-01-01';
 ```
 ````
 
-Bundled languages: `javascript` (`js`), `typescript` (`ts`), `jsx`, `tsx`, `python` (`py`), `json`, `sql`, `css`, `html` (`htm`), `markdown` (`md`), `bash` (`sh`, `shell`, `zsh`), `plaintext` (`text`, `txt`). Unknown identifiers fall back to plain text.
+Bundled languages: `javascript` (`js`), `typescript` (`ts`), `jsx`, `tsx`, `python` (`py`), `json`, `sql`, `css`, `html` (`htm`), `markdown` (`md`), `bash` (`sh`, `shell`, `zsh`), `plaintext` (`text`, `txt`). Unknown identifiers are preserved as-is and render without bundled highlighting.
 
 ### Charts
 
@@ -108,6 +108,7 @@ Use current chart types only: `bar`, `stacked-bar`, `line`, or `area`. Use `seri
 - `line`: show change over time or an ordered sequence.
 - `area`: show trend magnitude or volume over time.
 - Do not use `donut` or `pie`.
+- Keep the JSON valid: edits with an invalid `moss-chart` payload are rejected.
 - Avoid charts when a short list/table is clearer or data is too sparse or ambiguous.
 
 ### Callouts
@@ -147,6 +148,8 @@ Content here.
 Other content.
 :::
 ```
+
+The first line after `:::tabs` must be a `=== Label` header; content before the first header, or a group with no headers, makes the whole block fall back to plain text.
 
 Use 2-4 tabs unless the user asks for more. Tab panels may contain normal Moss content: headings, paragraphs, lists, tables, callouts, charts, code blocks, `moss-html`, media, links, formulas, and comment markers where those nodes are valid. Use a table or matrix instead when the reader needs to compare all peers side by side; use scoped HTML instead when seeing the whole visual state/layout at once is the point.
 
