@@ -69,7 +69,7 @@ http://localhost:3000/prototype
 - Public pages must use HTTPS. Loopback development URLs such as `localhost`, `*.localhost`, `127.0.0.1`, and `::1` may use HTTP or HTTPS because they open in the browser surface.
 - Private network, link-local, `.local`, credentialed, and obvious downloadable-file URLs stay plain text or open externally instead of becoming browser pills.
 - As standalone URLs (or image syntax), image URLs, YouTube URLs, and tweet status URLs route to their own image, video, or tweet nodes instead of browser pills; written mid-prose, these URL types stay plain text.
-- The legacy `?[text](https://...)` pill syntax still imports, but Moss exports browser pills as the raw URL so the markdown stays portable.
+- Browser pills save as regular URLs so the markdown stays portable.
 
 ## Local Assets and Media Links
 

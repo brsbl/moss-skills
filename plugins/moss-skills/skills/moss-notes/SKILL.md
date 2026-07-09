@@ -74,7 +74,7 @@ The `![alt](src)` syntax carries strong image intent; the `src` decides which no
 - Images: PNG, JPG, GIF, WebP, SVG.
 - Video: local `.mp4`, `.webm`, `.mov`, or YouTube URLs.
 - Do **not** write a regular webpage URL in `![…](…)` image syntax — it stays an image node and renders as a broken image. Use a bare URL in prose or on its own line so Moss creates a web embed pill instead.
-- Web embed pills: public pages must use HTTPS; loopback development URLs (`localhost`, `127.0.0.1`, `::1`) may use HTTP. The legacy `?[text](url)` pill syntax still imports, but Moss exports pills as the raw URL. Details in `moss-links`.
+- Web embed pills: public pages must use HTTPS; loopback development URLs (`localhost`, `127.0.0.1`, `::1`) may use HTTP. Details in `moss-links`.
 - Prefer note-local assets. Do not use `file://` or absolute local paths.
 - Preserve existing URLs exactly unless asked to change them.
 - Remote non-YouTube video files are not video nodes; a remote video-file URL in `![…](…)` stays plain text (neither video nor image).
