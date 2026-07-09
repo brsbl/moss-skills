@@ -53,19 +53,22 @@ Use tables for structured comparisons, compact data, status matrices, or checkli
 
 ### Images, Video, And Webpage Embeds
 
-Use images for visual evidence, diagrams, screenshots, and local media assets; use video for playable recordings or YouTube references; use bare URLs for webpages you want to open in the in-app browser. See the links skill (`moss-links`) for YouTube, web-embed, and media-link behavior.
+Use images for visual evidence, diagrams, screenshots, and local media assets; use video for playable recordings or YouTube references. URLs in Moss can become previews that open in the in-app browser: write a URL plainly for an inline browser preview, use `![Title](url)` when the URL should appear as a visual embed, and use `[Title](url)` for a normal text link. See the links skill (`moss-links`) for YouTube, web-embed, and media-link behavior.
 
 ```markdown
 ![Alt text](assets/file-name.png)
 ![Demo recording](assets/demo-recording.mp4)
 ![YouTube demo](https://youtu.be/dQw4w9WgXcQ)
 ![Release thread](https://x.com/obsdmd/status/1580548874246443010)
+![Project board](https://linear.app/myteam/board)
 https://linear.app/myteam/board
+[Project board](https://linear.app/myteam/board)
 ```
 
-- Webpages: use a bare URL.
-- Media: use `![alt](src)` only for images, local video files, YouTube URLs, and tweet status URLs.
-- Web embed pills: public pages must use HTTPS; loopback development URLs (`localhost`, `127.0.0.1`, `::1`) may use HTTP. Details in `moss-links`.
+- Bare URLs create inline browser preview pills and save as bare URLs.
+- `![Title](url)` creates visual embeds for browser-safe webpages, images, local video files, YouTube URLs, and tweet status URLs.
+- Named Markdown links stay normal text links. Self-referential URL links may become browser pills; details in `moss-links`.
+- Browser previews: public pages must use HTTPS; loopback development URLs (`localhost`, `127.0.0.1`, `::1`) may use HTTP.
 - Prefer note-local assets. Do not use `file://` or absolute local paths.
 - Preserve existing URLs exactly unless asked to change them.
 
