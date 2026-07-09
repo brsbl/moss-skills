@@ -9,10 +9,10 @@ Related skills: writing guidelines (`moss-writing-guidelines`), frontmatter (`mo
 
 ## Files
 
-- Notes are directories under `~/Moss/Notes/`.
+- Notes are stored as directories under `~/Moss/Notes/`, but Moss can also promote loose markdown files in workspace folders into note directories.
 - Folders organize notes. Subfolders and nested folders under `~/Moss/Notes/` are valid; create them when grouping helps or when the user asks.
 - Edit the existing markdown content file in the note directory.
-- New notes: create a directory (nested folders allowed) and a markdown file with the first line as `# Title`.
+- New notes: either create a directory with a same-named markdown file, or create a loose `.md` file inside an existing Moss folder and let Moss promote it. In both cases, make the first line `# Title`.
 - Do not create or edit app-owned sidecars such as `meta.json`, `.folder.json`, or `layout.json`; Moss writes these automatically.
 - `comments.json` is a content sidecar: edit it only via the comments skill.
 - `assets/` is note-local content storage for referenced media, not metadata.
