@@ -166,8 +166,8 @@ Use text-level syntax for compact references and emphasis inside paragraphs, lis
 - Wiki links connect notes/headings or create navigable references in the Moss workspace; see the links skill (`moss-links`) for variants and other link types.
 - Highlight marks important text, status, or attention within prose; use `<mark data-color="yellow">...</mark>` rather than `==...==`.
 - Underline is for intentional emphasis where it will not be confused with a link.
-- Color literals in prose become atomic color pills and still export as plain text. Supported forms are 6-digit hex `#rrggbb`, `rgb()`/`rgba()`, and `hsl()`/`hsla()`.
-- Color literals inside inline code or fenced code blocks stay code. They get code-only preview affordances, not prose color pills. Write color values plainly and do not wrap them in custom spans, HTML, or `data-*` attributes.
+- Color literals in prose become atomic color pills and still export as plain text. Supported forms: 6-digit hex `#rrggbb`, `rgb()`/`rgba()`, and `hsl()`/`hsla()`.
+- Color literals inside inline code or fenced code blocks stay code.
 
 ### Formulas And Variables
 
