@@ -9,10 +9,10 @@ Related skills: writing guidelines (`moss-writing-guidelines`), frontmatter (`mo
 
 ## Files
 
-- Notes are stored as directories under `~/Moss/Notes/`, but Moss can also promote loose markdown files in workspace folders into note directories.
+- Notes live under `~/Moss/Notes/`.
 - Folders organize notes. Subfolders and nested folders under `~/Moss/Notes/` are valid; create them when grouping helps or when the user asks.
 - Edit the existing markdown content file in the note directory.
-- New notes: either create a directory with a same-named markdown file (`<Note Title>/<Note Title>.md`; `note.md` also works — new note files with other names are rejected), or create a loose `.md` file inside an existing Moss folder and let Moss promote it. In both cases, make the first line `# Title`.
+- New notes: create either a note directory with a same-named markdown file, or a standalone `.md` file inside an existing Moss folder. Start the file with `# Title`.
 - Do not create or edit app-owned sidecars such as `meta.json`, `.folder.json`, or `layout.json`; Moss writes these automatically.
 - `comments.json` is a content sidecar: edit it only via the comments skill.
 - `assets/` is note-local content storage for referenced media, not metadata.
@@ -53,7 +53,7 @@ Use tables for structured comparisons, compact data, status matrices, or checkli
 
 ### Images, Video, And Webpage Embeds
 
-Use images for visual evidence, diagrams, screenshots, and local media assets; use video for playable recordings or YouTube references; write a regular webpage URL as a bare standalone URL so Moss creates an inline web embed pill that opens in the in-app browser. See the links skill (`moss-links`) for YouTube, web-embed, and media-link behavior.
+Use images for visual evidence, diagrams, screenshots, and local media assets; use video for playable recordings or YouTube references; use bare URLs for webpages you want to open in the in-app browser. See the links skill (`moss-links`) for YouTube, web-embed, and media-link behavior.
 
 ```markdown
 ![Alt text](assets/file-name.png)
@@ -63,17 +63,17 @@ Use images for visual evidence, diagrams, screenshots, and local media assets; u
 https://linear.app/myteam/board
 ```
 
-The `![alt](src)` syntax carries strong image intent; the `src` decides which node you get:
+Use `![alt](src)` only for media embeds:
 
 | `src` | Node |
 | --- | --- |
 | local video (`.mp4`/`.webm`/`.mov`) or a YouTube URL | video |
 | tweet status URL | tweet card |
-| any other URL, local/relative path, image URL, or known image host | image |
+| local/relative path, image URL, or known image host | image |
 
 - Images: PNG, JPG, GIF, WebP, SVG.
 - Video: local `.mp4`, `.webm`, `.mov`, or YouTube URLs.
-- Do **not** write a regular webpage URL in `![…](…)` image syntax — it stays an image node and renders as a broken image. Use a bare URL in prose or on its own line so Moss creates a web embed pill instead.
+- Webpages: use a bare URL.
 - Web embed pills: public pages must use HTTPS; loopback development URLs (`localhost`, `127.0.0.1`, `::1`) may use HTTP. Details in `moss-links`.
 - Prefer note-local assets. Do not use `file://` or absolute local paths.
 - Preserve existing URLs exactly unless asked to change them.
@@ -166,7 +166,7 @@ Use text-level syntax for compact references and emphasis inside paragraphs, lis
 - Wiki links connect notes/headings or create navigable references in the Moss workspace; see the links skill (`moss-links`) for variants and other link types.
 - Highlight marks important text, status, or attention within prose; use `<mark data-color="yellow">...</mark>` rather than `==...==`.
 - Underline is for intentional emphasis where it will not be confused with a link.
-- Color literals in prose become atomic color pills and still export as plain text. Supported forms are 6-digit hex `#rrggbb` plus the functional `rgb()`/`rgba()` and `hsl()`/`hsla()` forms. Hex-like strings of any other length stay plain text — 3-, 4-, 7-, and 8-digit hex (`#456`, `#4567`, `#11223344`) and issue/PR-style refs are never turned into color pills. CSS named colors (e.g. `rebeccapurple`, `transparent`) and `currentColor` are not converted.
+- Color literals in prose become atomic color pills and still export as plain text. Supported forms are 6-digit hex `#rrggbb`, `rgb()`/`rgba()`, and `hsl()`/`hsla()`.
 - Color literals inside inline code or fenced code blocks stay code. They get code-only preview affordances, not prose color pills. Write color values plainly and do not wrap them in custom spans, HTML, or `data-*` attributes.
 
 ### Formulas And Variables
