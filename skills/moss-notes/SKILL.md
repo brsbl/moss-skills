@@ -63,21 +63,11 @@ Use images for visual evidence, diagrams, screenshots, and local media assets; u
 https://linear.app/myteam/board
 ```
 
-Use `![alt](src)` only for media embeds:
-
-| `src` | Node |
-| --- | --- |
-| local video (`.mp4`/`.webm`/`.mov`) or a YouTube URL | video |
-| tweet status URL | tweet card |
-| local/relative path, image URL, or known image host | image |
-
-- Images: PNG, JPG, GIF, WebP, SVG.
-- Video: local `.mp4`, `.webm`, `.mov`, or YouTube URLs.
 - Webpages: use a bare URL.
+- Media: use `![alt](src)` only for images, local video files, YouTube URLs, and tweet status URLs.
 - Web embed pills: public pages must use HTTPS; loopback development URLs (`localhost`, `127.0.0.1`, `::1`) may use HTTP. Details in `moss-links`.
 - Prefer note-local assets. Do not use `file://` or absolute local paths.
 - Preserve existing URLs exactly unless asked to change them.
-- Remote non-YouTube video files are not video nodes.
 
 ### Code Blocks
 
