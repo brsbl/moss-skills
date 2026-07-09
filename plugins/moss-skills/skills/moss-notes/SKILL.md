@@ -53,44 +53,31 @@ Use tables for structured comparisons, compact data, status matrices, or checkli
 
 ### Images, Video, And Webpage Embeds
 
-Use images for visual evidence, diagrams, screenshots, and local media assets; use video for playable recordings or YouTube references; a safe HTTPS link to a regular webpage (not an image or video) becomes a webpage embed card. See the links skill (`moss-links`) for YouTube and media-link behavior.
+Use images for visual evidence, diagrams, screenshots, and local media assets; use video for playable recordings or YouTube references; write a regular webpage URL as a bare standalone URL so Moss creates an inline web embed pill that opens in the in-app browser. See the links skill (`moss-links`) for YouTube, web-embed, and media-link behavior.
 
 ```markdown
 ![Alt text](assets/file-name.png)
 ![Demo recording](assets/demo-recording.mp4)
 ![YouTube demo](https://youtu.be/dQw4w9WgXcQ)
-![Linear board](https://linear.app/myteam/board)
 ![Release thread](https://x.com/obsdmd/status/1580548874246443010)
+https://linear.app/myteam/board
 ```
 
-The `![alt](src)` syntax is shared; the `src` decides which node you get:
+The `![alt](src)` syntax carries strong image intent; the `src` decides which node you get:
 
 | `src` | Node |
 | --- | --- |
 | local video (`.mp4`/`.webm`/`.mov`) or a YouTube URL | video |
-| safe HTTPS URL that is **not** an image and **not** a video | webpage embed card |
-| local/relative path, image URL, or known image host | image |
+| tweet status URL | tweet card |
+| any other URL, local/relative path, image URL, or known image host | image |
 
 - Images: PNG, JPG, GIF, WebP, SVG.
 - Video: local `.mp4`, `.webm`, `.mov`, or YouTube URLs.
-- Webpage embeds: HTTPS only; no loopback/private hosts and no downloadable-file URLs. Image URLs and YouTube/video URLs are never embeds.
+- Do **not** write a regular webpage URL in `![…](…)` image syntax — it stays an image node and renders as a broken image. Use a bare URL in prose or on its own line so Moss creates a web embed pill instead.
+- Web embed pills: public pages must use HTTPS; loopback development URLs (`localhost`, `127.0.0.1`, `::1`) may use HTTP. The legacy `?[text](url)` pill syntax still imports, but Moss exports pills as the raw URL. Details in `moss-links`.
 - Prefer note-local assets. Do not use `file://` or absolute local paths.
 - Preserve existing URLs exactly unless asked to change them.
 - Remote non-YouTube video files are not video nodes.
-
-A webpage embed has two display states of the **same** embed:
-
-| Syntax | State | Looks like |
-| --- | --- | --- |
-| `?[text](https://…)` | collapsed | an inline **pill** inside a paragraph, list, or table cell |
-| `![alt](https://…)` | expanded | a block **card** on its own line |
-
-```markdown
-The plan landed in ?[Figma file](https://www.figma.com/file/abc123/Project) — see the mocks.
-```
-
-- `?[text](url)` is the inline pill; `![alt](url)` is the block card. Both are HTTPS-only (same safety rules as above). Switching state in the editor rewrites only the token between the two forms; the URL, text, and any comments are preserved.
-- Use the pill (`?[…]`) for an inline reference mid-sentence; use the card (`![…]`) when the preview should be pinned as its own block.
 
 ### Code Blocks
 
