@@ -50,11 +50,11 @@ Option A — Sidebar nav
 
 Moss canvas is not a text diagram renderer. It stores a 120-column x 60-row boolean grid plus optional label metadata.
 
-- Start new generated canvas blocks with `[moss:grid:v2]`. The header is required for 120x60 interpretation: without it, the body parses as a legacy 60x30 grid and is upscaled 2x, corrupting a 120-wide drawing.
+- Start new generated canvas blocks with `[moss:grid:v2]`. Without this header, Moss imports the body as legacy canvas and the drawing may scale incorrectly.
 - Use exactly 60 grid rows of up to 120 characters. Use `.` for empty cells.
 - Any character other than `.` or a space imports as filled ink. Letters, arrowheads, and box-drawing glyphs do **not** render as text; they become filled cells.
 - Put readable text in `[moss:labels:[...]]`, not in the grid. Labels are overlays with `col` and `row` grid coordinates.
-- Keep labels short and place them inside clear whitespace, usually at least 2 cells from nearby strokes. If a label overlaps a line or box edge, move the label or simplify the drawing. Label text is capped at 80 characters when edited in the app, and a malformed `[moss:labels:...]` JSON payload is discarded on import (the grid still renders).
+- Keep labels under 80 characters, use valid JSON, and place them inside clear whitespace, usually at least 2 cells from nearby strokes. If a label overlaps a line or box edge, move the label or simplify the drawing.
 - Prefer sparse strokes: simple rectangles, vertical/horizontal connectors, and generous gaps. Avoid dense filled regions and long closed boxes whose interiors are crowded by connectors.
 - Do not rely on ASCII arrowheads. Use line direction from layout and labels, or keep connectors as plain lines.
 - When authoring by hand, generate the grid programmatically or count columns carefully; malformed row lengths are padded/truncated on import.

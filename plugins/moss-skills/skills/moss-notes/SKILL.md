@@ -77,7 +77,7 @@ Use `![alt](src)` only for media embeds:
 - Web embed pills: public pages must use HTTPS; loopback development URLs (`localhost`, `127.0.0.1`, `::1`) may use HTTP. Details in `moss-links`.
 - Prefer note-local assets. Do not use `file://` or absolute local paths.
 - Preserve existing URLs exactly unless asked to change them.
-- Remote non-YouTube video files are not video nodes; a remote video-file URL in `![…](…)` stays plain text (neither video nor image).
+- Remote non-YouTube video files are not video nodes.
 
 ### Code Blocks
 
@@ -149,7 +149,7 @@ Other content.
 :::
 ```
 
-The first line after `:::tabs` must be a `=== Label` header; content before the first header, or a group with no headers, makes the whole block fall back to plain text.
+The first line after `:::tabs` must be a `=== Label` header; content before the first header, or a tabs block with no headers, falls back to plain text.
 
 Use 2-4 tabs unless the user asks for more. Tab panels may contain normal Moss content: headings, paragraphs, lists, tables, callouts, charts, code blocks, `moss-html`, media, links, formulas, and comment markers where those nodes are valid. Use a table or matrix instead when the reader needs to compare all peers side by side; use scoped HTML instead when seeing the whole visual state/layout at once is the point.
 

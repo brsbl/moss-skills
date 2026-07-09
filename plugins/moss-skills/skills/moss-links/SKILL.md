@@ -68,7 +68,7 @@ http://localhost:3000/prototype
 - Self-referential Markdown links such as `[https://example.com](https://example.com)` also become browser pills. Named links such as `[Example](https://example.com)` stay normal Markdown links.
 - Public pages must use HTTPS. Loopback development URLs such as `localhost`, `*.localhost`, `127.0.0.1`, and `::1` may use HTTP or HTTPS because they open in the browser surface.
 - Private network, link-local, `.local`, credentialed, and obvious downloadable-file URLs stay plain text or open externally instead of becoming browser pills.
-- As standalone URLs (or image syntax), image URLs, YouTube URLs, and tweet status URLs route to their own image, video, or tweet nodes instead of browser pills; written mid-prose, these URL types stay plain text.
+- Standalone image URLs, YouTube URLs, and tweet status URLs route to their own image, video, or tweet nodes instead of browser pills; use a named Markdown link when you only want a text link.
 - Browser pills save as regular URLs so the markdown stays portable.
 
 ## Local Assets and Media Links

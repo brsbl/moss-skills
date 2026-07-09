@@ -27,7 +27,7 @@ Write `comments.json` beside the note markdown file:
 {"c1":{"text":"Tighten this wording.","createdAt":1707900000,"updatedAt":1707900000,"source":"agent"}}
 ```
 
-- For a standalone external `.md` file (not a `<Title>/<Title>.md` bundle), Moss reads the sidecar from that note's mirror directory under `~/Moss/Notes/`, not beside the file; when Moss provides a sidecar path in context, use it instead of assuming.
+- For a standalone external `.md` file that is not a `<Title>/<Title>.md` note bundle, Moss reads comments from that note's mirror directory under `~/Moss/Notes/`, not beside the external file. Use the sidecar path Moss provides when one is available.
 - Every body marker ID is a root comment and needs matching sidecar metadata.
 - Every root comment ID needs matching body markers.
 - Reply IDs with `parentId` live only in sidecar metadata and must be reachable from a root comment.
@@ -64,7 +64,7 @@ Thread replies live in `comments.json`; body markers only anchor root comments.
 %%m:b1:end%%
 ```
 
-Do not place markers inside wiki links, formula/variable pills, color code pills, fenced block payloads, or raw HTML comments. Treat atomic inline pills as indivisible. Markers placed inside these constructs do not become comments: inside fenced code they stay literal text, and inside a pill they are absorbed into the payload and corrupt it. For color literals such as `#4f8a6b`, `rebeccapurple`, or `rgb(72, 67, 60)`, prefer annotating the surrounding sentence or phrase rather than trying to split the literal itself.
+Do not place markers inside wiki links, formula/variable pills, color code pills, fenced block payloads, or raw HTML comments. Treat atomic inline pills as indivisible; wrap the whole node or surrounding phrase instead. For color literals such as `#4f8a6b`, `rebeccapurple`, or `rgb(72, 67, 60)`, prefer annotating the surrounding sentence or phrase rather than trying to split the literal itself.
 
 ## Resolving Comments
 
