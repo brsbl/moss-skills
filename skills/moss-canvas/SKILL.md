@@ -41,8 +41,7 @@ Option A — Sidebar nav
 ```
 ````
 
-- New content must use the canonical `moss-canvas` fence.
-- Legacy `moss-sketch` fences still import as canvas for old notes, but do not create new `moss-sketch` blocks. Moss re-serializes them to the canonical `moss-canvas` fence when the note is saved in the app.
+- Create new blocks with `moss-canvas`; preserve existing `moss-sketch` blocks.
 - The canvas uses a 120x60 grid.
 
 
@@ -50,7 +49,7 @@ Option A — Sidebar nav
 
 Moss canvas is not a text diagram renderer. It stores a 120-column x 60-row boolean grid plus optional label metadata.
 
-- Start new generated canvas blocks with `[moss:grid:v2]`. Without this header, Moss imports the body as legacy canvas and the drawing may scale incorrectly.
+- Start new canvas blocks with `[moss:grid:v2]`.
 - Use exactly 60 grid rows of up to 120 characters. Use `.` for empty cells.
 - Any character other than `.` or a space imports as filled ink. Letters, arrowheads, and box-drawing glyphs do **not** render as text; they become filled cells.
 - Put readable text in `[moss:labels:[...]]`, not in the grid. Labels are overlays with `col` and `row` grid coordinates.
@@ -96,4 +95,3 @@ Example pattern:
 - Fence is `moss-canvas`, not `moss-sketch`.
 - Diagram fits the rough editable-canvas use case.
 - Content does not pretend to be a precise chart, map, or interactive prototype.
-- Leave existing legacy `moss-sketch` fences alone when editing raw markdown; Moss migrates them to `moss-canvas` when the note is saved in the app.

@@ -21,14 +21,12 @@ The %%m:c1:start%%current layout%%m:c1:end%% needs work.
 
 ## Sidecar Metadata
 
-For Moss workspace notes, write `comments.json` beside the note markdown file inside the note directory. If you are creating a note that already needs comments, create it as a note directory with a same-named markdown file rather than as a standalone `.md` file.
+Workspace note comments use `comments.json` beside the markdown file in its note directory. For a standalone external markdown file, use only the sidecar path Moss provides.
 
 ```json
 {"c1":{"text":"Tighten this wording.","createdAt":1707900000,"updatedAt":1707900000,"source":"agent"}}
 ```
 
-- Do not create `comments.json` or `assets/` beside a standalone `.md` file. Use a note directory for notes that need sidecars.
-- For a standalone external `.md` file that is not a `<Title>/<Title>.md` note bundle, Moss reads comments from that note's mirror directory under `~/Moss/Notes/`, not beside the external file. Use the sidecar path Moss provides when one is available.
 - Every body marker ID is a root comment and needs matching sidecar metadata.
 - Every root comment ID needs matching body markers.
 - Reply IDs with `parentId` live only in sidecar metadata and must be reachable from a root comment.

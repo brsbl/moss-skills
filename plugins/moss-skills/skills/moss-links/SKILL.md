@@ -55,7 +55,7 @@ Moss treats YouTube URLs as video-capable references when written as image/video
 
 ## URL Previews and In-App Browser
 
-URLs in Moss can become previews that open in the in-app browser. Write a URL plainly for an inline browser preview, use `![Title](url)` when the URL should appear as a visual embed, and use `[Title](url)` for a normal text link.
+Use a bare browser-safe URL for an inline preview, `![Title](url)` for a visual webpage preview, and `[Title](url)` for a text link. Images, video, YouTube, and tweets remain media previews.
 
 ```markdown
 https://example.com/research
@@ -66,13 +66,9 @@ http://localhost:3000/prototype
 [Research](https://example.com/research)
 ```
 
-- Use a bare `http://` or `https://` URL anywhere in prose or table cells for an inline browser preview pill.
-- Use `![Title](url)` for a visual embed. Images, local videos, YouTube URLs, and tweet status URLs keep their stronger media previews; browser-safe webpages render as webpage cards.
-- Self-referential Markdown links such as `[https://example.com](https://example.com)` also become browser pills. Named links such as `[Example](https://example.com)` stay normal Markdown links.
+- Standalone image, YouTube, and tweet URLs render as media. Inline and visual webpage previews save as bare URLs and `![Title](url)` respectively.
 - Public pages must use HTTPS. Loopback development URLs such as `localhost`, `*.localhost`, `127.0.0.1`, and `::1` may use HTTP or HTTPS because they open in the browser surface.
 - Private network, link-local, `.local`, credentialed, and obvious downloadable-file URLs stay plain text or open externally instead of becoming browser previews.
-- Standalone image URLs, YouTube URLs, and tweet status URLs route to their own image, video, or tweet nodes instead of browser pills; use a named Markdown link when you only want a text link.
-- Browser pills save as regular URLs. Visual webpage embeds save as `![Title](url)`.
 
 ## Local Assets and Media Links
 

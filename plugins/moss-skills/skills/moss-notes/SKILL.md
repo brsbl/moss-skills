@@ -12,7 +12,7 @@ Related skills: writing guidelines (`moss-writing-guidelines`), frontmatter (`mo
 - Notes live under `~/Moss/Notes/`.
 - Folders organize notes. Subfolders and nested folders under `~/Moss/Notes/` are valid; create them when grouping helps or when the user asks.
 - Edit the existing markdown content file in the note directory.
-- New notes: create either a note directory with a same-named markdown file, or a standalone `.md` file inside an existing Moss folder. Use a note directory when the note needs comments, note-local assets, or other sidecars. Start the markdown file with `# Title`.
+- New workspace notes use a same-named note directory and markdown file under `~/Moss/Notes/`; start the file with `# Title`.
 - Do not create or edit app-owned sidecars such as `meta.json`, `.folder.json`, or `layout.json`; Moss writes these automatically.
 - `comments.json` is a content sidecar: edit it only via the comments skill.
 - `assets/` is note-local content storage for referenced media, not metadata.
@@ -33,7 +33,7 @@ Write notes for a reader who skims first: lead with the takeaway, order sections
 
 ### Headings
 
-Use headings to structure note sections. H1 is reserved for the note title; use H2-H4 for body hierarchy and scannable/collapsible sections. Moss styles and outlines H1-H4 only; avoid H5/H6.
+Use one H1 for the title and H2-H4 for body headings; avoid H5/H6.
 
 ### Tables
 
@@ -53,24 +53,7 @@ Use tables for structured comparisons, compact data, status matrices, or checkli
 
 ### Images, Video, And Webpage Embeds
 
-Use images for visual evidence, diagrams, screenshots, and local media assets; use video for playable recordings or YouTube references. URLs in Moss can become previews that open in the in-app browser: write a URL plainly for an inline browser preview, use `![Title](url)` when the URL should appear as a visual embed, and use `[Title](url)` for a normal text link. See the links skill (`moss-links`) for YouTube, web-embed, and media-link behavior.
-
-```markdown
-![Alt text](assets/file-name.png)
-![Demo recording](assets/demo-recording.mp4)
-![YouTube demo](https://youtu.be/dQw4w9WgXcQ)
-![Release thread](https://x.com/obsdmd/status/1580548874246443010)
-![Project board](https://linear.app/myteam/board)
-https://linear.app/myteam/board
-[Project board](https://linear.app/myteam/board)
-```
-
-- Bare URLs create inline browser preview pills and save as bare URLs.
-- `![Title](url)` creates visual embeds for browser-safe webpages, images, local video files, YouTube URLs, and tweet status URLs.
-- Named Markdown links stay normal text links. Self-referential URL links may become browser pills; details in `moss-links`.
-- Browser previews: public pages must use HTTPS; loopback development URLs (`localhost`, `127.0.0.1`, `::1`) may use HTTP.
-- Prefer note-local assets. Do not use `file://` or absolute local paths.
-- Preserve existing URLs exactly unless asked to change them.
+Use images for visual evidence, diagrams, screenshots, and local media assets; use video for playable recordings or YouTube references. For URL, embed, and note-local media syntax and safety rules, follow the links skill (`moss-links`).
 
 ### Code Blocks
 
@@ -101,7 +84,7 @@ Use current chart types only: `bar`, `stacked-bar`, `line`, or `area`. Use `seri
 - `line`: show change over time or an ordered sequence.
 - `area`: show trend magnitude or volume over time.
 - Do not use `donut` or `pie`.
-- Keep the JSON valid: edits with an invalid `moss-chart` payload are rejected.
+- Keep chart data valid. An invalid `moss-chart` block is retained as code on import; agent edits must use valid data.
 - Avoid charts when a short list/table is clearer or data is too sparse or ambiguous.
 
 ### Callouts
@@ -142,7 +125,7 @@ Other content.
 :::
 ```
 
-The first line after `:::tabs` must be a `=== Label` header; content before the first header, or a tabs block with no headers, falls back to plain text.
+A tabs block needs a `=== Label` header. Blank lines may come before the first header; other content before it keeps the block as plain text.
 
 Use 2-4 tabs unless the user asks for more. Tab panels may contain normal Moss content: headings, paragraphs, lists, tables, callouts, charts, code blocks, `moss-html`, media, links, formulas, and comment markers where those nodes are valid. Use a table or matrix instead when the reader needs to compare all peers side by side; use scoped HTML instead when seeing the whole visual state/layout at once is the point.
 
