@@ -12,7 +12,7 @@ Related skills: writing guidelines (`moss-writing-guidelines`), frontmatter (`mo
 - Notes live under `~/Moss/Notes/`.
 - Folders organize notes. Subfolders and nested folders under `~/Moss/Notes/` are valid; create them when grouping helps or when the user asks.
 - Edit the existing markdown content file in the note directory.
-- New notes: create either a note directory with a same-named markdown file, or a standalone `.md` file inside an existing Moss folder. Start the file with `# Title`.
+- New notes: create either a note directory with a same-named markdown file, or a standalone `.md` file inside an existing Moss folder. Use a note directory when the note needs comments, note-local assets, or other sidecars. Start the markdown file with `# Title`.
 - Do not create or edit app-owned sidecars such as `meta.json`, `.folder.json`, or `layout.json`; Moss writes these automatically.
 - `comments.json` is a content sidecar: edit it only via the comments skill.
 - `assets/` is note-local content storage for referenced media, not metadata.
@@ -23,7 +23,7 @@ Related skills: writing guidelines (`moss-writing-guidelines`), frontmatter (`mo
 - Frontmatter is an optional YAML block at the top.
 - The first H1 is the note title.
 - Body markdown follows the title.
-- Comments use body markers plus a sibling `comments.json`; see the comments skill (`moss-comments`).
+- Comments use body markers plus a sibling `comments.json` in a note directory; see the comments skill (`moss-comments`).
 
 ## Writing Quality
 

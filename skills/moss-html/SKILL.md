@@ -19,15 +19,29 @@ Embed HTML directly in the note:
 <meta name="moss-html-version" content="v1">
 <style>
   * { box-sizing: border-box; }
-  html { background: rgb(253 250 246); }
+
+  :root {
+    --moss-surface-canvas: #FFFFFF;
+    --moss-surface-canvas-bg: #F4F4F2;
+    --moss-surface-panel: #F7F6F3;
+    --moss-ink-default: #48433C;
+    --moss-ink-muted: #615C55;
+    --moss-border-subtle: #EDEAE4;
+    --moss-accent-brand: #378055;
+  }
+
+  html {
+    background: var(--moss-surface-canvas-bg);
+  }
+
   body {
     width: 1200px;
     min-height: 900px;
     margin: 0;
     padding: 40px;
-    background: rgb(253 250 246);
-    color: rgb(72 67 60);
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--moss-surface-canvas);
+    color: var(--moss-ink-default);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 </style>
 </head>
@@ -52,4 +66,4 @@ Rules:
 - If a control looks interactive (checkbox, toggle, tab, filter, menu, button), make it work with native controls and minimal script. Do not draw inert controls with plain `div`s.
 - Keep `<meta name="moss-html-version" content="v1">` as the canonical Moss document marker. Moss may auto-wrap fragments and canonicalize the shell/head metadata when the note is opened; those shell changes persist on the next save. You own visible body content and any extra CSS/JS.
 - If the HTML contains literal triple backticks, wrap the fence with four or more backticks.
-- Use Moss visual language: warm page background, Moss green accents, subtle borders/shadows, no emojis.
+- Use Moss visual language: light canvas surfaces, Moss green accents, subtle borders/shadows, no emojis.
