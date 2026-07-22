@@ -23,8 +23,10 @@ The %%m:c1:start%%current layout%%m:c1:end%% needs work.
 
 Workspace note comments use `comments.json` beside the markdown file in its note directory. For a standalone external markdown file, use only the sidecar path Moss provides.
 
+This example is for a writer editing files outside Moss. The in-app Moss agent must use `"source":"agent"` instead.
+
 ```json
-{"c1":{"text":"Tighten this wording.","createdAt":1707900000,"updatedAt":1707900000,"source":"agent"}}
+{"c1":{"text":"Tighten this wording.","createdAt":1707900000,"updatedAt":1707900000,"source":"external"}}
 ```
 
 - Every body marker ID is a root comment and needs matching sidecar metadata.
@@ -39,10 +41,12 @@ Workspace note comments use `comments.json` beside the markdown file in its note
 
 Thread replies live in `comments.json`; body markers only anchor root comments.
 
+This example continues the external-writer context above.
+
 ```json
 {
   "c1": {"text":"Original.","createdAt":1707900000,"updatedAt":1707900000,"source":"user"},
-  "c1-r1": {"text":"Following up.","createdAt":1707900100,"updatedAt":1707900100,"source":"agent","parentId":"c1"}
+  "c1-r1": {"text":"Following up.","createdAt":1707900100,"updatedAt":1707900100,"source":"external","parentId":"c1"}
 }
 ```
 
@@ -91,8 +95,10 @@ When the in-app Moss agent receives comment context from the prompt box, the pro
 
 Comments may include image attachments stored under the note's `assets/` directory:
 
+This example also uses external-writer attribution; the in-app Moss agent must use `"source":"agent"`.
+
 ```json
-{"c1":{"text":"See screenshot.","createdAt":1707900000,"updatedAt":1707900000,"source":"agent","imageUrls":["assets/comment-abc.png"]}}
+{"c1":{"text":"See screenshot.","createdAt":1707900000,"updatedAt":1707900000,"source":"external","imageUrls":["assets/comment-abc.png"]}}
 ```
 
 - Use the `imageUrls` array with note-relative paths under `assets/`.
