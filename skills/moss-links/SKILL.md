@@ -49,8 +49,26 @@ Moss treats YouTube URLs as video-capable references when written as image/video
 ```
 
 - Use image/video markdown when the user wants an embedded playable video preview.
-- Use a normal Markdown link when the user only wants a text link to YouTube.
+- A bare standalone YouTube URL on its own line also becomes an embedded video.
+- Use a named Markdown link like `[demo](https://youtu.be/...)` when the user only wants a text link to YouTube.
 - Remote non-YouTube video files are not video nodes; use local video assets for `.mp4`, `.webm`, or `.mov`.
+
+## URL Previews and In-App Browser
+
+Use a bare browser-safe URL for an inline preview, `![Title](url)` for a visual webpage preview, and `[Title](url)` for a text link. Images, video, YouTube, and tweets remain media previews.
+
+```markdown
+https://example.com/research
+Research link: https://example.com/research
+![Research board](https://example.com/research)
+http://localhost:3000/prototype
+[https://example.com/research](https://example.com/research)
+[Research](https://example.com/research)
+```
+
+- Standalone image, YouTube, and tweet URLs render as media. Inline and visual webpage previews save as bare URLs and `![Title](url)` respectively.
+- Public pages must use HTTPS. Loopback development URLs such as `localhost`, `*.localhost`, `127.0.0.1`, and `::1` may use HTTP or HTTPS because they open in the browser surface.
+- Private network, link-local, `.local`, credentialed, and obvious downloadable-file URLs stay plain text or open externally instead of becoming browser previews.
 
 ## Local Assets and Media Links
 

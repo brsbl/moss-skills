@@ -5,7 +5,7 @@ description: Comment annotation syntax for Moss notes. Use when adding, preservi
 
 # Comments
 
-Comments require both body markers and `comments.json`.
+Root comments need both body markers and a matching `comments.json` entry. Reply IDs carry a `parentId`, live only in `comments.json`, and must be reachable from a root comment.
 
 ## Body Markers
 
@@ -21,15 +21,39 @@ The %%m:c1:start%%current layout%%m:c1:end%% needs work.
 
 ## Sidecar Metadata
 
-Write `comments.json` beside the note markdown file:
+Workspace note comments use `comments.json` beside the markdown file in its note directory. For a standalone external markdown file, use only the sidecar path Moss provides.
+
+This example is for a writer editing files outside Moss. The in-app Moss agent must use `"source":"agent"` instead.
 
 ```json
 {"c1":{"text":"Tighten this wording.","createdAt":1707900000,"updatedAt":1707900000,"source":"external"}}
 ```
 
-- Every marker ID needs matching sidecar metadata.
-- Every sidecar key needs matching body markers.
-- `source` values: `"external"` for comments written by an agent outside of Moss, `"agent"` reserved for the in-app Moss agent, `"user"` for human comments. Always set `"external"` explicitly for comments you write.
+- Every body marker ID is a root comment and needs matching sidecar metadata.
+- Every root comment ID needs matching body markers.
+- Reply IDs with `parentId` live only in sidecar metadata and must be reachable from a root comment.
+- When you create a comment or reply, set `source` to your execution context: `"agent"` for the in-app Moss agent, `"external"` for writers editing files outside Moss, and `"user"` only for human/UI-authored comments.
+- Existing sidecars may include `source` or `resolvedBy` metadata. Preserve existing attribution fields unless the user explicitly asks to change them.
+- Existing sidecars may omit `source`. Treat missing source as legacy/unknown; do not backfill it or infer it from context.
+- Resolved comments keep their body markers and sidecar entries. Add `resolvedAt` (Unix timestamp in seconds), set `resolvedBy` to your execution context when known, and update `updatedAt` on the root comment and every descendant reply.
+
+## Threading
+
+Thread replies live in `comments.json`; body markers only anchor root comments.
+
+This example continues the external-writer context above.
+
+```json
+{
+  "c1": {"text":"Original.","createdAt":1707900000,"updatedAt":1707900000,"source":"user"},
+  "c1-r1": {"text":"Following up.","createdAt":1707900100,"updatedAt":1707900100,"source":"external","parentId":"c1"}
+}
+```
+
+- Only the root comment id appears in body markers. Reply ids at any depth live only in `comments.json` sidecar metadata.
+- `parentId` is optional and may point at a root comment or another reply.
+- A reply's `source`, when present, is independent of its parent's `source`.
+- Do not create cycles or point `parentId` at a missing id.
 
 ## Placement
 
@@ -43,11 +67,35 @@ Write `comments.json` beside the note markdown file:
 %%m:b1:end%%
 ```
 
-Do not place markers inside wiki links, formula/variable pills, color code pills, fenced block payloads, or raw HTML comments. Treat atomic inline pills as indivisible. For color literals such as `#4f8a6b`, `rebeccapurple`, or `rgb(72, 67, 60)`, prefer annotating the surrounding sentence or phrase rather than trying to split the literal itself.
+Do not place markers inside wiki links, formula/variable pills, color code pills, fenced block payloads, or raw HTML comments. Treat atomic inline pills as indivisible; wrap the whole node or surrounding phrase instead. For color literals such as `#4f8a6b`, `rebeccapurple`, or `rgb(72, 67, 60)`, prefer annotating the surrounding sentence or phrase rather than trying to split the literal itself.
+
+## Resolving Comments
+
+- Review every open comment before acting.
+- If a comment is a question, ambiguous, asks for clarification, or needs user confirmation, reply or request clarification and leave it open.
+- If a comment is clear and actionable, apply the requested change to the note.
+- Once the requested change has been applied, resolve the whole thread by setting `resolvedAt`, `resolvedBy`, and `updatedAt` on the root comment and every descendant reply.
+- Do not remove comment body markers or sidecar metadata when resolving. Resolved comments remain in `comments.json` and are hidden by default in the UI.
+- Deleting a comment thread is a separate user-level action with confirmation. Delete removes the root body markers and sidecar entries for the root plus descendants.
+
+## In-App Agent Comment Context
+
+When the in-app Moss agent receives comment context from the prompt box, the prompt carries compact comment IDs instead of full quoted comment text.
+
+- Look up the listed root IDs and message IDs in the active note's comments sidecar before editing.
+- Use the active note body markers to locate the annotated ranges.
+- Edit the note body to address the requested comments.
+- Edit the active note's comments sidecar directly when adding replies, adding comments, or resolving threads. Keep valid JSON and preserve unrelated metadata.
+- When adding a comment or reply from the in-app agent, set `source` to `"agent"`; external writers editing files outside Moss should set `"external"`.
+- When the requested change is complete, resolve the root comment and every descendant by setting `resolvedAt`, `resolvedBy`, and `updatedAt`.
+- If a comment is ambiguous or still needs clarification, reply in `comments.json` or leave it open; do not set resolved fields.
+- The in-app agent may write only the active note's comments sidecar. External writers outside the app may edit sidecars directly when they have filesystem access.
 
 ## Image Attachments
 
 Comments may include image attachments stored under the note's `assets/` directory:
+
+This example also uses external-writer attribution; the in-app Moss agent must use `"source":"agent"`.
 
 ```json
 {"c1":{"text":"See screenshot.","createdAt":1707900000,"updatedAt":1707900000,"source":"external","imageUrls":["assets/comment-abc.png"]}}

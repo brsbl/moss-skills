@@ -22,11 +22,14 @@ Stored markdown syntax for both kinds of pills:
 ```
 
 - Writing `{{source|display}}` into a note creates a live pill. When showing the syntax as a code example in prose, wrap it in backticks.
-- Put the source (expression or symbolic label) before the first `|` and the rendered display value after it.
+- Put the source (expression or symbolic label) before the first `|`, the rendered display value between the first and second `|`, and any metadata after the second `|`.
+- Variable names must start with a letter and contain only letters, digits, `_`, or `-`.
+- Executable expressions support `+ - * / ( )`, decimals, `$`, thousands commas, `%`, and `k`/`m`/`b` suffixes; they do not support functions or exponentiation.
 - Symbolic variables use the variable name as the source and the text value as the display, for example `{{timeline|6 weeks}}`.
 - Named executable variables store the expression in the source and the name in metadata, for example `{{5000|5,000|name=budget}}`. Existing IDs, display formats, and stale flags may appear as `id=...;name=...;format=...;stale=1`; preserve them when editing.
-- For related values, put bound variable references inside later variable expressions so the relationship is live. For example, define `{{28|28|id=H1_ID;name=h1_size}}`, then derive `{{@(h1_size#NOTE_ID#H1_ID)-6|22|id=H2_ID;name=h2_size}}` and `{{@(h2_size#NOTE_ID#H2_ID)-4|18|id=H3_ID;name=h3_size}}`; changing `h1_size` should show how the dependent values move.
-- Formula references may serialize as bound tokens like `@(budget#NOTE_ID#FORMULA_ID)` inside the source. Preserve existing bound references; do not invent them unless the target formula ID is known.
+- For related values written through the UI, Moss generates formula IDs. For direct Markdown edits, read the real containing note ID from Moss-provided context or existing metadata and generate a fresh UUID for every new formula or variable before writing. Do not create or edit app-owned metadata. If the real note ID is unavailable, do not construct a bound reference.
+- Put bound variable references with those real IDs inside later variable expressions so the relationship is live; changing the anchor should show how the dependent values move.
+- Bound references use `@(name#note-id#formula-id)`. Preserve them exactly. Create one only with a target formula name and IDs read from that formula; never use example placeholders.
 - Keep pills inline; do not use them for multi-line calculations or chart data.
 - Pipes inside pills are part of the syntax and do not split table cells.
 
@@ -42,20 +45,19 @@ Use for a computed value that does not need a reusable name.
 
 ### Editable anchor plus derived values
 
+For a direct Markdown edit, assume the real containing note ID is `9e64c3df-c1e2-4a4d-8c07-91528f422413` and the writer generated three fresh formula IDs for this operation. The complete relationship is:
+
 ```markdown
-{{28|28|id=H1_ID;name=h1_size}}
-{{@(h1_size#NOTE_ID#H1_ID)-6|22|id=H2_ID;name=h2_size}}
-{{@(h2_size#NOTE_ID#H2_ID)-4|18|id=H3_ID;name=h3_size}}
+{{28|28|id=b371c6db-70db-48f1-99e2-9ea1ef6f1151;name=h1_size}}
+{{@(h1_size#9e64c3df-c1e2-4a4d-8c07-91528f422413#b371c6db-70db-48f1-99e2-9ea1ef6f1151)-6|22|id=c520e764-a784-48c5-81ca-f93ac6f4ad37;name=h2_size}}
+{{@(h2_size#9e64c3df-c1e2-4a4d-8c07-91528f422413#c520e764-a784-48c5-81ca-f93ac6f4ad37)-4|18|id=d6189e20-8bca-4a44-a372-6c2473ec93b8;name=h3_size}}
 ```
 
-Use when changing the anchor should show how related values move as a system.
+The UUIDs above belong only to this worked example. For a real edit, use that note's real ID and newly generated formula IDs; never paste example IDs into another note.
 
 ### Weight scale
 
-```markdown
-{{400|400|id=NORMAL_ID;name=normal_weight}}
-{{@(normal_weight#NOTE_ID#NORMAL_ID)+100|500|id=MEDIUM_ID;name=medium_weight}}
-```
+Use the same workflow: assign `normal_weight` a fresh formula UUID, then create `medium_weight` with another fresh UUID and a bound reference containing the real note ID plus the exact `normal_weight` formula ID.
 
 ## Tables
 
@@ -64,6 +66,4 @@ Formula and variable pills can appear inside table cells. Keep the row on one ma
 ## Preservation Rules
 
 - Preserve existing `id=...`, `name=...`, `format=...`, and `stale=...` metadata unless the user asks to rebuild the formula.
-- Preserve existing bound references like `@(name#NOTE_ID#FORMULA_ID)` when editing nearby prose.
-- Do not invent bound references unless the target formula ID is known.
 - Prefer variables for named or reusable anchors; prefer unnamed formulas for one-off computed values.

@@ -12,22 +12,20 @@ Frontmatter is an optional YAML block at the top of the note:
 status: active
 tags:
   - project
-date: 2026-01-15
+people:
+  - jane
 ---
 
 # Note Title
 ```
 
 - Put structured metadata in frontmatter, not in the body.
-- Any valid YAML key is allowed.
-- Use strings, numbers, booleans, ISO dates, or arrays.
-- Use meaningful fields because Moss users can search/filter notes by frontmatter; keep values useful for retrieval and avoid excessive fields.
+- Use a top-level YAML mapping. Prefer simple values and string lists; nested objects are read-only in Moss.
+- Use `type`, `people`, `description`, `tags`, and `status` only when they help retrieval. For workspace notes, let Moss manage `created_date`.
+- The note title comes from the leading `# H1`, not a frontmatter `title:` key.
 - Omit the block when no metadata is needed.
 - Do not duplicate frontmatter values as prose headings or bold labels.
 
-## How Moss Renders Frontmatter
+## Editing Frontmatter
 
-- Frontmatter is persisted as YAML at the top of the markdown content file.
-- On load, Moss splits the YAML block from the body before handing content to the editor.
-- A styled React header above the editor renders and edits the frontmatter fields; the Lexical editor body never receives the raw YAML.
-- Edit metadata inside the frontmatter block. Do not restate the same values as prose, headings, or bold labels in the body.
+Keep YAML valid. Moss preserves malformed frontmatter but cannot edit it. When editing files, edit metadata inside the frontmatter block; in the app, use the Properties tab.
