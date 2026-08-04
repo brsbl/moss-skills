@@ -1,97 +1,73 @@
 ---
 name: moss-canvas
-description: Create or edit Moss canvas blocks and choose between moss-canvas and plain ASCII sketches for proposal notes, UI option cards, ASCII wireframes, rough diagrams, flows, and spatial visual thinking.
+description: Create or edit Moss canvas blocks. Use for an existing canvas or when the user explicitly asks for canvas or an editable spatial diagram; use ASCII for generic diagrams and wireframes.
 ---
 
 # Moss Canvas
 
-Use `moss-canvas` for rough visual thinking inside Moss notes: ASCII-style diagrams, simple wireframes, flow charts, spatial layouts, and hand-drawn/diagrammatic sketches.
+Canvas is a rough editable spatial surface, not a text-diagram renderer.
 
-## ASCII Code Blocks vs moss-canvas
+## Creation Authority
 
-Use plain fenced code blocks for proposal visuals where **readable text matters**: option sketches, menu/dialog layouts, shortcut maps, before/after comparisons, acceptance criteria. ASCII wireframes render predictably and are easy to scan inline.
+- Preserve and edit an existing `moss-canvas` block when the task requires it.
+- Create a new canvas when the user asks for canvas or explicitly requests an editable spatial diagram.
+- For a generic diagram, flow, wireframe, menu, or option sketch, use a fenced ASCII code block instead.
+- Use an image for a polished static visual, a chart for quantitative shape, and HTML only for genuine interaction.
 
-Use `moss-canvas` when the diagram is **spatial and meant to stay editable as canvas** — relative positions, connector flow, and rough shapes matter more than text fidelity. Grid characters become ink, not text; readable labels must be metadata overlays.
+Use canvas when relative position, connectors, and rough shapes matter more than readable text in the grid. Grid characters become ink; readable words must be label metadata.
 
-**Decision rule:** If a reader needs to read words in the diagram body, use a fenced code block. If the value is in spatial layout and labels can float as overlays, use moss-canvas.
+## Fence And Payload
 
-### Structuring ASCII proposal visuals
-
-Keep proposal diagrams compact in task/proposal notes:
-- **Option card:** title + short wireframe + tradeoff bullets
-- **Acceptance criteria** beside or below each wireframe
-- When visuals grow long, link to a separate proposal note rather than bloating the task plan
-
-```
-Option A — Sidebar nav
-┌──────┬─────────────┐
-│ Nav  │  Content    │
-│ ---- │             │
-│ Home │  [editor]   │
-│ Tags │             │
-└──────┴─────────────┘
-✓ Always visible   ✗ Eats horizontal space
-```
-
-## Syntax
-
-````markdown
-```moss-canvas
-[rough diagram content]
-```
-````
-
-- Create new blocks with `moss-canvas`; preserve existing `moss-sketch` blocks.
-- The canvas uses a 120x60 grid.
-
-
-## Authoring Reliable 120x60 Canvas Grids
-
-Moss canvas is not a text diagram renderer. It stores a 120-column x 60-row boolean grid plus optional label metadata.
-
-- Start new canvas blocks with `[moss:grid:v2]`.
-- Use exactly 60 grid rows of up to 120 characters. Use `.` for empty cells.
-- Any character other than `.` or a space imports as filled ink. Letters, arrowheads, and box-drawing glyphs do **not** render as text; they become filled cells.
-- Put readable text in `[moss:labels:[...]]`, not in the grid. Labels are overlays with `col` and `row` grid coordinates.
-- Keep labels under 80 characters, use valid JSON, and place them inside clear whitespace, usually at least 2 cells from nearby strokes. If a label overlaps a line or box edge, move the label or simplify the drawing.
-- Prefer sparse strokes: simple rectangles, vertical/horizontal connectors, and generous gaps. Avoid dense filled regions and long closed boxes whose interiors are crowded by connectors.
-- Do not rely on ASCII arrowheads. Use line direction from layout and labels, or keep connectors as plain lines.
-- When authoring by hand, generate the grid programmatically or count columns carefully; malformed row lengths are padded/truncated on import.
-- Validate important canvas changes in the live Moss app with a screenshot. If you cannot validate, keep the diagram simpler or use image markdown / `moss-html` instead.
-
-Example pattern:
+Create new blocks with `moss-canvas`. Preserve existing legacy `moss-sketch` fences rather than renaming them incidentally.
 
 ````markdown
 ```moss-canvas
 [moss:grid:v2]
-[moss:labels:[{"id":"a","text":"Research","col":8,"row":8},{"id":"b","text":"Spec","col":42,"row":8}]]
-........................................................................................................................
-........................................................................................................................
-....+-----------------------+.........+-----------------------+.........................................................
-....|.......................|---------|.......................|.........................................................
-....|.......................|.........|.......................|.........................................................
-....+-----------------------+.........+-----------------------+.........................................................
-........................................................................................................................
-(continue to 60 rows total)
+[moss:labels:[{"id":"research","text":"Research","col":8,"row":4}]]
+....########................................
+....#......#................................
+....########................................
 ```
 ````
 
-## Good Uses
+This is a complete valid input. Moss accepts up to 60 grid rows of up to 120 characters, pads missing cells as empty, truncates excess cells, and normalizes a saved canvas to exactly 120 columns by 60 rows.
 
-- Rough UI wireframes.
-- Flow diagrams and process maps.
-- Spatial layouts where relative position matters.
-- Lightweight sketches that should stay editable in Moss.
+Payload order:
 
-## Avoid
+1. `[moss:grid:v2]`.
+2. Optional single-line `[moss:labels:<JSON array>]`.
+3. Grid rows.
 
-- Geographic maps.
-- Precise charts or data visualizations; use `moss-chart` instead.
-- High-fidelity UI prototypes or interactive behavior; use `moss-html` instead.
-- Static screenshots or polished images; use image markdown and note-local assets.
+Grid rules:
 
-## Review Checklist
+- `.` and spaces are empty.
+- Every other character becomes filled ink; letters and box-drawing glyphs do not remain readable text.
+- Coordinates are zero-based: columns `0-119`, rows `0-59`.
+- Keep drawings sparse and labels clear of strokes.
 
-- Fence is `moss-canvas`, not `moss-sketch`.
-- Diagram fits the rough editable-canvas use case.
-- Content does not pretend to be a precise chart, map, or interactive prototype.
+Each label object requires:
+
+| Field | Contract |
+| --- | --- |
+| `id` | Unique non-empty string within the canvas. |
+| `text` | Non-empty string; keep it under 80 characters. |
+| `col` | Integer from 0 through 119. |
+| `row` | Integer from 0 through 59. |
+
+Use valid compact JSON on the metadata line. Do not duplicate label IDs or rely on malformed label objects being repaired.
+
+## Reliable Authoring
+
+- Generate large grids programmatically or count columns carefully.
+- Prefer rectangles, horizontal/vertical connectors, and generous gaps.
+- Do not use ASCII arrowheads to communicate direction; use layout and labels.
+- Validate important canvas changes in Moss and inspect a screenshot.
+- If canvas validation is unavailable, simplify the canvas or use ASCII/image Markdown. Do not substitute static HTML.
+
+## Final Check
+
+- Creation followed the authority rule.
+- The fence and metadata are valid.
+- Rows and label coordinates stay within the 120x60 grid.
+- Grid text is not being mistaken for readable labels.
+- The result was visually inspected when it matters.

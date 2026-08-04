@@ -1,91 +1,76 @@
 ---
 name: moss-links
-description: Create or edit Moss links, including wiki note links, heading links, aliases, Markdown links, YouTube embeds, and media/link preservation rules.
+description: Create or edit Moss wiki links, heading links, aliases, resolved IDs, Markdown links, webpage previews, videos, and note-local media.
 ---
 
 # Moss Links
 
-Use this skill when adding, editing, or reviewing links in Moss notes: note links, heading links, display aliases, Markdown links, YouTube links, and media references.
+Use wiki links for Moss navigation, Markdown links for external text links, and media/embed forms only when a rendered preview is intended.
 
-## Wiki Note Links
-
-Wiki links connect notes and headings inside the Moss workspace.
+## Wiki Links
 
 ```markdown
 [[Project Plan]]
 [[#Local Heading]]
 [[Project Plan#Scope]]
 [[Project Plan|display text]]
+[[Project Plan|9e64c3df-c1e2-4a4d-8c07-91528f422413]]
 ```
+
+The final form is a resolved link persisted by Moss: a UUID suffix means note identity, while a non-UUID suffix is a display alias. Preserve resolved UUID suffixes rather than replacing them with aliases or guessed IDs.
 
 Rules:
 
-- Use the exact note title for cross-note links.
-- Verify the target note exists before adding a cross-note link.
-- Use `[[#Heading]]` for a heading in the current note.
-- Use `[[Note#Heading]]` for a heading in another note.
-- Use `[[Note|display text]]` when the visible label should differ from the note title.
-- Do not escape brackets inside `[[...]]`; brackets in note titles are allowed, so write the exact title.
+- Verify a cross-note target and use its exact H1 title.
+- If multiple notes share that title, preserve an existing resolved UUID or ask which note is intended; do not guess from folder order.
+- Use `[[#Heading]]` for the current note and `[[Note#Heading]]` for another note.
+- Heading matching trims and collapses spaces, ignores case, and also compares a punctuation/diacritic-normalized slug. When headings duplicate, the first matching heading is used; avoid adding an ambiguous link.
+- Single brackets may appear inside titles. Escape an ambiguous title hash as `\#`, for example `[[RFC\#123]]`. Because the last `|` starts the alias or resolved-ID suffix, a title containing `|` must use a Moss-supplied resolved UUID, for example `[[Status | Draft|9e64c3df-c1e2-4a4d-8c07-91528f422413]]`. Do not author a title containing the closing sequence `]]`.
 
-## Markdown Links
-
-Use standard Markdown links for web URLs, external references, and non-Moss destinations.
+## External Text Links
 
 ```markdown
-[Website](https://www.mossnotes.app/)
-[Repository](https://github.com/brsbl/moss-skills)
+[Moss website](https://www.mossnotes.app/)
 ```
 
-- Preserve existing URLs exactly unless the user asks to change them.
-- Prefer descriptive link text over raw URLs in prose.
-- Use wiki links for Moss note-to-note navigation; use Markdown links for external destinations.
+Use descriptive labels, preserve destinations exactly unless asked to change them, and use only schemes appropriate for the destination. Do not put `javascript:`, `data:`, `file:`, or credential-bearing URLs into authored external links.
 
-## YouTube Links and Video
+## Webpage Previews
 
-Moss treats YouTube URLs as video-capable references when written as image/video markdown.
+| Intent | Syntax | Result |
+| --- | --- | --- |
+| Compact webpage context | Bare browser-safe URL | Inline embed pill |
+| Visual webpage card | `![Research board](https://example.com/research)` | Webpage preview card |
+| Ordinary text link | `[Research](https://example.com/research)` | Markdown link |
+
+A browser-safe webpage URL is public HTTPS, or HTTP/HTTPS loopback development content on `localhost`, `*.localhost`, `127.0.0.1`, or `::1`. Credentialed URLs, private or link-local addresses, `.local` hosts, unsupported schemes, and obvious downloadable files do not become webpage previews.
+
+Images, YouTube, local video, and tweet status URLs use their more specific media rendering instead of the generic webpage pill.
+
+## YouTube And Video
 
 ```markdown
 ![Demo walkthrough](https://youtu.be/dQw4w9WgXcQ)
 ```
 
-- Use image/video markdown when the user wants an embedded playable video preview.
-- A bare standalone YouTube URL on its own line also becomes an embedded video.
-- Use a named Markdown link like `[demo](https://youtu.be/...)` when the user only wants a text link to YouTube.
-- Remote non-YouTube video files are not video nodes; use local video assets for `.mp4`, `.webm`, or `.mov`.
+- Image/video Markdown or a bare standalone YouTube URL creates an embedded video.
+- `[Demo](https://youtu.be/...)` stays a text link.
+- Remote non-YouTube video files do not become video nodes.
+- Store local `.mp4`, `.webm`, or `.mov` files under the note's `assets/` directory.
 
-## URL Previews and In-App Browser
-
-Use a bare browser-safe URL for an inline preview, `![Title](url)` for a visual webpage preview, and `[Title](url)` for a text link. Images, video, YouTube, and tweets remain media previews.
-
-```markdown
-https://example.com/research
-Research link: https://example.com/research
-![Research board](https://example.com/research)
-http://localhost:3000/prototype
-[https://example.com/research](https://example.com/research)
-[Research](https://example.com/research)
-```
-
-- Standalone image, YouTube, and tweet URLs render as media. Inline and visual webpage previews save as bare URLs and `![Title](url)` respectively.
-- Public pages must use HTTPS. Loopback development URLs such as `localhost`, `*.localhost`, `127.0.0.1`, and `::1` may use HTTP or HTTPS because they open in the browser surface.
-- Private network, link-local, `.local`, credentialed, and obvious downloadable-file URLs stay plain text or open externally instead of becoming browser previews.
-
-## Local Assets and Media Links
-
-Use note-local assets for files stored with the note.
+## Note-Local Assets
 
 ```markdown
 ![Screenshot](assets/screenshot.png)
 ![Demo recording](assets/demo.mp4)
 ```
 
-- Prefer `assets/...` paths for note-local media.
-- Do not use `file://` or absolute local paths in notes.
-- Preserve existing asset paths unless relocating the asset is part of the task.
+Use note-relative `assets/...` paths. Do not author `file://` or absolute local paths. Preserve existing asset paths unless moving the asset is part of the task.
 
-## Review Checklist
+## Final Check
 
-- Link type matches destination: wiki for Moss notes, Markdown for external URLs, image/video markdown for media.
-- Cross-note wiki targets use exact note titles.
-- YouTube embeds use image/video markdown only when an embedded video is intended.
-- No accidental changes to existing URLs, aliases, heading fragments, or asset paths.
+- Link syntax matches the intended navigation, text, or preview behavior.
+- Note and heading targets were verified and are unambiguous.
+- Existing aliases, resolved UUIDs, fragments, and destinations remain intact.
+- Preview URLs satisfy the browser-safety boundary.
+- Local media uses a note-relative asset path.

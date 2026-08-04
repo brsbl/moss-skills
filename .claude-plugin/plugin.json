@@ -1,7 +1,7 @@
 {
   "name": "moss-skills",
   "displayName": "mossnotes.app for Claude Code",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Skills for using Claude Code with mossnotes.app notes, packaged for reference use and customization.",
   "author": {
     "name": "Bersabel Tadesse"
