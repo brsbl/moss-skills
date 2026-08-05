@@ -98,11 +98,9 @@ Multi-series `bar`, `line`, or `area` shape:
 
 ````markdown
 ```moss-chart
-{"type":"line","data":[{"label":"Mon","value":12}],"series":[{"name":"Desktop","data":[{"label":"Mon","value":12}]},{"name":"Web","data":[{"label":"Mon","value":8}]}]}
+{"type":"line","series":[{"name":"Desktop","data":[{"label":"Mon","value":12}]},{"name":"Web","data":[{"label":"Mon","value":8}]}]}
 ```
 ````
-
-`data` repeats the first series so Moss can validate and render the block consistently.
 
 `stacked-bar` uses one `data` array and does not accept `series`. Each point requires a string `label` and numeric `value`. Optional point or series colors accept `#RGB`, `#RRGGBB`, `#RRGGBBAA`, or these names: `black`, `white`, `red`, `green`, `blue`, `yellow`, `orange`, `purple`, `pink`, `brown`, `gray`, `grey`, `cyan`, `magenta`, `lime`, `navy`, `teal`, `olive`, `maroon`, `aqua`, `silver`, or `fuchsia`. Optional `options` include positive `width`/`height`, `xAxisLabel`, `yAxisLabel`, `showLegend`, `showGrid`, and palette `classic`, `accessible`, or `mono`. Invalid chart data remains code instead of becoming a chart.
 

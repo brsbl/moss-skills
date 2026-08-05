@@ -95,7 +95,7 @@ The app may retain legacy singular `imageUrl`; preserve it, but author new attac
 
 Attachment paths are note-relative, for example `assets/comment-abc.png`. Resolve them against the note directory.
 
-Mentions in comment text use U+2063 before and U+2064 after the displayed reference: `\u2063@Project Plan\u2064` for a note or `\u2063@folder:Launch assets\u2064` for a folder. Preserve existing wrappers verbatim. Create mentions through Moss UI; an external writer must not invent a reference from display text alone.
+Mentions in comment text use U+2063 before and U+2064 after the displayed reference: `\u2063@Project Plan\u2064` for a note or `\u2063@folder:Launch assets\u2064` for a folder. When Moss knows the target's ID it appends it after a U+2062 separator — `\u2063@Project Plan\u2062<note-id>\u2064` — and that ID, not the title, is what resolves the link. Preserve existing wrappers and ID segments verbatim, and drop the ID segment when rendering a mention as plain text. Create mentions through Moss UI; an external writer must not invent a reference from display text alone.
 
 ## Final Check
 
