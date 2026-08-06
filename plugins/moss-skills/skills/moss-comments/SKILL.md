@@ -97,6 +97,10 @@ Attachment paths are note-relative, for example `assets/comment-abc.png`. Resolv
 
 Mentions in comment text use U+2063 before and U+2064 after the displayed reference: `\u2063@Project Plan\u2064` for a note or `\u2063@folder:Launch assets\u2064` for a folder. When Moss knows the target's ID it appends it after a U+2062 separator — `\u2063@Project Plan\u2062<note-id>\u2064` — and that ID, not the title, is what resolves the link. Preserve existing wrappers and ID segments verbatim, and drop the ID segment when rendering a mention as plain text. Create mentions through Moss UI; an external writer must not invent a reference from display text alone.
 
+- Comment text renders as plain text plus @mention pills. Wiki links (`[[Note]]`, `[[#Heading]]`) and Markdown links do not render in comment text; they stay literal text.
+- To reference a note or folder in a comment you author, write the mention encoding: U+2063, then `@Note Title` (or `@folder:Folder Path`), then optionally U+2062 plus the target ID, then U+2064. A note mention without an ID resolves by title.
+- Headings and sections cannot be mentioned; point at them with a plain-text description such as the section name plus the opening words of the target.
+
 ## Final Check
 
 - Every marked root has one valid sidecar entry and every root entry has markers.

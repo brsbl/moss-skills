@@ -25,6 +25,7 @@ Rules:
 - If multiple notes share that title, preserve an existing resolved UUID or ask which note is intended; do not guess from folder order.
 - Use `[[#Heading]]` for the current note and `[[Note#Heading]]` for another note.
 - Heading matching trims and collapses spaces, ignores case, and also compares a punctuation/diacritic-normalized slug. When headings duplicate, the first matching heading is used; avoid adding an ambiguous link.
+- Wiki links render only in note bodies, not in comment text; reference notes in comments with @mentions instead.
 - Single brackets may appear inside titles. Escape an ambiguous title hash as `\#`, for example `[[RFC\#123]]`. Because the last `|` starts the alias or resolved-ID suffix, a title containing `|` must use a Moss-supplied resolved UUID, for example `[[Status | Draft|9e64c3df-c1e2-4a4d-8c07-91528f422413]]`. Do not author a title containing the closing sequence `]]`.
 
 ## External Text Links
