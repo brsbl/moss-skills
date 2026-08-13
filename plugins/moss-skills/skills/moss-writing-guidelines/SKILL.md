@@ -5,14 +5,13 @@ description: Writing and scannability guidelines for Moss notes. Use when creati
 
 # Moss Writing Guidelines
 
-Write every Moss note for a reader who skims first and reads second. Lead with the answer, then match each piece of content to the representation that fits its shape, hierarchy, and density.
-
-Related skill: note structure and syntax (`moss-notes`).
+Write every Moss note for a reader who skims first and reads second. This skill owns note structure and composition; `moss-notes` owns file layout, node selection, and persisted syntax.
 
 ## Summary First
 
+Frontmatter and the single H1 title come first when present. The first body paragraph after the H1 should state the answer, decision, status, or takeaway without requiring background from later sections.
+
 - Open with the answer, decision, or takeaway — not background or process.
-- The first line should stand on its own. A reader who stops there still gets the point.
 - State conclusions before evidence; put caveats and supporting detail after.
 
 ## Progressive Disclosure
@@ -93,7 +92,7 @@ Use HTML for visual planning artifacts — direction comparisons, mockups, data-
 
 ### Comments
 
-Add a comment only where a typical reader must respond — scope, a design or engineering decision, feasibility, permissions, rollout, or metrics. Anchor it to the exact decision question or cell, not a whole section. Fix editorial issues (scannability, duplication, co-location) directly in the note instead of leaving a comment about them, and wrap comment markers around rich nodes (HTML, charts, fenced blocks) rather than inside their payloads.
+Use comments for explicit questions, decisions, approvals, or review points that need attention. Add one only where a typical reader must respond — scope, a design or engineering decision, feasibility, permissions, rollout, or metrics. Anchor it to the exact decision question or cell, not a whole section. Fix editorial issues (scannability, duplication, co-location) directly in the note instead of leaving a comment about them, and wrap comment markers around rich nodes (HTML, charts, fenced blocks) rather than inside their payloads.
 
 ## Spec And Feature Notes
 
