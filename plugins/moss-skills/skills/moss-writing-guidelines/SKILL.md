@@ -24,7 +24,16 @@ Frontmatter and the single H1 title come first when present. The first body para
 
 ## Choose And Compose Nodes
 
-Match the representation to the information's shape, hierarchy, and density. "Default to prose" is the wrong instinct: pick the structure that lets a reader scan the content fastest at the level of detail they need.
+Before choosing a node, classify each content unit from its meaning and structure. This is a reasoning step, not keyword matching: infer what the reader must understand or do even when the author has not named the content type.
+
+1. **Reader job:** Is it explaining one idea, enumerating steps, comparing alternatives, showing a sequence or state, revealing a trend, demonstrating behavior, warning about a risk, or collecting a decision?
+2. **Information shape:** Is it connective prose, grouped points, repeated attributes, peer views, a flow, spatial relationships, quantitative change, or a visual artifact?
+3. **Audience and altitude:** Who must understand or act on it, and what is the highest level of detail that preserves their decision?
+4. **Reading behavior:** Must readers compare everything at once, inspect one slice at a time, interact with it, or respond to it?
+
+Use that classification to select the matching row below. Classify units independently because one note can contain several content types. When one unit mixes jobs or shapes, split it into separate nodes or compose an outer structure with the right inner representations.
+
+Match the representation to the classification, hierarchy, and density. "Default to prose" is the wrong instinct: pick the structure that lets a reader scan the content fastest at the level of detail they need.
 
 Moss nodes are composable. Do not treat tabs, tables, HTML, charts, callouts, code, and comments as mutually exclusive choices. First choose the outer information architecture, then choose the best representation inside it.
 
@@ -120,6 +129,7 @@ Re-read the whole note before finishing and confirm:
 
 - The opening states the takeaway; a skimmer gets the point from headings plus first lines.
 - Sections run most- to least-important; hierarchy is consistent (one H1, H2+ below).
+- Each content unit was classified by reader job, information shape, audience and altitude, and reading behavior before routing.
 - Each piece of content uses the representation that fits its shape, hierarchy, and density, including composed structures when useful (for example tabs containing tables or scoped HTML).
 - No back-to-back text-heavy nodes or walls of text; dense passages are broken up with tables, callouts, tabs, ASCII, or scoped HTML.
 - Bold, italics, inline code, highlights, and emojis are used sparingly as hierarchy anchors — including inside tables and callouts — not as decoration. A sparse emoji can anchor a key row label or grade a severity (🔴 High, 🟠 Medium, 🟡 Low); keep emojis out of code and HTML.
