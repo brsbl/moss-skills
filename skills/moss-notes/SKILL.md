@@ -43,7 +43,7 @@ This table owns the default selection rule. Focused skills explain how to author
 | Genuine interactive design or behavior unavailable in native nodes | `moss-html` | Do not rebuild native tabs, tables, callouts, checklists, or review workflow. |
 | High-signal information, warning, or priority | `moss-callout` | Keep ordinary body prose outside the callout. |
 | Numeric comparison or trend | `moss-chart` | Prefer a short table when visual shape adds no value. |
-| Exact question, decision, approval, or review point | Comment | Fix ordinary editorial issues directly. |
+| Exact question, decision, approval, or review point | Comment | Fix ordinary editorial issues directly, except when annotating your own edits to an existing large note per `moss-comments`. |
 | Note navigation or external destination | Wiki or Markdown link | Follow `moss-links`. |
 | Reused or computed inline value | Variable or formula | Follow `moss-formulas-variables`. |
 
