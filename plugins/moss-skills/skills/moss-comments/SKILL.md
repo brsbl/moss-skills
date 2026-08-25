@@ -87,11 +87,16 @@ When you edit an existing large note, leave a comment at each location you chang
 
 - This applies to edits of an existing note. A note you author from scratch does not get these annotations.
 - Below that size, edit directly and describe the change in your response instead.
+- Annotate only a note whose `comments.json` you are permitted to write. The in-app agent may annotate only the active note; for any other note, edit directly and describe the changes in your response.
 - Use the ordinary comment format: body markers around the changed range plus a matching `comments.json` entry. There is no separate annotation syntax, marker type, or sidecar field.
+- Never leave body markers without their matching sidecar entry. An unmatched marker is dropped when the note loads, so the annotation is lost and the stored Markdown keeps stray marker text.
 - Anchor each comment to the range you actually changed, following the placement rules above. For a deletion, anchor it to the text that now stands where the removed content was.
 - Keep each comment to one or two sentences: what you changed and why.
-- Use one comment per changed location. When several nearby edits share one rationale, wrap the surrounding block in a single comment instead of repeating it.
-- Set `source` to your execution context, and leave these comments open. They are a record for the user to read, not a request the user must answer.
+- Use one comment per changed location, up to about five for one edit. Edits that share a rationale get a single comment on the block enclosing them, whether or not they are adjacent.
+- When an edit needs more comments than that, or restructures the note, stop annotating per location: comment once on each section you reshaped and summarize the rest in your response. Forty highlights are harder to review than the note.
+- Set `source` to your execution context and leave this pass's annotations open so the user sees them.
+- Before annotating a later edit to a note you already annotated, resolve your earlier annotations on it so they do not accumulate.
+- Your edit annotations are records, not requests. When asked to address a note's open comments, resolve your own annotations rather than acting on them.
 
 These annotations are the one case where an editorial change also gets a comment.
 
