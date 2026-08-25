@@ -83,14 +83,16 @@ The app may retain legacy singular `imageUrl`; preserve it, but author new attac
 
 ## Annotating Your Own Edits
 
-When you edit an existing large note, leave a comment at each location you changed, so the user can review the edit by reading the comments instead of re-reading the note. Treat a note as large when its Markdown body is roughly 100 lines or more, or spans several screens.
+When you edit an existing large note, leave a comment at each location you changed, so the user can review the edit by reading the comments instead of re-reading the note. Treat a note as large when its Markdown body, as it exists before your edit, is roughly 100 lines or more.
 
 - This applies to edits of an existing note. A note you author from scratch does not get these annotations.
 - Below that size, edit directly and describe the change in your response instead.
 - Annotate only a note whose `comments.json` you are permitted to write. The in-app agent may annotate only the active note; for any other note, edit directly and describe the changes in your response.
+- Frontmatter and title changes are not annotated; comment markers live only in the body. Describe those changes in your response.
 - Use the ordinary comment format: body markers around the changed range plus a matching `comments.json` entry. There is no separate annotation syntax, marker type, or sidecar field.
 - Never leave body markers without their matching sidecar entry. An unmatched marker is dropped when the note loads, so the annotation is lost and the stored Markdown keeps stray marker text.
-- Anchor each comment to the range you actually changed, following the placement rules above. For a deletion, anchor it to the text that now stands where the removed content was.
+- Anchor each comment to the range you actually changed, following the placement rules above.
+- For a deletion, anchor the comment to the nearest retained text before the removed content — or to the last remaining block when you removed the end of the note — and state that content was removed, so the highlight is not read as a change to the anchor text.
 - Keep each comment to one or two sentences: what you changed and why.
 - Use one comment per changed location, up to about five for one edit. Edits that share a rationale get a single comment on the block enclosing them, whether or not they are adjacent.
 - When an edit needs more comments than that, or restructures the note, stop annotating per location: comment once on each section you reshaped and summarize the rest in your response. Forty highlights are harder to review than the note.
