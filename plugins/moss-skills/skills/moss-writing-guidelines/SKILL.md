@@ -29,12 +29,12 @@ Choose nodes with the canonical routing table in `moss-notes`, then compose them
 | Two to four peer views inspected one at a time | Tabs |
 | High-signal context, warning, or priority | A callout |
 | A numerical pattern or trend | A chart |
-| A question or decision requiring attention | A comment on the exact evidence |
+| A question or decision requiring attention, or your own edit to an existing large note | A comment on the exact evidence |
 
 - Use tabs as an outer container when peer views share one context. A tab may contain normal Moss content.
 - Use tables only for content that fits Moss's one-line cell syntax. Move lists, callouts, and other block nodes outside the table.
 - Keep requirements and review questions in native Markdown and comments. Use HTML only for the interactive artifact itself.
-- Use comments for explicit questions, decisions, approvals, or review points that need attention. Fix ordinary wording, duplication, and scannability issues directly.
+- Use comments for explicit questions, decisions, approvals, or review points that need attention. Fix ordinary wording, duplication, and scannability issues directly. Editing an existing large note is the exception: annotate each change you make, following `moss-comments`.
 - When two structures fit equally, choose the one that reads faster.
 
 ## Common Note Shapes
@@ -56,6 +56,6 @@ Confirm that:
 - sections run from most to least important;
 - each node matches the routing rules in `moss-notes`;
 - tables contain only supported inline cell content;
-- comments mark real review attention rather than editorial cleanup;
+- comments mark real review attention rather than editorial cleanup, plus the edit annotations `moss-comments` requires when editing an existing large note;
 - metadata stays in frontmatter instead of being duplicated in the body;
 - every fact has one canonical home.

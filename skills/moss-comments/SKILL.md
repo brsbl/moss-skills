@@ -5,7 +5,7 @@ description: Comment annotation and sidecar rules for Moss notes. Use when addin
 
 # Moss Comments
 
-Use comments for explicit questions, decisions, approvals, or review points that need attention on exact evidence. Fix ordinary wording, duplication, and scannability issues directly instead of leaving editorial comments.
+Use comments for explicit questions, decisions, approvals, or review points that need attention on exact evidence. Fix ordinary wording, duplication, and scannability issues directly instead of leaving editorial comments, except when annotating your own edits to an existing large note.
 
 A root comment has body markers plus a matching `comments.json` entry. Replies exist only in the sidecar and connect through `parentId`.
 
@@ -80,6 +80,20 @@ The app may retain legacy singular `imageUrl`; preserve it, but author new attac
 - External note: use only the sidecar path Moss provides; do not invent one.
 - The in-app agent may edit only the active note's sidecar.
 - An external writer may edit an accessible sidecar directly while preserving unrelated entries.
+
+## Annotating Your Own Edits
+
+When you edit an existing large note, leave a comment at each location you changed, so the user can review the edit by reading the comments instead of re-reading the note. Treat a note as large when its Markdown body is roughly 100 lines or more, or spans several screens.
+
+- This applies to edits of an existing note. A note you author from scratch does not get these annotations.
+- Below that size, edit directly and describe the change in your response instead.
+- Use the ordinary comment format: body markers around the changed range plus a matching `comments.json` entry. There is no separate annotation syntax, marker type, or sidecar field.
+- Anchor each comment to the range you actually changed, following the placement rules above. For a deletion, anchor it to the text that now stands where the removed content was.
+- Keep each comment to one or two sentences: what you changed and why.
+- Use one comment per changed location. When several nearby edits share one rationale, wrap the surrounding block in a single comment instead of repeating it.
+- Set `source` to your execution context, and leave these comments open. They are a record for the user to read, not a request the user must answer.
+
+These annotations are the one case where an editorial change also gets a comment.
 
 ## Replies, Resolution, And Deletion
 
